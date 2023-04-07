@@ -13,8 +13,8 @@ const emailRegistro = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'bienes-raices@scdimaco.com',
-    to: email,
+    from: EMAIL_USER,
+    to: email,EMAIL_USER,
     subject: 'Confirma tu cuenta en BienesRaices.com',
     text: 'Confirma tu cuenta en BienesRaices.com',
     html: `
@@ -40,8 +40,8 @@ const emailOlvidePassword = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'bienes-raices@scdimaco.com',
-    to: email,
+    from: EMAIL_USER,
+    to: email,EMAIL_USER,
     subject: 'Restablece tu Password en BienesRaices.com',
     text: 'Restablece tu Password en BienesRaices.com',
     html: `
