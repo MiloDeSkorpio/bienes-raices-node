@@ -4,6 +4,7 @@ const emailRegistro = async (datos) => {
   const transport = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
@@ -12,7 +13,7 @@ const emailRegistro = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'BienesRaices.com <bienes-raices@scdimaco.com>',
+    from: 'bienes-raices@scdimaco.com',
     to: email,
     subject: 'Confirma tu cuenta en BienesRaices.com',
     text: 'Confirma tu cuenta en BienesRaices.com',
@@ -30,6 +31,7 @@ const emailOlvidePassword = async (datos) => {
   const transport = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
@@ -38,7 +40,7 @@ const emailOlvidePassword = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'BienesRaices.com <bienes-raices@scdimaco.com>',
+    from: 'bienes-raices@scdimaco.com',
     to: email,
     subject: 'Restablece tu Password en BienesRaices.com',
     text: 'Restablece tu Password en BienesRaices.com',
