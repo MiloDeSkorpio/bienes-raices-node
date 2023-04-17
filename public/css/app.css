@@ -987,6 +987,10 @@ video {
   background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
+.hover\:font-extrabold:hover {
+  font-weight: 800;
+}
+
 @media (min-width: 640px) {
 
   .sm\:block {
