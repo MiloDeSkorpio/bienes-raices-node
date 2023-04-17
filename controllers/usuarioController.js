@@ -54,7 +54,7 @@ const autenticar = async (req,res) => {
     });
   }
   //Autenticar al Usuario
-  const token = generarJWT({id: usuario.id, nombre: usuario.nombre});
+  const token = generarJWT({id: usuario.id, nombre: usuario.nombre, rolId: usuario.rolId});
     
   //Almacenar en Cookies
   return res.cookie('_token',token,{
@@ -66,7 +66,6 @@ const autenticar = async (req,res) => {
 
 const cerrarSesion = (req,res) => {
   return res.clearCookie('_token').status(200).redirect('/auth/login')
-
 }
 const formularioRegistro = (req, res) => {
   res.render('auth/registro', {
