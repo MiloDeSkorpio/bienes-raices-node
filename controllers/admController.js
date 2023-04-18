@@ -52,7 +52,7 @@ const guardarPrecio = async (req, res) => {
   //Validacion
   let resultado = validationResult(req);
   if (!resultado.isEmpty()) {
-    return res.render('adm/crear-precio', {
+    return res.render('panel-adm', {
       pagina: 'Crear Categoria',
       csrfToken: req.csrfToken(),
       errores: resultado.array(),
@@ -62,10 +62,10 @@ const guardarPrecio = async (req, res) => {
   //Crear  un registro
   const { nombre } = req.body;
   try {
-    const categoriaGuardada = await Precio.create({
+    const precioGuardado = await Precio.create({
       nombre
     })
-    const { id } = categoriaGuardada;
+    const { id } = precioGuardado;
     res.redirect(`panel-adm`)
   } catch (error) {
     console.log(error)
