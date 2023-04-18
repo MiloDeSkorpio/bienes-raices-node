@@ -1,5 +1,5 @@
 
-import { Categoria } from '../models/index.js';
+import { Categoria, Precio } from '../models/index.js';
 import { validationResult } from 'express-validator';
 
 const panelAdmin = (req, res) => {
@@ -48,11 +48,35 @@ const crearPrecio = async (req, res) => {
     csrfToken: req.csrfToken(),
   });
 }
+const guardarPrecio = async (req, res) => {
+  //Validacion
+  let resultado = validationResult(req);
+  if (!resultado.isEmpty()) {
+    return res.render('adm/crear-precio', {
+      pagina: 'Crear Categoria',
+      csrfToken: req.csrfToken(),
+      errores: resultado.array(),
+      datos: req.body
+    });
+  }
+  //Crear  un registro
+  const { nombre } = req.body;
+  try {
+    const categoriaGuardada = await Precio.create({
+      nombre
+    })
+    const { id } = categoriaGuardada;
+    res.redirect(`panel-adm`)
+  } catch (error) {
+    console.log(error)
+  }
 
+}
 export {
   panelAdmin,
   crearCategoria,
   guardarCategoria,
-  crearPrecio
+  crearPrecio,
+  guardarPrecio
   
 }
