@@ -4,6 +4,8 @@ import Categoria from './Categoria.js';
 import Usuario from './Usuario.js';
 import Mensaje from './Mensaje.js';
 import Roles from './Roles.js';
+import CuentaExterna from './CuentaExterna.js';
+
 
 Propiedad.belongsTo(Precio, {foreignKey: 'precioId'});
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaId'});
@@ -15,6 +17,8 @@ Mensaje.belongsTo(Usuario, {foreignKey: 'usuarioId'})
 
 Usuario.belongsTo(Roles,{foreignKey: 'rolId'})
 
+CuentaExterna.belongsTo(Usuario, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+Usuario.hasMany(CuentaExterna, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
 export {
   Propiedad,
@@ -22,5 +26,6 @@ export {
   Categoria,
   Usuario,
   Mensaje,
-  Roles
+  Roles,
+  CuentaExterna
 }

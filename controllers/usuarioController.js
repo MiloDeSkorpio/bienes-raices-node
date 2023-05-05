@@ -1,6 +1,5 @@
 import { check, validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
-import jwt  from 'jsonwebtoken';
 import Usuario from "../models/Usuario.js";
 import { generarJWT, generarId } from '../helpers/tokens.js';
 import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js';
@@ -259,6 +258,30 @@ const nuevoPassword = async (req,res) => {
     mensaje: 'El password se guardo correctamente'
   })
 }
+const createOrUpdateUserWithExternalAccount = async (externalData, usuarioData) => {
+  try {
+    const [usuario, created] = await Usuario.findOrCreate({
+      where: { googleId: externalData.sub },
+      defaults: {
+        nombre: usuarioData.nombre,
+        email: usuarioData.email,
+        password: usuarioData.password,
+        googleId: externalData.sub
+      }
+    });
+
+    if (!created) {
+      usuario.nombre = usuarioData.nombre;
+      usuario.email = usuarioData.email;
+      usuario.password = usuarioData.password;
+      await usuario.save();
+    }
+
+    return usuario;
+  } catch (error) {
+    throw new Error(`Error al crear o actualizar usuario: ${error.message}`);
+  }
+};
 
 export {
   formularioLogin,
@@ -271,4 +294,5 @@ export {
   resetPassword,
   comprobarToken,
   nuevoPassword,
+  createOrUpdateUserWithExternalAccount
 }

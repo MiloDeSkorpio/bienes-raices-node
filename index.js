@@ -1,12 +1,15 @@
 import express from 'express';
 import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import propiedadesRoutes from './routes/propiedadesRoutes.js';
 import appRoutes from './routes/appRoutes.js';
 import apiRoutes from './routes/apiRoutes.js';
 import admRoutes from './routes/admRoutes.js';
 import db from './config/db.js';
+import passport from 'passport';
+
 
 
 //Crear la app
@@ -15,9 +18,19 @@ const app = express();
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended: true}));
 
-//Hbilitar cookie parser
+//Habilitar cookie parser
 app.use( cookieParser())
 
+//Habilitar sesiones
+app.use(session({
+    secret: process.env.JWT_SECRET,
+    resave: false,
+    saveUninitialized: false
+  }));
+  
+  //Inicializar passport
+  app.use(passport.initialize());
+  app.use(passport.session());
 //Habilitar CSRF
 app.use(csrf({cookie : true}));
 
@@ -38,7 +51,7 @@ app.set('views', './views');
 app.use(express.static('public'));
 
 //Routing
-app.use('/',appRoutes)
+app.use('/', appRoutes)
 app.use('/auth', usuarioRoutes);
 app.use('/', propiedadesRoutes);
 app.use('/api', apiRoutes)
