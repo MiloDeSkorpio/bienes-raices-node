@@ -5,6 +5,7 @@ const db = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process.env.B
   host: process.env.BD_HOST,
   port: process.env.BD_PORT,
   dialect: process.env.BD_DIALECT,
+  dialectOptions: {}, 
   define: {
     timestamps: true
   },
