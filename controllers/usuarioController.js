@@ -156,7 +156,7 @@ const registrar = async (req, res) => {
 
 const formularioOlvidePassword = (req, res) => {
   res.render('auth/olvide-password', {
-    pagina: 'Recupera tu acceso a Bienes Raices',
+    pagina: 'Recupera tu acceso',
     csrfToken: req.csrfToken()
   });
 }
@@ -171,7 +171,7 @@ const resetPassword = async (req,res) => {
     if(!resultado.isEmpty()) {
         // Errores
         return res.render('auth/olvide-password', {
-            pagina: 'Recupera tu acceso a Bienes Raices',
+            pagina: 'Recupera tu acceso',
             csrfToken : req.csrfToken(),
             errores: resultado.array()
         });
@@ -184,7 +184,7 @@ const resetPassword = async (req,res) => {
     console.log(usuario)
     if(!usuario) {
         return res.render('auth/olvide-password', {
-            pagina: 'Recupera tu acceso a Bienes Raices',
+            pagina: 'Recupera tu acceso',
             csrfToken : req.csrfToken(),
             errores: [{msg: 'El Email no Pertenece a ningún usuario Registrado'}]
         });

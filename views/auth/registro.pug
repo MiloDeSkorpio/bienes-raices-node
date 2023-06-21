@@ -2,8 +2,7 @@ extends ../layout/index
 
 block contenido
   div(class="py-10")
-    h1(class="text-4xl my-10 font-extrabold text-center") Bienes
-      span.font-normal Raices
+    img(src='/img/logo_p360.png' alt='Logo')
     h2(class="text-center text-4xl font-extrabold")= pagina
     if errores
       div(class="max-w-md mx-auto my-10")
@@ -28,4 +27,4 @@ block contenido
           div(class="flex items-center justify-between")
             a(class="text-gray-500 text-xs" href="/auth/login") ¿Ya yienes cuenta? Inicia Sesión
             a(class="text-gray-500 text-xs" href="/auth/olvide-password") Olvide mi password
-          input(type="submit" value="Crear Cuenta" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer")
+          input(type="submit" value="Crear Cuenta" class="w-full bg-sky-600 hover:bg-sky-800 text-white font-bold py-3 cursor-pointer")
