@@ -6,7 +6,7 @@ import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js';
 
 const formularioLogin = (req, res) => {
   res.render('auth/login', {
-    pagina: 'Iniciar Sesión',
+    pagina: 'Inicio de Sesión',
     csrfToken: req.csrfToken(),
   });
 }

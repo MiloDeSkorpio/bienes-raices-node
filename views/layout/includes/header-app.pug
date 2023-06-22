@@ -3,8 +3,10 @@ header(class="bg-sky-600 p-4")
     a(href="/")
       img(src='/img/logo_p360.png' alt='Logo')
     nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white flex") 
-      a(href="/auth/registro" class="sm:none") Crear Cuenta
-      a(href="/auth/login" class="sm:none") Iniciar Sesión 
+      a(href="/auth/registro" class="hidden lg:block") Crear Cuenta
+      a(href="/auth/login" class="hidden lg:block") Iniciar Sesión
+      button(class="fixed bottom-4 right-4 text-white py-2 px-4 rounded-full lg:hidden")
+        img(src="img/menu.svg", alt="menuIcon")
 
 div(class="bg-sky-700 py-5 hidden lg:block")
   div(class="container mx-auto flex justify-between")
@@ -20,3 +22,4 @@ div(class="bg-sky-700 py-5 hidden lg:block")
       label(for="termino" class="text-sm uppercase font-bold text-white") Búsqueda 
       input(type="text" id="termino" name="termino" placeholder="Buscar Propiedades" class="p-2 rounded-lg shadow text-sm")
       input(type="submit" class="bg-sky-800 hover:bg-sky-500 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
+

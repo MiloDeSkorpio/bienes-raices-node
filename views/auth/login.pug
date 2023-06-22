@@ -1,9 +1,9 @@
 extends ../layout/index
 
 block contenido 
-  .py-10
-    img(src='/img/logo_p360.png' alt='Logo')
-    h2.text-center.text-2xl.font-extrabold= pagina
+  div(class="py-7")
+    img(src='/img/logo_p360.png' alt='Logo' class="mb-6")
+    h2(class="text-center text-2xl font-semibold")= pagina
 
     if errores
       div(class="max-w-md mx-auto my-10")
@@ -25,7 +25,15 @@ block contenido
             a(class='text-gray-500 text-xs' href='/auth/olvide-password') Olvide mi Password
           input(class="w-full bg-sky-600 hover:bg-sky-800 text-white font-bold py-3 cursor-pointer" type="submit" value="Iniciar Sesión")
         div(class='py-4 mt-4')
-          hr(class='border-2 border-gray-300 mb-4')
-          h3(class='text-gray-5   00 text-lg text-center font-semibold') Social Login
-          div(class='flex items-center justify-center py-4')
-            a(class='w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 text-center' href='/auth/google') Google
+          hr(class='border-2 border-gray-500 mb-4')
+          h3(class='text-gray-5 text-lg text-center font-semibold') Login with Social Acount
+          div(class='flex items-center justify-between py-4')
+            div
+              a(href='/auth/google')
+                img(src="/img/google.svg", alt="IconGoogle")
+            div
+              a(href='#')
+                img(src="/img/facebook.svg", alt="IconFacebook")
+            div 
+              a(href='#')
+                img(src="/img/apple.svg", alt="IconApple")
