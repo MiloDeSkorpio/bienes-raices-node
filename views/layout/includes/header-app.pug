@@ -1,12 +1,12 @@
-header(class="bg-indigo-600 p-4")
+header(class="bg-sky-600 p-4")
   div(class="container mx-auto flex justify-between items-center")
     a(href="/")
       img(src='/img/logo_p360.png' alt='Logo')
-    nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white") 
-      a(href="/auth/registro") Crear Cuenta
-      a(href="/auth/login") Iniciar Sesión 
+    nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white flex") 
+      a(href="/auth/registro" class="sm:none") Crear Cuenta
+      a(href="/auth/login" class="sm:none") Iniciar Sesión 
 
-div(class="bg-indigo-700 py-5 hidden lg:block")
+div(class="bg-sky-700 py-5 hidden lg:block")
   div(class="container mx-auto flex justify-between")
     nav(class="flex gap-4 items-center")
       a(href="/categorias/1" class="text-sm font-bold uppercase text-white") Casas
@@ -19,4 +19,4 @@ div(class="bg-indigo-700 py-5 hidden lg:block")
       input(type="hidden" name="_csrf" value= csrfToken)
       label(for="termino" class="text-sm uppercase font-bold text-white") Búsqueda 
       input(type="text" id="termino" name="termino" placeholder="Buscar Propiedades" class="p-2 rounded-lg shadow text-sm")
-      input(type="submit" class="bg-indigo-800 hover:bg-indigo-500 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
+      input(type="submit" class="bg-sky-800 hover:bg-sky-500 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
