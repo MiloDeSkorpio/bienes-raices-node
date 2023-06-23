@@ -127,7 +127,7 @@ const registrar = async (req, res) => {
   //Mostrar mensaje de Confirmación
   res.render('templates/mensaje', {
     pagina: 'Cuenta Creada Correctamente',
-    mensaje: 'Hemos Enviado un email de Confirmacion, Revisa tu Bandeja de entrada.'
+    mensaje: 'Hemos enviado un email de confirmacion, revisa tu bandeja de entrada.'
   });
 
 }//End Registrar
@@ -202,7 +202,7 @@ const resetPassword = async (req,res) => {
     //Mostrar Mensaje de confirmacion
     res.render('templates/mensaje', {
       pagina: 'Restablece tu Password',
-      mensaje: 'Hemos Enviado un email con las instrucciones, Revisa tu Bandeja de entrada.'
+      mensaje: 'Hemos Enviado un email con las instrucciones, revisa tu bandeja de entrada.'
     });
   
 }
