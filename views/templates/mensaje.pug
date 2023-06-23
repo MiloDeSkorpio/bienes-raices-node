@@ -1,8 +1,8 @@
 extends ../layout/index 
 
 block contenido
-  div(class="py-7 justify-center")
+  div(class="py-7 items-center text-center")
     img(src='/img/logo_p360.png' alt='Logo')
-    h2(class="text-center text-2xl font-bold mt-4")= pagina
-    p(class="text-xl font-semibold text-center my-10")= mensaje
-    a(href="/auth/login" class="w-full rounded-md bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 cursor-pointer") Inicio
+    h2(class="text-2xl font-bold mt-4")= pagina
+    p(class="text-xl font-semibold my-10")= mensaje
+    a(href="/auth/login" class="w-full rounded-md bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-3 cursor-pointer") Inicio
