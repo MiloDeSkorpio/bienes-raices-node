@@ -13,12 +13,12 @@ const emailRegistro = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'bienes-raices@scdimaco.com',
+    from: 'propiedades360@propiedades360.com.mx',
     to: email,
-    subject: 'Confirma tu cuenta en BienesRaices.com',
-    text: 'Confirma tu cuenta en BienesRaices.com',
+    subject: 'Confirma tu cuenta en Propiedades360.com.mx',
+    text: 'Confirma tu cuenta en Propiedades360.com.mx',
     html: `
-    <p>Hola ${nombre}, comprueba tu cuenta en BienesRaices.com</p>
+    <p>Hola ${nombre}, comprueba tu cuenta en Propiedades360.com.mx</p>
     <p>Tu cuenta ya esta lista, solo debes confirmarla en el siguiente enlace:
     <a href="${process.env.BACKEND_URL}/auth/confirmar/${token}">Confirmar Cuenta</a></p>
 
@@ -40,12 +40,12 @@ const emailOlvidePassword = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'bienes-raices@scdimaco.com',
+    from: 'propiedades360@propiedades360.com.mx',
     to: email,
-    subject: 'Restablece tu Password en BienesRaices.com',
-    text: 'Restablece tu Password en BienesRaices.com',
+    subject: 'Restablece tu Password en Propiedades360.com.mx',
+    text: 'Restablece tu Password en Propiedades360.com.mx',
     html: `
-    <p>Hola ${nombre}, has solicitado cambiar tu password en BienesRaices.com</p>
+    <p>Hola ${nombre}, has solicitado cambiar tu password en Propiedades360.com.mx</p>
     <p>Sigue el siguiente en lace para generar un password nuevo:
     <a href="${process.env.BACKEND_URL}/auth/olvide-password/${token}">Reestablecer Password</a></p>
 

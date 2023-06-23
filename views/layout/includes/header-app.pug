@@ -1,4 +1,4 @@
-header(class="bg-sky-600 p-4")
+header(class="bg-sky-200 p-4 h-20 shadow-md")
   div(class="container mx-auto flex justify-between items-center")
     a(href="/")
       img(src='/img/logo_p360.png' alt='Logo')
@@ -8,7 +8,7 @@ header(class="bg-sky-600 p-4")
       button(class="fixed bottom-4 right-4 text-white py-2 px-4 rounded-full lg:hidden")
         img(src="img/menu.svg", alt="menuIcon")
 
-div(class="bg-sky-700 py-5 hidden lg:block")
+div(class="bg-sky-600 py-5 hidden lg:block")
   div(class="container mx-auto flex justify-between")
     nav(class="flex gap-4 items-center")
       a(href="/categorias/1" class="text-sm font-bold uppercase text-white") Casas
@@ -17,9 +17,4 @@ div(class="bg-sky-700 py-5 hidden lg:block")
       a(href="/categorias/4" class="text-sm font-bold uppercase text-white") Terrenos
       a(href="/categorias/5" class="text-sm font-bold uppercase text-white") Cabañas
 
-    form(action="/buscador" method="POST" class="flex gap-3 items-center")
-      input(type="hidden" name="_csrf" value= csrfToken)
-      label(for="termino" class="text-sm uppercase font-bold text-white") Búsqueda 
-      input(type="text" id="termino" name="termino" placeholder="Buscar Propiedades" class="p-2 rounded-lg shadow text-sm")
-      input(type="submit" class="bg-sky-800 hover:bg-sky-500 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
 
