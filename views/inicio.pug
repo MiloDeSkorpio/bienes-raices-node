@@ -6,9 +6,11 @@ block contenido
   div(class="py-1")
     form(action="/buscador" method="POST" class="flex gap-3 items-center")
       input(type="hidden" name="_csrf" value= csrfToken)
-      label(for="termino" class="text-sm uppercase font-bold text-white") Búsqueda 
-      input(type="text" id="termino" name="termino" placeholder="Buscar Propiedades" class="p-2 rounded-lg shadow text-sm")
-      input(type="submit" class="bg-sky-600 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
+      div
+        label(for="termino" class="text-sm uppercase font-bold text-gray-500") Búsqueda 
+        input(type="text" id="termino" name="termino" placeholder="Buscar Propiedades" class="p-2 rounded-lg shadow text-sm")
+      div
+        input(type="submit" class="bg-sky-600 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm")
 
     h2(class="text-sm uppercase text-gray-800 font-bold py-4") Filtrar Propiedades:
       div(class="w-full md:w-auto flex items-center gap-2 py-2")
