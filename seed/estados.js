@@ -96,3 +96,5 @@ const estados = [
     nombre: 'Zacatecas'
   },
 ]
+
+export default estados
