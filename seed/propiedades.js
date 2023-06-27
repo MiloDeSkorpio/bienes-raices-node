@@ -12,7 +12,8 @@ const propiedades = [
     publicado: 1,
     precioId: 2,
     categoriaId: 1,
-    usuarioId: 1
+    usuarioId: 1,
+    verificado: 1
   },
   {
     titulo: 'Casa en la playa',
@@ -20,14 +21,15 @@ const propiedades = [
     habitaciones: 3,
     estacionamiento: 2,
     wc: 3,
-    calle: 'malecon',
+    calle: 8,
     lat: 18.928071183206814,
     lng: -104.08186611325726,
     imagen: 'anuncio2.jpg',
     publicado: 1,
     precioId: 3,
     categoriaId: 1,
-    usuarioId: 1
+    usuarioId: 1,
+    verificado: 1
   },
   {
     titulo: 'Casa con alberca',
@@ -42,7 +44,8 @@ const propiedades = [
     publicado: 1,
     precioId: 5,
     categoriaId: 1,
-    usuarioId: 1
+    usuarioId: 1,
+    verificado: 0
   },
   {
     titulo: 'Casa con Garage',
@@ -57,7 +60,8 @@ const propiedades = [
     publicado: 1,
     precioId: 2,
     categoriaId: 1,
-    usuarioId: 1
+    usuarioId: 1,
+    verificado: 1
   },
   {
     titulo: 'Casa Residencial',
@@ -72,7 +76,8 @@ const propiedades = [
     publicado: 1,
     precioId: 3,
     categoriaId: 1,
-    usuarioId: 1
+    usuarioId: 1,
+    verificado: 0
   },
   {
     titulo: 'Casa Cerca de  la playa',
@@ -87,7 +92,8 @@ const propiedades = [
     publicado: 1,
     precioId: 3,
     categoriaId: 1,
-    usuarioId: 2
+    usuarioId: 2,
+    verificado: 1
   },
   {
     titulo: 'Casa lujosa con piscina',
@@ -102,7 +108,8 @@ const propiedades = [
     publicado: 1,
     precioId: 4,
     categoriaId: 1,
-    usuarioId: 2
+    usuarioId: 2,
+    verificado: 0
   },
   {
     titulo: 'Departamento de lujo',
@@ -117,7 +124,8 @@ const propiedades = [
     publicado: 1,
     precioId: 6,
     categoriaId: 2,
-    usuarioId: 2
+    usuarioId: 2,
+    verificado: 1
   },
   {
     titulo: 'Casa minimalista con piscina',
@@ -132,7 +140,8 @@ const propiedades = [
     publicado: 1,
     precioId: 4,
     categoriaId: 1,
-    usuarioId: 2
+    usuarioId: 2,
+    verificado: 0
   },
   {
     titulo: 'Lujosa Casa',
@@ -147,7 +156,8 @@ const propiedades = [
     publicado: 1,
     precioId: 3,
     categoriaId: 1,
-    usuarioId: 2
+    usuarioId: 2,
+    verificado: 1
   },
   {
     titulo: 'Bonita Casa de Campo',
@@ -162,7 +172,8 @@ const propiedades = [
     publicado: 1,
     precioId: 6,
     categoriaId: 1,
-    usuarioId: 3
+    usuarioId: 3,
+    verificado: 0
   },
   {
     titulo: 'Departamento de lujo',
@@ -177,7 +188,8 @@ const propiedades = [
     publicado: 1,
     precioId: 6,
     categoriaId: 2,
-    usuarioId: 3
+    usuarioId: 3,
+    verificado: 1
   },
   {
     titulo: 'Bonito Departamento',
@@ -192,7 +204,8 @@ const propiedades = [
     publicado: 1,
     precioId: 7,
     categoriaId: 2,
-    usuarioId: 3
+    usuarioId: 3,
+    verificado: 0
   },
   {
     titulo: 'Casa Residencial Minimalista',
@@ -207,7 +220,8 @@ const propiedades = [
     publicado: 1,
     precioId: 9,
     categoriaId: 1,
-    usuarioId: 3
+    usuarioId: 3,
+    verificado: 1
   },
   {
     titulo: 'Hermoso y Lujoso Departamento',
@@ -222,7 +236,8 @@ const propiedades = [
     publicado: 1,
     precioId: 8,
     categoriaId: 2,
-    usuarioId: 3
+    usuarioId: 3,
+    verificado: 0
   },
   {
     titulo: 'Excelente Departamento',
@@ -237,7 +252,8 @@ const propiedades = [
     publicado: 1,
     precioId: 7,
     categoriaId: 2,
-    usuarioId: 4
+    usuarioId: 4,
+    verificado: 1
   },
   {
     titulo: 'Pequeña Casa de Campo',
@@ -252,7 +268,8 @@ const propiedades = [
     publicado: 1,
     precioId: 8,
     categoriaId: 1,
-    usuarioId: 4
+    usuarioId: 4,
+    verificado: 0
   },
   {
     titulo: 'Departamento con Terraza',
@@ -267,7 +284,8 @@ const propiedades = [
     publicado: 1,
     precioId: 10,
     categoriaId: 2,
-    usuarioId: 4
+    usuarioId: 4,
+    verificado: 1
   },
   {
     titulo: 'Departamento Minimalista',
@@ -282,7 +300,8 @@ const propiedades = [
     publicado: 1,
     precioId: 7,
     categoriaId: 2,
-    usuarioId: 4
+    usuarioId: 4,
+    verificado: 0
   },
   {
     titulo: 'Bonito Departamento',
@@ -297,7 +316,8 @@ const propiedades = [
     publicado: 1,
     precioId: 8,
     categoriaId: 2,
-    usuarioId: 4
+    usuarioId: 4,
+    verificado: 1
   },
 ]
 
