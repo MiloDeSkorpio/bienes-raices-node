@@ -4,7 +4,7 @@ import Categoria from './Categoria.js';
 import Usuario from './Usuario.js';
 import Mensaje from './Mensaje.js';
 import Roles from './Roles.js';
-import Estados from './Estados.js';
+import Estado from './Estado.js';
 import CuentaExterna from './CuentaExterna.js';
 
 
@@ -12,7 +12,7 @@ Propiedad.belongsTo(Precio, {foreignKey: 'precioId'});
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaId'});
 Propiedad.belongsTo(Usuario, {foreignKey: 'usuarioId'});
 Propiedad.hasMany(Mensaje, {foreignKey: 'propiedadId'});
-Propiedad.belongsTo(Estados, {foreignKey: 'estadoId'});
+Propiedad.belongsTo(Estado, {foreignKey: 'estadoId'});
 
 Mensaje.belongsTo(Propiedad, {foreignKey: 'propiedadId'})
 Mensaje.belongsTo(Usuario, {foreignKey: 'usuarioId'})
@@ -29,6 +29,6 @@ export {
   Usuario,
   Mensaje,
   Roles,
-  Estados,
+  Estado,
   CuentaExterna
 }
