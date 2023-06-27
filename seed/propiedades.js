@@ -13,7 +13,8 @@ const propiedades = [
     precioId: 2,
     categoriaId: 1,
     usuarioId: 1,
-    verificado: 1
+    verificado: 1,
+    estadoId: 11
   },
   {
     titulo: 'Casa en la playa',
@@ -29,7 +30,8 @@ const propiedades = [
     precioId: 3,
     categoriaId: 1,
     usuarioId: 1,
-    verificado: 1
+    verificado: 1,
+    estadoId: 9
   },
   {
     titulo: 'Casa con alberca',
@@ -45,7 +47,8 @@ const propiedades = [
     precioId: 5,
     categoriaId: 1,
     usuarioId: 1,
-    verificado: 0
+    verificado: 0,
+    estadoId: 30
   },
   {
     titulo: 'Casa con Garage',
@@ -61,7 +64,8 @@ const propiedades = [
     precioId: 2,
     categoriaId: 1,
     usuarioId: 1,
-    verificado: 1
+    verificado: 1,
+    estadoId: 24
   },
   {
     titulo: 'Casa Residencial',
@@ -77,7 +81,8 @@ const propiedades = [
     precioId: 3,
     categoriaId: 1,
     usuarioId: 1,
-    verificado: 0
+    verificado: 0,
+    estadoId: 14
   },
   {
     titulo: 'Casa Cerca de  la playa',
@@ -93,7 +98,8 @@ const propiedades = [
     precioId: 3,
     categoriaId: 1,
     usuarioId: 2,
-    verificado: 1
+    verificado: 1,
+    estadoId: 23
   },
   {
     titulo: 'Casa lujosa con piscina',
@@ -109,7 +115,8 @@ const propiedades = [
     precioId: 4,
     categoriaId: 1,
     usuarioId: 2,
-    verificado: 0
+    verificado: 0,
+    estadoId: 21
   },
   {
     titulo: 'Departamento de lujo',
@@ -125,7 +132,8 @@ const propiedades = [
     precioId: 6,
     categoriaId: 2,
     usuarioId: 2,
-    verificado: 1
+    verificado: 1,
+    estadoId: 19
   },
   {
     titulo: 'Casa minimalista con piscina',
@@ -141,7 +149,8 @@ const propiedades = [
     precioId: 4,
     categoriaId: 1,
     usuarioId: 2,
-    verificado: 0
+    verificado: 0,
+    estadoId: 25
   },
   {
     titulo: 'Lujosa Casa',
@@ -157,7 +166,8 @@ const propiedades = [
     precioId: 3,
     categoriaId: 1,
     usuarioId: 2,
-    verificado: 1
+    verificado: 1,
+    estadoId: 3
   },
   {
     titulo: 'Bonita Casa de Campo',
@@ -173,7 +183,8 @@ const propiedades = [
     precioId: 6,
     categoriaId: 1,
     usuarioId: 3,
-    verificado: 0
+    verificado: 0,
+    estadoId: 1
   },
   {
     titulo: 'Departamento de lujo',
@@ -189,7 +200,8 @@ const propiedades = [
     precioId: 6,
     categoriaId: 2,
     usuarioId: 3,
-    verificado: 1
+    verificado: 1,
+    estadoId: 26
   },
   {
     titulo: 'Bonito Departamento',
@@ -205,7 +217,8 @@ const propiedades = [
     precioId: 7,
     categoriaId: 2,
     usuarioId: 3,
-    verificado: 0
+    verificado: 0,
+    estadoId: 6
   },
   {
     titulo: 'Casa Residencial Minimalista',
@@ -221,7 +234,8 @@ const propiedades = [
     precioId: 9,
     categoriaId: 1,
     usuarioId: 3,
-    verificado: 1
+    verificado: 1,
+    estadoId: 6
   },
   {
     titulo: 'Hermoso y Lujoso Departamento',
@@ -237,7 +251,8 @@ const propiedades = [
     precioId: 8,
     categoriaId: 2,
     usuarioId: 3,
-    verificado: 0
+    verificado: 0,
+    estadoId: 28
   },
   {
     titulo: 'Excelente Departamento',
@@ -253,7 +268,8 @@ const propiedades = [
     precioId: 7,
     categoriaId: 2,
     usuarioId: 4,
-    verificado: 1
+    verificado: 1,
+    estadoId: 28
   },
   {
     titulo: 'Pequeña Casa de Campo',
@@ -269,7 +285,8 @@ const propiedades = [
     precioId: 8,
     categoriaId: 1,
     usuarioId: 4,
-    verificado: 0
+    verificado: 0,
+    estadoId: 16
   },
   {
     titulo: 'Departamento con Terraza',
@@ -285,7 +302,8 @@ const propiedades = [
     precioId: 10,
     categoriaId: 2,
     usuarioId: 4,
-    verificado: 1
+    verificado: 1,
+    estadoId: 2
   },
   {
     titulo: 'Departamento Minimalista',
@@ -301,7 +319,8 @@ const propiedades = [
     precioId: 7,
     categoriaId: 2,
     usuarioId: 4,
-    verificado: 0
+    verificado: 0,
+    estadoId: 26
   },
   {
     titulo: 'Bonito Departamento',
@@ -317,7 +336,8 @@ const propiedades = [
     precioId: 8,
     categoriaId: 2,
     usuarioId: 4,
-    verificado: 1
+    verificado: 1,
+    estadoId: 5
   },
 ]
 
