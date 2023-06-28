@@ -39,7 +39,6 @@ const inicio = async (req, res) => {
     })
 
   ])
-  console.log(estados)
   res.render('inicio',{
     pagina: 'Inicio',
     categorias,
