@@ -1,12 +1,28 @@
-header(class="bg-sky-200 p-4 max-h-20 shadow-md")
+header(class="bg-blue-200 p-4 max-h-20 shadow-md")
   div(class="container mx-auto flex justify-between items-center gap-5")
     a(href="/")
       img(src='/img/logo_p360.png' alt='Logo')
     a(class="btnMenu cursor-pointer" id="btnMenu")
       img(src="/img/menu.svg", alt="menuIcon")
-    nav(class=" text-sm md:flex md:items-center md:gap-3 font-bold text-gray-700 flex") 
-      a(href="/auth/registro" class="hidden lg:block") Crear Cuenta
-      a(href="/auth/login" class="hidden lg:block") Iniciar Sesión
+    a(class="clearMenu cursor-pointer hidden" id="clearMenu") 
+      img(src="/img/clear.svg", alt="clearIcon")
 
-block scripts 
+  div(class="hidden" id="menu")
+    div(class="mt-4 items-center")
+      div(class="text-sm font-bold text-gray-700 flex justify-between") 
+        img(src="/img/user.svg", alt="usuario")
+        div(class="space-y-3")
+          a(href="/mis-propiedades") Mi Perfil
+          form(action="/auth/cerrar-sesion" method="POST")
+            input(type="hidden" name="_csrf" value= csrfToken)
+            input(type="submit" class="bg- bg-sky-600 py-2 px-10 rounded-lg text-white font-semibold" value="Cerrar Sesión") 
+      div(class="mt-4 ")
+        nav(class="flex-1") 
+          a(href="") Servicios 
+          a(href="") Contacto
+          a(href="") Preguntas Frecuentes
+      div(class="")
+
+
+block scripts
 

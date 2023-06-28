@@ -1,0 +1,8 @@
+
+  div(class="container mx-auto flex justify-between items-center")
+    nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white") 
+      a(href="/mis-propiedades") Mis Propiedades
+      a(href="") Mi Perfil
+    form(action="/auth/cerrar-sesion" method="POST")
+      input(type="hidden" name="_csrf" value= csrfToken)
+      input(type="submit" class="bg-sky-800 py-2 px-10 rounded-lg" value="Cerrar Sesión") 
