@@ -1,8 +1,23 @@
-
-  div(class="container mx-auto flex justify-between items-center")
-    nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white") 
-      a(href="/mis-propiedades") Mis Propiedades
-      a(href="") Mi Perfil
-    form(action="/auth/cerrar-sesion" method="POST")
-      input(type="hidden" name="_csrf" value= csrfToken)
-      input(type="submit" class="bg-sky-800 py-2 px-10 rounded-lg" value="Cerrar Sesión") 
+div(class="hidden" id="menu")
+  div(class=" flex flex-col mt-4 items-center w-full bg-slate-600")
+    div(class="text-sm font-bold text-gray-700 flex gap-5 justify-between") 
+      img(src="/img/user.svg", alt="usuario")
+      div(class="space-y-3")
+      if identificarUsuario
+        nav(class="flex flex-col space-y-3 text-lg font-semibold")
+          a(href="/mis-propiedades") Mi Perfil
+          form(action="/auth/cerrar-sesion" method="POST")
+            input(type="hidden" name="_csrf" value= csrfToken)
+            input(type="submit" class="bg- bg-sky-600 py-2 px-10 rounded-lg text-white font-semibold cursor-pointer" value="Cerrar Sesión") 
+      else
+        nav(class="flex flex-col space-y-3 text-lg font-semibold")
+          a(href="/auth/registro") Crear Cuenta
+          a(href="/auth/login") Iniciar Sesión 
+    div(class="mt-4")
+      nav(class="flex flex-col space-y-3 text-lg font-semibold") 
+        a(href="") Servicios 
+        a(href="") Contacto
+    div(class="mt-4")
+      nav(class="flex flex-col space-y-3 text-lg font-semibold") 
+        a(href="") Preguntas Frecuentes
+        a(href="") Politicas
