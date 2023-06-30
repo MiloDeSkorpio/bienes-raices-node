@@ -92,9 +92,18 @@ const buscador = async (req, res) => {
   // Consultar las propiedades
   const propiedades = await Propiedad.findAll({
     where: {
-      titulo: {
-        [Sequelize.Op.like] : '%' + termino + '%'
-      }
+      [Sequelize.Op.or]: [
+        {
+          titulo: {
+            [Sequelize.Op.like]: '%' + termino + '%'
+          }
+        },
+        {
+          calle: {
+            [Sequelize.Op.like]: '%' + termino + '%'
+          }
+        }
+      ]
     },
     include: [
       { model: Precio, as: 'precio' }
