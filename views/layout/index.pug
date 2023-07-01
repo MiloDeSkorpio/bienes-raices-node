@@ -9,8 +9,12 @@ html(lang="es")
     link(rel="stylesheet", href="/css/app.css")
     block styles
   body.min-h-screen.bg-gray-50
-
+    include includes/header-app
     main(class="mx-auto container mt-5 px-2")
       block contenido 
     
+
     block scripts
+      script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
+      script(src="/js/mapaInicio.js") 
+      script(src="/js/menu.js") 

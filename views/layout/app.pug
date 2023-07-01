@@ -4,7 +4,7 @@ html(lang="es")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Bienes Raices | #{pagina}
+    title Propiedades360 | #{pagina}
     block styles
     link(rel="icon", type="image/png", href="/img/icop.png")
     link(rel="stylesheet", href="/css/app.css")
@@ -14,4 +14,7 @@ html(lang="es")
     main(class="mx-auto container mt-5 px-2")
       block contenido 
     
-block scripts
+    block scripts
+      script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
+      script(src="/js/mostrarMapa.js")
+      script(src="/js/menu.js") 

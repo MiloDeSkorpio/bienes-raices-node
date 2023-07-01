@@ -1,4 +1,4 @@
-extends ./layout/app
+extends ./layout/index
 
 block styles
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
@@ -48,9 +48,3 @@ block contenido
           include ./templates/card
 
       
-
-
-block scripts
-  script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
-  script(src="/js/mapaInicio.js") 
-  script(src="/js/menu.js") 

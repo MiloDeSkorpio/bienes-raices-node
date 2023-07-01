@@ -37,7 +37,7 @@ block contenido
       aside(class="md:w-1/3 bg-white shadow rounded-lg")
         h3(class="text-center py-10 leading-6 text-2xl font-bold text-gray-900") Ubicacion 
 
-        div(class="h-96" id="mapa")
+        div(class="h-96" id="mapa-prop")
           p(id="lat" class="hidden")= propiedad.lat
           p(id="lng" class="hidden")= propiedad.lng
 
@@ -65,8 +65,3 @@ block contenido
               div(class="flex felx-col items-center justify-center gap-2")
                 p(class="text-center") Si deseas contactar al vendedor 
                 a(class="text-indigo-600" href="/auth/crear-cuenta") debes crear una cuenta
-
-block scripts
-  script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
-  script(src="/js/mostrarMapa.js")
-  script(src="/js/menu.js") 
