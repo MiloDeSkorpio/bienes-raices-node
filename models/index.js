@@ -4,7 +4,6 @@ import Categoria from './Categoria.js';
 import Usuario from './Usuario.js';
 import Mensaje from './Mensaje.js';
 import Roles from './Roles.js';
-import Estado from './Estado.js';
 import CuentaExterna from './CuentaExterna.js';
 
 
@@ -29,6 +28,5 @@ export {
   Usuario,
   Mensaje,
   Roles,
-  Estado,
   CuentaExterna
 }

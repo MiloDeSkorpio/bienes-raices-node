@@ -4,10 +4,9 @@ import precios from './precios.js';
 import usuarios from './usuarios.js';
 import roles from './roles.js';
 import propiedades from './propiedades.js';
-import estados from './estados.js';
 import db from "../config/db.js";
 //Importamos el modelo que se llenara
-import { Categoria, Precio, Usuario, Roles, Propiedad , Estado} from '../models/index.js';
+import { Categoria, Precio, Usuario, Roles, Propiedad } from '../models/index.js';
 
 const importarDatos = async () => {
   try {
@@ -21,7 +20,6 @@ const importarDatos = async () => {
     await Promise.all([
       Categoria.bulkCreate(categorias),
       Precio.bulkCreate(precios),
-      Estado.bulkCreate(estados),
       Roles.bulkCreate(roles),
       Usuario.bulkCreate(usuarios),
       Propiedad.bulkCreate(propiedades),
