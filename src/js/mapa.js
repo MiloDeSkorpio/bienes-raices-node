@@ -35,6 +35,8 @@
       document.querySelector('#calle').value = resultado?.address?.Address ?? '';
       document.querySelector('#lat').value = resultado?.latlng?.lat ?? '';
       document.querySelector('#lng').value = resultado?.latlng?.lng ?? '';
+      document.querySelector('#municipio').value = resultado?.address?.City ?? '';
+      document.querySelector('#estado').value = resultado?.address?.Region ?? '';
 
     });
   });
