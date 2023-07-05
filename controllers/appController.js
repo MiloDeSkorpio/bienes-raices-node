@@ -1,12 +1,11 @@
 import { Sequelize } from 'sequelize';
-import { Precio, Categoria, Propiedad, Estado} from '../models/index.js'
+import { Precio, Categoria, Propiedad} from '../models/index.js'
 
 const inicio = async (req, res) => {
 
-  const [ categorias, precios,estados, casas, departamentos,  ] = await Promise.all([ 
+  const [ categorias, precios, casas, departamentos,  ] = await Promise.all([ 
     Categoria.findAll({raw: true}),
     Precio.findAll({raw: true}),
-    Estado.findAll({raw: true}),
     Propiedad.findAll({
       limit: 3,
       where: {
@@ -43,7 +42,6 @@ const inicio = async (req, res) => {
     pagina: 'Inicio',
     categorias,
     precios,
-    estados,
     casas,
     departamentos,
     csrfToken: req.csrfToken()
