@@ -29,13 +29,13 @@
     geocodeService.reverse().latlng(posicion,13).run(function(error,resultado){
       // console.log(resultado)
       marker.bindPopup(resultado.address.LongLabel)
-
-      // Llenar los campos
+      console.log(resultado.address)     
+       // Llenar los campos
       document.querySelector('.calle').textContent = resultado?.address?.Address ?? '';
       document.querySelector('#calle').value = resultado?.address?.Address ?? '';
       document.querySelector('#lat').value = resultado?.latlng?.lat ?? '';
       document.querySelector('#lng').value = resultado?.latlng?.lng ?? '';
-      document.querySelector('#municipio').value = resultado?.address?.City ?? '';
+      document.querySelector('#municipio').value = resultado?.address?.Subregion ?? '';
       document.querySelector('#estado').value = resultado?.address?.Region ?? '';
 
     });
