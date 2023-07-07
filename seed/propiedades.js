@@ -11,12 +11,12 @@ const propiedades = [
     imagen: 'anuncio1.jpg',
     publicado: 1,
     precioId: 2,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
     estado: 'México',
     municipio: 'Zumpango',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Casa en la playa',
@@ -30,12 +30,12 @@ const propiedades = [
     imagen: 'anuncio2.jpg',
     publicado: 1,
     precioId: 3,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
     estado: 'Veracruz de Ignacio de la Llave',
     municipio: 'Alto Lucero de Gutiérrez Barrios',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Casa con alberca',
@@ -49,12 +49,12 @@ const propiedades = [
     imagen: 'anuncio3.jpg',
     publicado: 1,
     precioId: 5,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 1,
     verificado: 0,
     estado: 'Hidalgo',
     municipio: 'Ixmiquilpan',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Casa con Garage',
@@ -68,12 +68,12 @@ const propiedades = [
     imagen: 'anuncio4.jpg',
     publicado: 1,
     precioId: 2,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
     estado: 'Querétaro',
     municipio: 'San Juan del Río',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Casa Residencial',
@@ -87,12 +87,12 @@ const propiedades = [
     imagen: 'anuncio5.jpg',
     publicado: 1,
     precioId: 3,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 1,
     verificado: 0,
     estado: 'Guanajuato',
     municipio: 'León',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Casa Cerca de  la playa',
@@ -106,12 +106,12 @@ const propiedades = [
     imagen: 'anuncio6.jpg',
     publicado: 1,
     precioId: 3,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 2,
     verificado: 1,
     estado: 'Nayarit',
     municipio: 'San Blas',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Casa lujosa con piscina',
@@ -125,12 +125,12 @@ const propiedades = [
     imagen: 'anuncio7.jpg',
     publicado: 1,
     precioId: 4,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 2,
     verificado: 0,
     estado: 'Guerrero',
     municipio: 'Chilpancingo de los Bravo',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Departamento de lujo',
@@ -144,12 +144,12 @@ const propiedades = [
     imagen: 'anuncio8.jpg',
     publicado: 1,
     precioId: 6,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 2,
     verificado: 1,
     estado: 'Nuevo León',
     municipio: 'Monterrey',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Casa minimalista con piscina',
@@ -163,12 +163,12 @@ const propiedades = [
     imagen: 'anuncio9.jpg',
     publicado: 1,
     precioId: 4,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 2,
     verificado: 0,
     estado: 'Tamaulipas',
     municipio: 'Nuevo Laredo',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Lujosa Casa',
@@ -182,12 +182,12 @@ const propiedades = [
     imagen: 'anuncio10.jpg',
     publicado: 1,
     precioId: 3,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 2,
     verificado: 1,
     estado: 'Chihuahua',
     municipio: 'Juárez',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Bonita Casa de Campo',
@@ -201,12 +201,12 @@ const propiedades = [
     imagen: 'anuncio11.jpg',
     publicado: 1,
     precioId: 6,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 3,
     verificado: 0,
     estado: 'Tlaxcala',
     municipio: 'Huamantla',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Departamento de lujo',
@@ -220,12 +220,12 @@ const propiedades = [
     imagen: 'anuncio12.jpg',
     publicado: 1,
     precioId: 6,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 3,
     verificado: 1,
     estado: 'Baja California',
     municipio: 'Tijuana',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Bonito Departamento',
@@ -239,12 +239,12 @@ const propiedades = [
     imagen: 'anuncio13.jpg',
     publicado: 1,
     precioId: 7,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 3,
     verificado: 0,
     estado: 'Baja California Sur',
     municipio: 'La Paz',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Casa Residencial Minimalista',
@@ -258,12 +258,12 @@ const propiedades = [
     imagen: 'anuncio14.jpg',
     publicado: 1,
     precioId: 9,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 3,
     verificado: 1,
     estado: 'Sonora',
     municipio: 'San Luis Río Colorado',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Hermoso y Lujoso Departamento',
@@ -277,12 +277,12 @@ const propiedades = [
     imagen: 'anuncio15.jpg',
     publicado: 1,
     precioId: 8,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 3,
     verificado: 0,
     estado: 'Ciudad de México',
     municipio: 'Benito Juárez',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Excelente Departamento',
@@ -296,12 +296,12 @@ const propiedades = [
     imagen: 'anuncio16.jpg',
     publicado: 1,
     precioId: 7,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
     estado: 'México',
     municipio: 'Metepec',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Pequeña Casa de Campo',
@@ -315,12 +315,12 @@ const propiedades = [
     imagen: 'anuncio17.jpg',
     publicado: 1,
     precioId: 8,
-    categoriaId: 1,
+    categoriaId: 2,
     usuarioId: 4,
     verificado: 0,
     estado: 'Michoacán de Ocampo',
     municipio: 'Zitácuaro',
-    tipoTr: 1
+    tipoId: 3
   },
   {
     titulo: 'Departamento con Terraza',
@@ -334,12 +334,12 @@ const propiedades = [
     imagen: 'anuncio18.jpg',
     publicado: 1,
     precioId: 10,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
     estado: 'Chiapas',
     municipio: 'Tuxtla Gutiérrez',
-    tipoTr: 1
+    tipoId: 2
   },
   {
     titulo: 'Departamento Minimalista',
@@ -353,12 +353,12 @@ const propiedades = [
     imagen: 'anuncio19.jpg',
     publicado: 1,
     precioId: 7,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 4,
     verificado: 0,
     estado: 'Yucatán',
     municipio: 'Mérida',
-    tipoTr: 1
+    tipoId: 1
   },
   {
     titulo: 'Bonito Departamento',
@@ -372,12 +372,12 @@ const propiedades = [
     imagen: 'anuncio20.jpg',
     publicado: 1,
     precioId: 8,
-    categoriaId: 2,
+    categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
     estado: 'Sinaloa',
     municipio: 'Mazatlán',
-    tipoTr: 1
+    tipoId: 3
   },
 ]
 
