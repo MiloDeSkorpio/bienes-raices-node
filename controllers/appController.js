@@ -40,7 +40,9 @@ const inicio = async (req, res) => {
 
   const estados = await Propiedad.aggregate('estado', 'DISTINCT', { plain: false });
   const estadosUnicos = estados.map(estados => estados.DISTINCT);
-  
+  const municipios = await Propiedad.aggregate('municipio', 'DISTINCT', { plain: false });
+  const municipiosUnicos = municipios.map(item => item.DISTINCT);
+
   console.log(tipos)
   res.render('inicio', {
     pagina: 'Inicio',
@@ -50,6 +52,7 @@ const inicio = async (req, res) => {
     casas,
     departamentos,
     estadosUnicos,
+    municipiosUnicos,
     csrfToken: req.csrfToken()
   });
 };

@@ -36,11 +36,11 @@ block contenido
             option(value=estado)= estado
       
       div(class="w-full md:w-auto flex items-center gap-2 py-2")
-        label(for="estados" class="text-sm w-24 uppercase text-gray-500 font-bold") Municipios
-        select(id="estados" class="flex-1 bg-white w-full px-3 py-2 border border-gray-300 rounded-md shadow") 
+        label(for="municipios" class="text-sm w-24 uppercase text-gray-500 font-bold") Municipios
+        select(id="municipios" class="flex-1 bg-white w-full px-3 py-2 border border-gray-300 rounded-md shadow") 
           option(value="") - Seleccione -
-          each estado in estadosUnicos
-            option(value=estado)= estado
+          each municipio in municipiosUnicos
+            option(value=municipio)= municipio
 
     h1(class="text-center text-2xl font-bold mt-4") Ubicación en el Mapa
     div(class="flex felx-col md:flex-row items-center py-4 gap-4")
