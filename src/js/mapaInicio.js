@@ -8,11 +8,15 @@
   //Filtros
   const filtros = {
     categoria: '',
-    tipo: ''
+    tipo: '',
+    estado: '',
+    municipio: ''
   }
 
   const categoriaSelect = document.querySelector('#categorias');
   const tipoSelect = document.querySelector('#tipoTr');
+  const estadoSelect = document.querySelector('#estados')
+  const municipioSelect = document.querySelector('#municipios')
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -22,10 +26,22 @@
 
   categoriaSelect.addEventListener('change', e =>{
     filtros.categoria = +e.target.value
+    console.log(filtros.categoria)
     filtrarPropiedades();
   })
   tipoSelect.addEventListener('change', e =>{
     filtros.tipo = +e.target.value
+    console.log(filtros.tipo)
+    filtrarPropiedades();
+  })
+  estadoSelect.addEventListener('change', e =>{
+    filtros.estado = e.target.value
+    console.log(filtros.estado)
+    filtrarPropiedades();
+  })
+  municipioSelect.addEventListener('change', e =>{
+    filtros.municipio = e.target.value
+    console.log(filtros.municipio)
     filtrarPropiedades();
   })
 
@@ -65,12 +81,14 @@
   }
 
   const filtrarPropiedades = () => {
-    const resultado = propiedades.filter( filtrarCategoria ).filter( filtrartipo )
+    const resultado = propiedades.filter( filtrarCategoria ).filter( filtrartipo ).filter( filtrarMunicipio ).filter( filtrarEstado )
     mostrarPropiedades(resultado)
     
   }
 
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
   const filtrartipo = propiedad => filtros.tipo ? propiedad.tipoId === filtros.tipo : propiedad
+  const filtrarMunicipio = propiedad => filtros.municipio ? propiedad.municipio === filtros.municipio : propiedad;
+  const filtrarEstado = propiedad => filtros.estado ? propiedad.estado === filtros.estado : propiedad;
   obtenerPropiedades()
 })()
