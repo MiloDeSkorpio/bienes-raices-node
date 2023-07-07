@@ -15,7 +15,8 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estado: 'México',
-    municipio: 'Zumpango'
+    municipio: 'Zumpango',
+    tipoTr: 1
   },
   {
     titulo: 'Casa en la playa',
@@ -33,7 +34,8 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estado: 'Veracruz de Ignacio de la Llave',
-    municipio: 'Alto Lucero de Gutiérrez Barrios'
+    municipio: 'Alto Lucero de Gutiérrez Barrios',
+    tipoTr: 1
   },
   {
     titulo: 'Casa con alberca',
@@ -51,7 +53,8 @@ const propiedades = [
     usuarioId: 1,
     verificado: 0,
     estado: 'Hidalgo',
-    municipio: 'Ixmiquilpan'
+    municipio: 'Ixmiquilpan',
+    tipoTr: 1
   },
   {
     titulo: 'Casa con Garage',
@@ -69,7 +72,8 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estado: 'Querétaro',
-    municipio: 'San Juan del Río'
+    municipio: 'San Juan del Río',
+    tipoTr: 1
   },
   {
     titulo: 'Casa Residencial',
@@ -87,7 +91,8 @@ const propiedades = [
     usuarioId: 1,
     verificado: 0,
     estado: 'Guanajuato',
-    municipio: 'León'
+    municipio: 'León',
+    tipoTr: 1
   },
   {
     titulo: 'Casa Cerca de  la playa',
@@ -105,7 +110,8 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estado: 'Nayarit',
-    municipio: 'San Blas'
+    municipio: 'San Blas',
+    tipoTr: 1
   },
   {
     titulo: 'Casa lujosa con piscina',
@@ -123,7 +129,8 @@ const propiedades = [
     usuarioId: 2,
     verificado: 0,
     estado: 'Guerrero',
-    municipio: 'Chilpancingo de los Bravo'
+    municipio: 'Chilpancingo de los Bravo',
+    tipoTr: 1
   },
   {
     titulo: 'Departamento de lujo',
@@ -141,7 +148,8 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estado: 'Nuevo León',
-    municipio: 'Monterrey'
+    municipio: 'Monterrey',
+    tipoTr: 1
   },
   {
     titulo: 'Casa minimalista con piscina',
@@ -159,7 +167,8 @@ const propiedades = [
     usuarioId: 2,
     verificado: 0,
     estado: 'Tamaulipas',
-    municipio: 'Nuevo Laredo'
+    municipio: 'Nuevo Laredo',
+    tipoTr: 1
   },
   {
     titulo: 'Lujosa Casa',
@@ -177,7 +186,8 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estado: 'Chihuahua',
-    municipio: 'Juárez'
+    municipio: 'Juárez',
+    tipoTr: 1
   },
   {
     titulo: 'Bonita Casa de Campo',
@@ -195,7 +205,8 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estado: 'Tlaxcala',
-    municipio: 'Huamantla'
+    municipio: 'Huamantla',
+    tipoTr: 1
   },
   {
     titulo: 'Departamento de lujo',
@@ -213,7 +224,8 @@ const propiedades = [
     usuarioId: 3,
     verificado: 1,
     estado: 'Baja California',
-    municipio: 'Tijuana'
+    municipio: 'Tijuana',
+    tipoTr: 1
   },
   {
     titulo: 'Bonito Departamento',
@@ -231,7 +243,8 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estado: 'Baja California Sur',
-    municipio: 'La Paz'
+    municipio: 'La Paz',
+    tipoTr: 1
   },
   {
     titulo: 'Casa Residencial Minimalista',
@@ -249,7 +262,8 @@ const propiedades = [
     usuarioId: 3,
     verificado: 1,
     estado: 'Sonora',
-    municipio: 'San Luis Río Colorado'
+    municipio: 'San Luis Río Colorado',
+    tipoTr: 1
   },
   {
     titulo: 'Hermoso y Lujoso Departamento',
@@ -267,7 +281,8 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estado: 'Ciudad de México',
-    municipio: 'Benito Juárez'
+    municipio: 'Benito Juárez',
+    tipoTr: 1
   },
   {
     titulo: 'Excelente Departamento',
@@ -285,7 +300,8 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estado: 'México',
-    municipio: 'Metepec'
+    municipio: 'Metepec',
+    tipoTr: 1
   },
   {
     titulo: 'Pequeña Casa de Campo',
@@ -303,7 +319,8 @@ const propiedades = [
     usuarioId: 4,
     verificado: 0,
     estado: 'Michoacán de Ocampo',
-    municipio: 'Zitácuaro'
+    municipio: 'Zitácuaro',
+    tipoTr: 1
   },
   {
     titulo: 'Departamento con Terraza',
@@ -321,7 +338,8 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estado: 'Chiapas',
-    municipio: 'Tuxtla Gutiérrez'
+    municipio: 'Tuxtla Gutiérrez',
+    tipoTr: 1
   },
   {
     titulo: 'Departamento Minimalista',
@@ -339,7 +357,8 @@ const propiedades = [
     usuarioId: 4,
     verificado: 0,
     estado: 'Yucatán',
-    municipio: 'Mérida'
+    municipio: 'Mérida',
+    tipoTr: 1
   },
   {
     titulo: 'Bonito Departamento',
@@ -357,7 +376,8 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estado: 'Sinaloa',
-    municipio: 'Mazatlán'
+    municipio: 'Mazatlán',
+    tipoTr: 1
   },
 ]
 

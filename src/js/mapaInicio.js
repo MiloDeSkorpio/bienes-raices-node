@@ -67,10 +67,10 @@
   const filtrarPropiedades = () => {
     const resultado = propiedades.filter( filtrarCategoria ).filter( filtrarestado )
     mostrarPropiedades(resultado)
+    
   }
 
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
-  const filtrarestado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad
-
+  const filtrarestado = propiedad => filtros.estado ? propiedad.estado === filtros.estado : propiedad
   obtenerPropiedades()
 })()
