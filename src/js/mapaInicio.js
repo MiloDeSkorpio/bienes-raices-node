@@ -13,10 +13,13 @@
     municipio: ''
   }
 
+  //Obtener las referencias
   const categoriaSelect = document.querySelector('#categorias');
   const tipoSelect = document.querySelector('#tipoTr');
   const estadoSelect = document.querySelector('#estados')
   const municipioSelect = document.querySelector('#municipios')
+// Deshabilitar el select de municipio al cargar la página
+  municipioSelect.disabled = true;
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -26,22 +29,22 @@
 
   categoriaSelect.addEventListener('change', e =>{
     filtros.categoria = +e.target.value
-    console.log(filtros.categoria)
+   
     filtrarPropiedades();
   })
   tipoSelect.addEventListener('change', e =>{
     filtros.tipo = +e.target.value
-    console.log(filtros.tipo)
+
     filtrarPropiedades();
   })
   estadoSelect.addEventListener('change', e =>{
     filtros.estado = e.target.value
-    console.log(filtros.estado)
+    municipioSelect.disabled = estadoSelect.value === '';
     filtrarPropiedades();
   })
   municipioSelect.addEventListener('change', e =>{
     filtros.municipio = e.target.value
-    console.log(filtros.municipio)
+
     filtrarPropiedades();
   })
 
