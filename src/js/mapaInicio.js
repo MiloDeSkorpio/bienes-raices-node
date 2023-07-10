@@ -5,6 +5,7 @@
 
   let markers = new L.FeatureGroup().addTo(mapa)
   let propiedades = [];
+  let estados = [];
   //Filtros
   const filtros = {
     categoria: '',
@@ -16,8 +17,8 @@
   //Obtener las referencias
   const categoriaSelect = document.querySelector('#categorias');
   const tipoSelect = document.querySelector('#tipoTr');
-  const estadoSelect = document.querySelector('#estados')
-  const municipioSelect = document.querySelector('#municipios')
+  const estadoSelect = document.querySelector('#estados');
+  const municipioSelect = document.querySelector('#municipios');
 // Deshabilitar el select de municipio al cargar la página
   municipioSelect.disabled = true;
 
@@ -26,25 +27,26 @@
   }).addTo(mapa);
 
   //Filtrado de Categorias y tipos
-
   categoriaSelect.addEventListener('change', e =>{
-    filtros.categoria = +e.target.value
-   
+    filtros.categoria = +e.target.value 
     filtrarPropiedades();
   })
   tipoSelect.addEventListener('change', e =>{
     filtros.tipo = +e.target.value
-
     filtrarPropiedades();
   })
   estadoSelect.addEventListener('change', e =>{
     filtros.estado = +e.target.value
     municipioSelect.disabled = estadoSelect.value === '';
+    const estadoSeleccionado = estados.find(estado => estado.id === filtros.estado);
+    if (estadoSeleccionado) {
+      const { lat, lng, zoom } = estadoSeleccionado;
+      mapa.setView([lat, lng], zoom);
+    }
     filtrarPropiedades();
   })
   municipioSelect.addEventListener('change', e =>{
     filtros.municipio = e.target.value
-
     filtrarPropiedades();
   })
 
@@ -56,6 +58,16 @@
       propiedades = await respuesta.json()
       mostrarPropiedades(propiedades)
     } catch (error) {
+      console.log(error)
+    }
+  }
+  const obtenerEstados = async () => {
+    try {
+      const url = 'api/estados'
+      const respuesta = await fetch(url)
+      estados = await respuesta.json()
+      console.log(estados)
+    } catch {
       console.log(error)
     }
   }
@@ -86,7 +98,6 @@
   const filtrarPropiedades = () => {
     const resultado = propiedades.filter( filtrarCategoria ).filter( filtrartipo ).filter( filtrarMunicipio ).filter( filtrarEstado )
     mostrarPropiedades(resultado)
-    
   }
 
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
@@ -94,4 +105,5 @@
   const filtrarMunicipio = propiedad => filtros.municipio ? propiedad.municipio === filtros.municipio : propiedad;
   const filtrarEstado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad;
   obtenerPropiedades()
+  obtenerEstados()
 })()

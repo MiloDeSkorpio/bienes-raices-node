@@ -1,4 +1,4 @@
-import {Propiedad, Precio, Categoria } from '../models/index.js'
+import {Propiedad, Precio, Categoria, Estado } from '../models/index.js'
 
 const propiedades = async (req,res) => {
   const propiedades = await Propiedad.findAll({
@@ -10,6 +10,11 @@ const propiedades = async (req,res) => {
   res.json(propiedades)
 }
 
+const estados = async (req,res) => {
+  const estados = await Estado.findAll({})
+  res.json(estados)
+}
 export {
-  propiedades
+  propiedades,
+  estados
 }
