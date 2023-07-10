@@ -36,10 +36,6 @@ const Propiedad = db.define('propiedades',{
     type: DataTypes.STRING(60),
     allowNull: false
   },
-  estado: {
-    type: DataTypes.STRING(60),
-    allowNull: false
-  },
   lat: {
     type: DataTypes.STRING,
     allowNull: false

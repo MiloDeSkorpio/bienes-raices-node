@@ -1,10 +1,11 @@
 import { Sequelize } from 'sequelize';
-import { Precio, Categoria, Propiedad, Tipotr} from '../models/index.js'
+import { Precio, Categoria, Propiedad, Tipotr, Estado} from '../models/index.js'
 
 const inicio = async (req, res) => {
-  const [categorias,tipos, precios, casas, departamentos, ] = await Promise.all([
+  const [categorias,tipos, estados, precios, casas ] = await Promise.all([
     Categoria.findAll({ raw: true }),
     Tipotr.findAll({ raw: true }),  
+    Estado.findAll({ raw: true }),  
     Precio.findAll({ raw: true }),
     Propiedad.findAll({
       limit: 5,
@@ -23,8 +24,7 @@ const inicio = async (req, res) => {
     }),
   ]);
 
-  const estados = await Propiedad.aggregate('estado', 'DISTINCT', { plain: false });
-  const estadosUnicos = estados.map(estados => estados.DISTINCT);
+
   const municipios = await Propiedad.aggregate('municipio', 'DISTINCT', { plain: false });
   const municipiosUnicos = municipios.map(item => item.DISTINCT);
 
@@ -32,10 +32,9 @@ const inicio = async (req, res) => {
     pagina: 'Inicio',
     categorias,
     tipos,
+    estados,
     precios,
     casas,
-    departamentos,
-    estadosUnicos,
     municipiosUnicos,
     csrfToken: req.csrfToken()
   });

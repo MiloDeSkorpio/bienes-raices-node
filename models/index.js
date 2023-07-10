@@ -1,16 +1,17 @@
 import Propiedad from './Propiedad.js';
 import Precio from './Precio.js';
 import Categoria from './Categoria.js';
+import Estado from './Estado.js';
 import Usuario from './Usuario.js';
 import Mensaje from './Mensaje.js';
 import Roles from './Roles.js';
 import Tipotr from './Tipotr.js';
-import Estado from './Estado.js';
 import CuentaExterna from './CuentaExterna.js';
 
 
 Propiedad.belongsTo(Precio, {foreignKey: 'precioId'});
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaId'});
+Propiedad.belongsTo(Estado, {foreignKey: 'estadoId'})
 Propiedad.belongsTo(Usuario, {foreignKey: 'usuarioId'});
 Propiedad.belongsTo(Tipotr, {foreignKey: 'tipoId'});
 Propiedad.hasMany(Mensaje, {foreignKey: 'propiedadId'});
@@ -28,10 +29,10 @@ export {
   Propiedad,
   Precio,
   Categoria,
+  Estado,
   Usuario,
   Mensaje,
   Roles,
   CuentaExterna,
   Tipotr,
-  Estado
 }

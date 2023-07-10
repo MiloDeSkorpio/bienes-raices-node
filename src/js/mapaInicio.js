@@ -38,7 +38,7 @@
     filtrarPropiedades();
   })
   estadoSelect.addEventListener('change', e =>{
-    filtros.estado = e.target.value
+    filtros.estado = +e.target.value
     municipioSelect.disabled = estadoSelect.value === '';
     filtrarPropiedades();
   })
@@ -92,6 +92,6 @@
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
   const filtrartipo = propiedad => filtros.tipo ? propiedad.tipoId === filtros.tipo : propiedad
   const filtrarMunicipio = propiedad => filtros.municipio ? propiedad.municipio === filtros.municipio : propiedad;
-  const filtrarEstado = propiedad => filtros.estado ? propiedad.estado === filtros.estado : propiedad;
+  const filtrarEstado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad;
   obtenerPropiedades()
 })()

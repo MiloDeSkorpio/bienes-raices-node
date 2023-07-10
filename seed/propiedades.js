@@ -14,7 +14,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
-    estado: 'México',
+    estadoId: 11,
     municipio: 'Zumpango',
     tipoId: 3
   },
@@ -33,7 +33,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
-    estado: 'Veracruz de Ignacio de la Llave',
+    estadoId: 30,
     municipio: 'Boca del Río',
     tipoId: 1
   },
@@ -52,7 +52,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 1,
     verificado: 0,
-    estado: 'Hidalgo',
+    estadoId: 14,
     municipio: 'Ixmiquilpan',
     tipoId: 2
   },
@@ -71,7 +71,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 1,
     verificado: 1,
-    estado: 'Querétaro',
+    estadoId: 22,
     municipio: 'San Juan del Río',
     tipoId: 1
   },
@@ -90,7 +90,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 1,
     verificado: 0,
-    estado: 'Guanajuato',
+    estadoId: 12,
     municipio: 'León',
     tipoId: 3
   },
@@ -109,7 +109,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 2,
     verificado: 1,
-    estado: 'Nayarit',
+    estadoId: 18,
     municipio: 'San Blas',
     tipoId: 2
   },
@@ -128,7 +128,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 2,
     verificado: 0,
-    estado: 'Guerrero',
+    estadoId: 13,
     municipio: 'Chilpancingo de los Bravo',
     tipoId: 1
   },
@@ -147,7 +147,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 2,
     verificado: 1,
-    estado: 'Nuevo León',
+    estadoId: 19,
     municipio: 'Monterrey',
     tipoId: 3
   },
@@ -166,7 +166,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 2,
     verificado: 0,
-    estado: 'Tamaulipas',
+    estadoId: 28,
     municipio: 'Nuevo Laredo',
     tipoId: 2
   },
@@ -185,7 +185,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 2,
     verificado: 1,
-    estado: 'Chihuahua',
+    estadoId: 6,
     municipio: 'Juárez',
     tipoId: 1
   },
@@ -204,7 +204,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 3,
     verificado: 0,
-    estado: 'Tlaxcala',
+    estadoId: 29,
     municipio: 'Huamantla',
     tipoId: 3
   },
@@ -223,7 +223,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 3,
     verificado: 1,
-    estado: 'Baja California',
+    estadoId: 2,
     municipio: 'Tijuana',
     tipoId: 2
   },
@@ -242,7 +242,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 3,
     verificado: 0,
-    estado: 'Baja California Sur',
+    estadoId: 3,
     municipio: 'La Paz',
     tipoId: 1
   },
@@ -261,7 +261,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 3,
     verificado: 1,
-    estado: 'Sonora',
+    estadoId: 26,
     municipio: 'San Luis Río Colorado',
     tipoId: 3
   },
@@ -280,7 +280,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 3,
     verificado: 0,
-    estado: 'Ciudad de México',
+    estadoId: 7,
     municipio: 'Benito Juárez',
     tipoId: 2
   },
@@ -290,7 +290,7 @@ const propiedades = [
     habitaciones: 3,
     estacionamiento: 2,
     wc: 3,
-    calle: 'Avenida Estado de México 140C',
+    calle: 'Avenida EstadoId de México 140C',
     lat: 19.250340005033806,
     lng: -99.60775001887593,
     imagen: 'anuncio16.jpg',
@@ -299,7 +299,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
-    estado: 'México',
+    estadoId: 11,
     municipio: 'Metepec',
     tipoId: 1
   },
@@ -318,7 +318,7 @@ const propiedades = [
     categoriaId: 2,
     usuarioId: 4,
     verificado: 0,
-    estado: 'Michoacán de Ocampo',
+    estadoId: 16,
     municipio: 'Zitácuaro',
     tipoId: 3
   },
@@ -337,7 +337,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
-    estado: 'Chiapas',
+    estadoId: 5,
     municipio: 'Tuxtla Gutiérrez',
     tipoId: 2
   },
@@ -356,7 +356,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 4,
     verificado: 0,
-    estado: 'Yucatán',
+    estadoId: 31,
     municipio: 'Mérida',
     tipoId: 1
   },
@@ -375,7 +375,7 @@ const propiedades = [
     categoriaId: 3,
     usuarioId: 4,
     verificado: 1,
-    estado: 'Sinaloa',
+    estadoId: 25,
     municipio: 'Mazatlán',
     tipoId: 3
   },
