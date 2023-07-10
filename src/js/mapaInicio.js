@@ -1,7 +1,7 @@
 (function(){
-  const lat =  21.110110000000077;
-  const lng = -101.67689999999999;
-  const mapa = L.map('mapa-inicio').setView([lat, lng ], 4);
+  const latIn =  21.110110000000077;
+  const lngIn = -101.67689999999999;
+  const mapa = L.map('mapa-inicio').setView([latIn, lngIn ], 4);
 
   let markers = new L.FeatureGroup().addTo(mapa)
   let propiedades = [];
@@ -42,6 +42,8 @@
     if (estadoSeleccionado) {
       const { lat, lng, zoom } = estadoSeleccionado;
       mapa.setView([lat, lng], zoom);
+    }else {
+      mapa.setView([latIn, lngIn], 4);
     }
     filtrarPropiedades();
   })
