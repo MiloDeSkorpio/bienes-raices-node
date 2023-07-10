@@ -1,7 +1,7 @@
 (function(){
-  const lat =  19.3907336;
-  const lng = -99.1436127;
-  const mapa = L.map('mapa-inicio').setView([lat, lng ], 5.5);
+  const lat =  21.110110000000077;
+  const lng = -101.67689999999999;
+  const mapa = L.map('mapa-inicio').setView([lat, lng ], 4);
 
   let markers = new L.FeatureGroup().addTo(mapa)
   let propiedades = [];
