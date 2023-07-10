@@ -5,6 +5,7 @@ import Usuario from './Usuario.js';
 import Mensaje from './Mensaje.js';
 import Roles from './Roles.js';
 import Tipotr from './Tipotr.js';
+import Estado from './Estado.js';
 import CuentaExterna from './CuentaExterna.js';
 
 
@@ -31,5 +32,6 @@ export {
   Mensaje,
   Roles,
   CuentaExterna,
-  Tipotr
+  Tipotr,
+  Estado
 }

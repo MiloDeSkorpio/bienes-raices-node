@@ -7,9 +7,9 @@ const inicio = async (req, res) => {
     Tipotr.findAll({ raw: true }),  
     Precio.findAll({ raw: true }),
     Propiedad.findAll({
-      limit: 3,
+      limit: 5,
       where: {
-        categoriaId: 1
+        verificado: 1
       },
       include: [
         {
@@ -21,21 +21,6 @@ const inicio = async (req, res) => {
         ['createdAt', 'DESC']
       ]
     }),
-    Propiedad.findAll({
-      limit: 3,
-      where: {
-        categoriaId: 2
-      },
-      include: [
-        {
-          model: Precio,
-          as: 'precio'
-        }
-      ],
-      order: [
-        ['createdAt', 'DESC']
-      ]
-    })
   ]);
 
   const estados = await Propiedad.aggregate('estado', 'DISTINCT', { plain: false });
@@ -43,7 +28,6 @@ const inicio = async (req, res) => {
   const municipios = await Propiedad.aggregate('municipio', 'DISTINCT', { plain: false });
   const municipiosUnicos = municipios.map(item => item.DISTINCT);
 
-  console.log(tipos)
   res.render('inicio', {
     pagina: 'Inicio',
     categorias,

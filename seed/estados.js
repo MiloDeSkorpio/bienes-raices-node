@@ -1,99 +1,195 @@
 const estados = [
   {
-    nombre: 'Aguascalientes'
+    nombre: 'Aguascalientes',
+    lat: 21.877799980285488,
+    lng: -102.29466999987824,
+    zoom: 10
   },
   {
-    nombre: 'Baja California'
+    nombre: 'Baja California',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Baja California Sur'
+    nombre: 'Baja California Sur',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Campeche'
+    nombre: 'Campeche',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Chiapas'
+    nombre: 'Chiapas',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Chihuahua'
+    nombre: 'Chihuahua',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Ciudad de México'
+    nombre: 'Ciudad de México',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Coahuila'
+    nombre: 'Coahuila',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Colima'
+    nombre: 'Colima',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Durango'
+    nombre: 'Durango',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Estado de México'
+    nombre: 'Estado de México',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Guanajuato'
+    nombre: 'Guanajuato',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Guerrero'
+    nombre: 'Guerrero',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Hidalgo'
+    nombre: 'Hidalgo',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Jalisco'
+    nombre: 'Jalisco',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Michoacán'
+    nombre: 'Michoacán',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Morelos'
+    nombre: 'Morelos',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Nayarit'
+    nombre: 'Nayarit',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Nuevo León'
+    nombre: 'Nuevo León',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Oaxaca'
+    nombre: 'Oaxaca',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Puebla'
+    nombre: 'Puebla',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Querétaro'
+    nombre: 'Querétaro',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Quintana Roo'
+    nombre: 'Quintana Roo',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'San Luis Potosí'
+    nombre: 'San Luis Potosí',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Sinaloa'
+    nombre: 'Sinaloa',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Sonora'
+    nombre: 'Sonora',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Tabasco'
+    nombre: 'Tabasco',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Tamaulipas'
+    nombre: 'Tamaulipas',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Tlaxcala'
+    nombre: 'Tlaxcala',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Veracruz'
+    nombre: 'Veracruz',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Yucatán'
+    nombre: 'Yucatán',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
   {
-    nombre: 'Zacatecas'
+    nombre: 'Zacatecas',
+    lat: 5,
+    lng: 8,
+    zoom: 10
   },
 ]
 
