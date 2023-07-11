@@ -44,13 +44,20 @@
     if (estadoSeleccionado) {
       const { lat, lng, zoom } = estadoSeleccionado;
       mapa.setView([lat, lng], zoom);
-    }else {
+    } else {
       mapa.setView([latIn, lngIn], 4);
     }
     filtrarPropiedades();
   })
   municipioSelect.addEventListener('change', e =>{
-    filtros.municipio = e.target.value
+    filtros.municipio = +e.target.value
+    const municipioSeleccionado = municipios.find(municipio => municipio.id === filtros.municipio);
+    if(municipioSeleccionado){
+      const {lat, lng, zoom } = municipioSeleccionado;
+      mapa.setView([lat, lng], zoom);
+    } else {
+      mapa.setView([latIn, lngIn],4)
+    }
     filtrarPropiedades();
   })
 
@@ -71,7 +78,6 @@
       const url = 'api/estados'
       const respuesta = await fetch(url)
       estados = await respuesta.json()
-      console.log(estados)
     } catch {
       console.log(error)
     }
@@ -81,8 +87,7 @@
     try {
       const url = '/api/municipios'
       const respuesta = await fetch(url)
-      propiedades = await respuesta.json()
-      console.log(municipios)
+      municipios = await respuesta.json()
     } catch (error) {
       console.log(error)
     }
@@ -112,14 +117,14 @@
   }
 
   const filtrarPropiedades = () => {
-    const resultado = propiedades.filter( filtrarCategoria ).filter( filtrartipo ).filter( filtrarMunicipio ).filter( filtrarEstado )
+    const resultado = propiedades.filter( filtrarCategoria ).filter( filtrarTipo ).filter( filtrarMunicipio ).filter( filtrarEstado )
     mostrarPropiedades(resultado)
   }
 
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
-  const filtrartipo = propiedad => filtros.tipo ? propiedad.tipoId === filtros.tipo : propiedad
-  const filtrarMunicipio = propiedad => filtros.municipio ? propiedad.municipio === filtros.municipio : propiedad;
+  const filtrarTipo = propiedad => filtros.tipo ? propiedad.tipoId === filtros.tipo : propiedad
   const filtrarEstado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad;
+  const filtrarMunicipio = propiedad => filtros.municipio ? propiedad.municipioId === filtros.municipio : propiedad;
   obtenerPropiedades()
   obtenerEstados()
   obtenerMunicipios()

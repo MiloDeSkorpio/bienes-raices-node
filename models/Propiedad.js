@@ -17,7 +17,7 @@ const Propiedad = db.define('propiedades',{
     allowNull: false
   },
   habitaciones: {
-    type: DataTypes.DECIMAL(5,2),
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   estacionamiento: {
