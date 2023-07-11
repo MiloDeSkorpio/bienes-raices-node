@@ -1,7 +1,7 @@
-(function(){
-  const latIn =  21.110110000000077;
+(function () {
+  const latIn = 21.110110000000077;
   const lngIn = -101.67689999999999;
-  const mapa = L.map('mapa-inicio').setView([latIn, lngIn ], 4);
+  const mapa = L.map('mapa-inicio').setView([latIn, lngIn], 4);
 
   let markers = new L.FeatureGroup().addTo(mapa)
   //crear arreglos para guardar los datos de las apis
@@ -21,47 +21,59 @@
   const tipoSelect = document.querySelector('#tipoTr');
   const estadoSelect = document.querySelector('#estados');
   const municipioSelect = document.querySelector('#municipios');
-// Deshabilitar el select de municipio al cargar la página
+  // Deshabilitar el select de municipio al cargar la página
   municipioSelect.disabled = true;
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(mapa);
 
   //Filtrado de Categorias y tipos
-  categoriaSelect.addEventListener('change', e =>{
-    filtros.categoria = +e.target.value 
+  categoriaSelect.addEventListener('change', e => {
+    filtros.categoria = +e.target.value
     filtrarPropiedades();
   })
-  tipoSelect.addEventListener('change', e =>{
+  tipoSelect.addEventListener('change', e => {
     filtros.tipo = +e.target.value
     filtrarPropiedades();
   })
-  estadoSelect.addEventListener('change', e =>{
+  estadoSelect.addEventListener('change', e => {
     filtros.estado = +e.target.value
     municipioSelect.disabled = estadoSelect.value === '';
     const estadoSeleccionado = estados.find(estado => estado.id === filtros.estado);
+    // Filtrar los municipios según el estado seleccionado
+    const municipiosFiltrados = municipios.filter((municipio) => municipio.estadoId === estadoSeleccionado.id);
+    // Generar el HTML para las opciones del select de municipios
+    const municipiosHTML = municipiosFiltrados.map((municipio) => `<option value="${municipio.id}">${municipio.nombre}</option>`);
+    // Establecer las opciones del select de municipios
+    municipioSelect.innerHTML = `<option value="">- Seleccione -</option>${municipiosHTML.join('')}`;
+    // Habilitar el select de municipios
+    console.log(estadoSeleccionado)
+
+    console.log(municipiosFiltrados)
     if (estadoSeleccionado) {
       const { lat, lng, zoom } = estadoSeleccionado;
       mapa.setView([lat, lng], zoom);
     } else {
       mapa.setView([latIn, lngIn], 4);
     }
+
     filtrarPropiedades();
   })
-  municipioSelect.addEventListener('change', e =>{
+  municipioSelect.addEventListener('change', e => {
     filtros.municipio = +e.target.value
     const municipioSeleccionado = municipios.find(municipio => municipio.id === filtros.municipio);
-    if(municipioSeleccionado){
-      const {lat, lng, zoom } = municipioSeleccionado;
+    console.log(municipioSeleccionado)
+    if (municipioSeleccionado) {
+      const { lat, lng, zoom } = municipioSeleccionado;
       mapa.setView([lat, lng], zoom);
     } else {
-      mapa.setView([latIn, lngIn],4)
+      mapa.setView([latIn, lngIn], 4)
     }
     filtrarPropiedades();
   })
 
-//crear api propiedades
+  //crear api propiedades
   const obtenerPropiedades = async () => {
     try {
       const url = '/api/propiedades'
@@ -72,7 +84,7 @@
       console.log(error)
     }
   }
-//crear api estados
+  //crear api estados
   const obtenerEstados = async () => {
     try {
       const url = 'api/estados'
@@ -82,7 +94,7 @@
       console.log(error)
     }
   }
-//crear api municipios
+  //crear api municipios
   const obtenerMunicipios = async () => {
     try {
       const url = '/api/municipios'
@@ -101,15 +113,17 @@
     propiedades.forEach(propiedad => {
       //Agregar los Pines
       const marker = new L.marker([propiedad?.lat, propiedad?.lng], {
-        autoPan:true
+        autoPan: true
       })
-      .addTo(mapa)
-      .bindPopup(`
-        <p class="text-indigo-600 font-bold">${propiedad?.categoria.nombre}</p>
+        .addTo(mapa)
+        .bindPopup(`
+        <p class="text-dkgray-700 font-bold">${propiedad?.categoria.nombre}</p>
         <h1 class="text-xl font-extrabold uppercase my-2">${propiedad?.titulo}</h1>
-        <img src="/uploads/${propiedad?.imagen}" alt="Imagen de la Propiedad ${propiedad?.titulo}">
+        <div class="max-w-xs mx-auto">
+        <img src="/uploads/${propiedad?.imagen}" alt="Imagen de la Propiedad ${propiedad?.titulo}" class="w-full h-48 object-cover">
+        </div>
         <p class="text-gray-600 font-bold">${propiedad?.precio.nombre}</p>
-        <a href="/propiedad/${propiedad?.id}" class="bg-indigo-600 block p-2 text-center font-bold uppercase">Ver Propiedad</a>
+        <a href="/propiedad/${propiedad?.id}" class="bg-dkblue-600 block p-2 text-center text-white font-bold uppercase">Ver Propiedad</a>
         `)
 
       markers.addLayer(marker)
@@ -117,7 +131,7 @@
   }
 
   const filtrarPropiedades = () => {
-    const resultado = propiedades.filter( filtrarCategoria ).filter( filtrarTipo ).filter( filtrarMunicipio ).filter( filtrarEstado )
+    const resultado = propiedades.filter(filtrarCategoria).filter(filtrarTipo).filter(filtrarMunicipio).filter(filtrarEstado)
     mostrarPropiedades(resultado)
   }
 
