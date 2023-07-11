@@ -7,6 +7,7 @@
   //crear arreglos para guardar los datos de las apis
   let propiedades = [];
   let estados = [];
+  let municipios = [];
   //Filtros
   const filtros = {
     categoria: '',
@@ -75,6 +76,17 @@
       console.log(error)
     }
   }
+//crear api municipios
+  const obtenerMunicipios = async () => {
+    try {
+      const url = '/api/municipios'
+      const respuesta = await fetch(url)
+      propiedades = await respuesta.json()
+      console.log(municipios)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const mostrarPropiedades = propiedades => {
 
@@ -110,4 +122,5 @@
   const filtrarEstado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad;
   obtenerPropiedades()
   obtenerEstados()
+  obtenerMunicipios()
 })()
