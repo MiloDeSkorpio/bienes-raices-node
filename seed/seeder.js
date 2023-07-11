@@ -1,15 +1,15 @@
 import { exit } from 'node:process';
 import categorias from "./categorias.js";
 import precios from './precios.js';
+import tipotr from './tipotr.js';
 import roles from './roles.js';
 import usuarios from './usuarios.js';
 import estados from './estados.js';
-import tipotr from './tipotr.js';
+import municipios from './municipios.js';
 import propiedades from './propiedades.js';
 import db from "../config/db.js";
 //Importamos el modelo que se llenara
-import { Categoria, Precio, Roles, Usuario, Estado ,Tipotr, Propiedad,   } from '../models/index.js';
-
+import { Categoria, Precio,Tipotr, Roles, Usuario, Estado ,Municipio , Propiedad   } from '../models/index.js';
 const importarDatos = async () => {
   try {
     //Autenticar
@@ -22,10 +22,11 @@ const importarDatos = async () => {
     await Promise.all([
       Categoria.bulkCreate(categorias),
       Precio.bulkCreate(precios),
+      Tipotr.bulkCreate(tipotr),
       Roles.bulkCreate(roles),
       Usuario.bulkCreate(usuarios),
       Estado.bulkCreate(estados),
-      Tipotr.bulkCreate(tipotr),
+      Municipio.bulkCreate(municipios),
       Propiedad.bulkCreate(propiedades),
     ])
     console.log('Datos Importados Correctamente');

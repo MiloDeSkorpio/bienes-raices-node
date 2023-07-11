@@ -15,7 +15,7 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estadoId: 11,
-    municipio: 'Zumpango',
+    municipioId: 1,
     tipoId: 3
   },
   {
@@ -34,7 +34,7 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estadoId: 30,
-    municipio: 'Boca del Río',
+    municipioId: 2,
     tipoId: 1
   },
   {
@@ -53,7 +53,7 @@ const propiedades = [
     usuarioId: 1,
     verificado: 0,
     estadoId: 14,
-    municipio: 'Ixmiquilpan',
+    municipioId: 3,
     tipoId: 2
   },
   {
@@ -72,7 +72,7 @@ const propiedades = [
     usuarioId: 1,
     verificado: 1,
     estadoId: 22,
-    municipio: 'San Juan del Río',
+    municipioId: 4,
     tipoId: 1
   },
   {
@@ -91,7 +91,7 @@ const propiedades = [
     usuarioId: 1,
     verificado: 0,
     estadoId: 12,
-    municipio: 'León',
+    municipioId: 5,
     tipoId: 3
   },
   {
@@ -110,7 +110,7 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estadoId: 18,
-    municipio: 'San Blas',
+    municipioId: 6,
     tipoId: 2
   },
   {
@@ -129,7 +129,7 @@ const propiedades = [
     usuarioId: 2,
     verificado: 0,
     estadoId: 13,
-    municipio: 'Chilpancingo de los Bravo',
+    municipioId: 7,
     tipoId: 1
   },
   {
@@ -148,7 +148,7 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estadoId: 19,
-    municipio: 'Monterrey',
+    municipioId: 8,
     tipoId: 3
   },
   {
@@ -167,7 +167,7 @@ const propiedades = [
     usuarioId: 2,
     verificado: 0,
     estadoId: 28,
-    municipio: 'Nuevo Laredo',
+    municipioId: 9,
     tipoId: 2
   },
   {
@@ -186,7 +186,7 @@ const propiedades = [
     usuarioId: 2,
     verificado: 1,
     estadoId: 6,
-    municipio: 'Juárez',
+    municipioId: 10,
     tipoId: 1
   },
   {
@@ -205,7 +205,7 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estadoId: 29,
-    municipio: 'Huamantla',
+    municipioId: 11,
     tipoId: 3
   },
   {
@@ -224,7 +224,7 @@ const propiedades = [
     usuarioId: 3,
     verificado: 1,
     estadoId: 2,
-    municipio: 'Tijuana',
+    municipioId: 12,
     tipoId: 2
   },
   {
@@ -243,7 +243,7 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estadoId: 3,
-    municipio: 'La Paz',
+    municipioId: 13,
     tipoId: 1
   },
   {
@@ -262,7 +262,7 @@ const propiedades = [
     usuarioId: 3,
     verificado: 1,
     estadoId: 26,
-    municipio: 'San Luis Río Colorado',
+    municipioId: 14,
     tipoId: 3
   },
   {
@@ -281,7 +281,7 @@ const propiedades = [
     usuarioId: 3,
     verificado: 0,
     estadoId: 7,
-    municipio: 'Benito Juárez',
+    municipioId: 15,
     tipoId: 2
   },
   {
@@ -300,7 +300,7 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estadoId: 11,
-    municipio: 'Metepec',
+    municipioId: 16,
     tipoId: 1
   },
   {
@@ -319,7 +319,7 @@ const propiedades = [
     usuarioId: 4,
     verificado: 0,
     estadoId: 16,
-    municipio: 'Zitácuaro',
+    municipioId: 17,
     tipoId: 3
   },
   {
@@ -338,7 +338,7 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estadoId: 5,
-    municipio: 'Tuxtla Gutiérrez',
+    municipioId: 18,
     tipoId: 2
   },
   {
@@ -357,7 +357,7 @@ const propiedades = [
     usuarioId: 4,
     verificado: 0,
     estadoId: 31,
-    municipio: 'Mérida',
+    municipioId: 19,
     tipoId: 1
   },
   {
@@ -376,7 +376,7 @@ const propiedades = [
     usuarioId: 4,
     verificado: 1,
     estadoId: 25,
-    municipio: 'Mazatlán',
+    municipioId: 20,
     tipoId: 3
   },
 ]

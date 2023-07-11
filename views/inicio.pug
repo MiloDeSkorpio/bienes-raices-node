@@ -39,8 +39,8 @@ block contenido
         label(for="municipios" class="text-sm w-24 uppercase text-gray-500 font-bold") Municipios
         select(id="municipios" class="flex-1 bg-white w-full px-3 py-2 border border-gray-300 rounded-md shadow" disabled) 
           option(value="") - Seleccione -
-          each municipio in municipiosUnicos.sort()
-            option(value=municipio)= municipio
+          each municipio in municipios
+            option(value=municipio.id)= municipio.nombre
 
     h1(class="text-center text-2xl font-bold mt-4") Ubicación en el Mapa
     div(class="flex felx-col md:flex-row items-center py-4 gap-4")
