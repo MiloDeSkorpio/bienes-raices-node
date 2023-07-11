@@ -4,11 +4,11 @@ import precios from './precios.js';
 import roles from './roles.js';
 import usuarios from './usuarios.js';
 import estados from './estados.js';
-import propiedades from './propiedades.js';
 import tipotr from './tipotr.js';
+import propiedades from './propiedades.js';
 import db from "../config/db.js";
 //Importamos el modelo que se llenara
-import { Categoria, Precio, Roles, Usuario, Estado , Propiedad, Tipotr,  } from '../models/index.js';
+import { Categoria, Precio, Roles, Usuario, Estado ,Tipotr, Propiedad,   } from '../models/index.js';
 
 const importarDatos = async () => {
   try {
@@ -25,8 +25,8 @@ const importarDatos = async () => {
       Roles.bulkCreate(roles),
       Usuario.bulkCreate(usuarios),
       Estado.bulkCreate(estados),
-      Propiedad.bulkCreate(propiedades),
       Tipotr.bulkCreate(tipotr),
+      Propiedad.bulkCreate(propiedades),
     ])
     console.log('Datos Importados Correctamente');
     exit() // 1 error - 0 se realizo bien

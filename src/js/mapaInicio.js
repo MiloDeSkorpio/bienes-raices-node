@@ -4,6 +4,7 @@
   const mapa = L.map('mapa-inicio').setView([latIn, lngIn ], 4);
 
   let markers = new L.FeatureGroup().addTo(mapa)
+  //crear arreglos para guardar los datos de las apis
   let propiedades = [];
   let estados = [];
   //Filtros
@@ -52,7 +53,7 @@
     filtrarPropiedades();
   })
 
-
+//crear api propiedades
   const obtenerPropiedades = async () => {
     try {
       const url = '/api/propiedades'
@@ -63,6 +64,7 @@
       console.log(error)
     }
   }
+//crear api estados
   const obtenerEstados = async () => {
     try {
       const url = 'api/estados'
