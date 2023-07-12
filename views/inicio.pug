@@ -2,6 +2,8 @@ extends ./layout/index
 
 block styles
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 block contenido 
   div(class="py-1")
     - var value = 0
@@ -50,9 +52,20 @@ block contenido
     section(class="py-5")
       h2(class="text-center text-4xl font-extrabold pt-10") Propiedades Verificadas 
 
-      div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
-        each propiedad in casas 
-          include ./templates/card
+      div(class="swiper-container grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
+        div(class="swiper-wrapper")
+          each propiedad in casas 
+            div(class="swiper-slide flex justify-center items-center")
+              include ./templates/card
+
+
+    script.
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+          // Otras opciones de configuración de SwiperJS
+      });
+
     
 
 
