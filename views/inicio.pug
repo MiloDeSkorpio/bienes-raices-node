@@ -50,13 +50,13 @@ block contenido
     div(id="mapa-inicio" class="h-[600px]")
 
     section(class="py-5")
-      h2(class="text-center text-4xl font-extrabold pt-10") Propiedades Verificadas 
+    h2(class="text-center text-4xl font-extrabold pt-10") Propiedades Verificadas 
 
-      div(class="swiper-container grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
-        div(class="swiper-wrapper")
-          each propiedad in casas 
-            div(class="swiper-slide flex justify-center items-center")
-              include ./templates/card
+    div(class="swiper-container grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
+      div(class="swiper-wrapper")
+        each propiedad in casas 
+          div(class="swiper-slide flex justify-center items-center")
+            include ./templates/card
 
 
     script.
