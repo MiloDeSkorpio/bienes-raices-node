@@ -8,7 +8,7 @@ const inicio = async (req, res) => {
     Estado.findAll({ raw: true }),  
     Precio.findAll({ raw: true }),
     Propiedad.findAll({
-      limit: 5,
+      limit: 10,
       where: {
         verificado: 1
       },

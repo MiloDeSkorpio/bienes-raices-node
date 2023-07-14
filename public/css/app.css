@@ -650,9 +650,6 @@ video {
 .justify-between {
   justify-content: space-between;
 }
-.justify-items-center {
-  justify-items: center;
-}
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1002,6 +999,17 @@ video {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
+@import '~swiper/swiper-bundle.css';
+
+.swiper-container {
+  position: relative;
+  z-index: 1;
+}
+#mapa-inicio {
+  position: relative;
+  z-index: 0;
+}
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -1156,4 +1164,3 @@ video {
     flex-direction: row;
   }
 }
-

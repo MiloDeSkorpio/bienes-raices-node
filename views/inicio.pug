@@ -47,24 +47,39 @@ block contenido
     div(class="flex felx-col md:flex-row items-center py-4 gap-4")
     
 
-    div(id="mapa-inicio" class="h-[600px]")
+  div(id="mapa-inicio" class="h-[600px] relative")
+    // Contenido del mapa
 
-    section(class="py-5")
-    h2(class="text-center text-4xl font-extrabold pt-10") Propiedades Verificadas 
+  div(class="swiper-container grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
+    div(class="swiper-wrapper")
+      each propiedad in casas 
+        div(class="swiper-slide flex justify-center items-center")
+          include ./templates/card
+    div(class="swiper-button-prev")
+    div(class="swiper-button-next")
+    div(class="swiper-pagination")
 
-    div(class="swiper-container grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
-      div(class="swiper-wrapper")
-        each propiedad in casas 
-          div(class="swiper-slide flex justify-center items-center")
-            include ./templates/card
+
+  script.
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      // Otras opciones de configuración de SwiperJS
+    });
 
 
-    script.
-      var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-          // Otras opciones de configuración de SwiperJS
-      });
+
+
+
+
 
     
 
