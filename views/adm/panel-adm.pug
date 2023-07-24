@@ -1,16 +1,13 @@
 extends ../layout/admin
 
-
 block contenido
-  h1(class='text-4xl font-extrabold text-center') Administracion
-  div(class="bg-indigo-700 py-5 hidden lg:block")
-    div(class="container mx-auto flex justify-between")
-      nav(class="flex gap-4 px-10 items-center")
-        a(href="/adm/crear-categoria" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Categorias
-        a(href="/adm/crear-precio" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Precios
-        a(href="#" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Etc
-        a(href="#" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Etc
-        a(href="#" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Etc
+  h1(class='text-4xl font-semibold text-center') Ajustes
+  div(class="bg-dkblue-800 py-5 mt-2 lg:block")
+    div(class="container mx-auto justify-between")
+      nav(class="flex flex-col gap-4 px-10 items-center")
+        a(href="/adm/crear-categoria" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Cuenta
+        a(href="/adm/crear-precio" class="text-sm font-bold uppercase text-white hover:font-extrabold px-5") Privacidad
+
 
 
 

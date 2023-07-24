@@ -1,9 +1,10 @@
-extends ../layout/index
+extends ../layout/login
 
 block contenido 
-  div(class="py-7")
-    div(class="max-w-[300px]")
-     
+  div(class="py-7 ")
+    div(class=" flex justify-center")
+      a(href="/")
+        img(src='/img/logo_p360.png' alt='Logo' class="h-[50px]")
     h2(class="text-center text-2xl font-bold")= pagina
 
     if errores
@@ -31,10 +32,10 @@ block contenido
           div(class='flex items-center justify-center py-4 px-4')
             div(class="px-2")
               a(href='/auth/google')
-                img(src="/img/google.svg", alt="IconGoogle")
+                img(src="/img/google.svg" alt="IconGoogle")
             div(class="px-2")
               a(href='#')
-                img(src="/img/facebook.svg", alt="IconFacebook")
+                img(src="/img/facebook.svg" alt="IconFacebook")
             div(class="px-2") 
               a(href='#')
-                img(src="/img/apple.svg", alt="IconApple")
+                img(src="/img/apple.svg" alt="IconApple")

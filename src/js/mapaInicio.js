@@ -15,7 +15,28 @@
     estado: '',
     municipio: ''
   }
-
+  //hide&show filtros
+  const btnDown = document.querySelector('#iconDown')
+  const btnUp = document.querySelector('#iconUp')
+  const filters = document.querySelector('#selects')
+  
+    btnDown.addEventListener('click' , function () {
+      btnDown.classList.add('hidden')
+      btnUp.classList.remove('hidden')
+      filters.classList.remove('hidden')
+    });
+    
+    btnDown.addEventListener('click' , function () {
+      btnDown.classList.add('hidden')
+      btnUp.classList.remove('hidden')
+      filters.classList.remove('hidden')
+    });
+    btnUp.addEventListener('click' , function () {
+      btnUp.classList.add('hidden')
+      btnDown.classList.remove('hidden')
+      filters.classList.add('hidden')
+    });
+    
   //Obtener las referencias
   const categoriaSelect = document.querySelector('#categorias');
   const tipoSelect = document.querySelector('#tipoTr');

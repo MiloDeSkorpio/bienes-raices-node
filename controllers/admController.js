@@ -4,8 +4,7 @@ import { validationResult } from 'express-validator';
 
 const panelAdmin = (req, res) => {
   res.render('adm/panel-adm', {
-    pagina: 'Administracion'
-    
+    pagina: 'Ajustes'
   });
 }
 // Categorias
