@@ -69,13 +69,19 @@ const guardarPrecio = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-
+}
+const miPerfil = async (req,res) => {
+  res.render('adm/mi-perfil', {
+    pagina: 'Mi Perfil',
+    csrfToken: req.csrfToken(),
+  });
 }
 export {
   panelAdmin,
   crearCategoria,
   guardarCategoria,
   crearPrecio,
-  guardarPrecio
-  
+  guardarPrecio,
+  miPerfil
+
 }

@@ -1,6 +1,6 @@
 import express from 'express';
 import { body } from 'express-validator';
-import { panelAdmin, crearCategoria, guardarCategoria, crearPrecio, guardarPrecio } from '../controllers/admController.js'
+import { panelAdmin, crearCategoria, guardarCategoria, crearPrecio, guardarPrecio, miPerfil } from '../controllers/admController.js'
 import protegerRuta from "../middleware/protegerRuta.js";
 
 const router = express.Router();
@@ -27,5 +27,8 @@ router.post('/crear-precio',
   body('nombre').notEmpty().withMessage('El Rango de Precio es Obligatorio'),
   guardarPrecio
 )
+router.get('/mi-perfil',
+  protegerRuta,
+  miPerfil )
 
 export default router
