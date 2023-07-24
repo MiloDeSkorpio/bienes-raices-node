@@ -24,8 +24,6 @@ const inicio = async (req, res) => {
     }),
   ]);
 
-
-
   res.render('inicio', {
     pagina: 'Inicio',
     categorias,
@@ -117,11 +115,36 @@ const favoritos = async (req, res) => {
     csrfToken: req.csrfToken()
   })
 }
+const verificadas = async (req, res) => {
+  const [casas] = await Promise.all([
+    Propiedad.findAll({
+      limit: 10,
+      where: {
+        verificado: 1
+      },
+      include: [
+        {
+          model: Precio,
+          as: 'precio'
+        }
+      ],
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    }),
+  ])
+  res.render('verificadas', {
+    pagina: 'Propiedades Verificadas',
+    casas,
+    csrfToken: req.csrfToken()
+  })
+}
 export {
   inicio,
   categoria,
   noEncontrado,
   buscador,
   contacto,
-  favoritos
+  favoritos,
+  verificadas
 }

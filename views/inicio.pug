@@ -7,34 +7,12 @@ block styles
 block contenido 
   div(class="py-1")
 
-  
     include ./templates/filtros
     h1(class="text-center text-2xl font-bold mt-4") Ubicación en el Mapa
     div(id="mapa-inicio" class="h-[400px] lg:h-[600px] relative")
       // Contenido del mapa
 
-    div(class="swiper-container")
-      h2(class="text-center text-3xl font-bold pt-5 mb-2") Propiedades Verificadas 
-      div(class="swiper-wrapper")
-        each propiedad in casas 
-          div(class="swiper-slide flex justify-center items-center mb-4")
-            include ./templates/card
-      div(class="swiper-pagination ")
-
-  script.
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-      },
-      // Otras opciones de configuración de SwiperJS
-    });
+    
 
 
 

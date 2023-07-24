@@ -1,5 +1,5 @@
 import  express  from "express";
-import { inicio, categoria, noEncontrado, buscador, contacto, favoritos } from '../controllers/appController.js'
+import { inicio, categoria, noEncontrado, buscador, contacto, favoritos, verificadas } from '../controllers/appController.js'
 
 const router = express.Router();
 
@@ -19,5 +19,8 @@ router.post('/buscador', buscador)
 router.get('/contacto',contacto)
 
 //favoritos
-router.get('/favoritos', favoritos  )
+router.get('/favoritos', favoritos)
+
+//verificados
+router.get('/verificadas',verificadas)
 export default router;

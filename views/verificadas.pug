@@ -1,0 +1,28 @@
+extends ./layout/app
+block styles 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+block contenido 
+  section(class="py-5")
+    h2(class="text-center text-4xl font-extrabold pt-10")= pagina
+    div(class="swiper-container")
+      div(class="swiper-wrapper")
+        each propiedad in casas 
+          div(class="swiper-slide flex justify-center items-center mb-4")
+            include ./templates/card
+      div(class="swiper-pagination ")
+
+  script.
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+      },
+      // Otras opciones de configuración de SwiperJS
+    });
