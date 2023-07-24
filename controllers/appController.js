@@ -107,7 +107,7 @@ const buscador = async (req, res) => {
 
 const contacto = async (req, res) => {
   res.render('contacto', {
-    pagina: 'Contacto',
+    pagina: 'Contáctanos',
     csrfToken: req.csrfToken()
   })
 }
