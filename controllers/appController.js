@@ -111,10 +111,17 @@ const contacto = async (req, res) => {
     csrfToken: req.csrfToken()
   })
 }
+const favoritos = async (req, res) => {
+  res.render('favoritos', {
+    pagina: 'Mis Favoritos',
+    csrfToken: req.csrfToken()
+  })
+}
 export {
   inicio,
   categoria,
   noEncontrado,
   buscador,
-  contacto
+  contacto,
+  favoritos
 }
