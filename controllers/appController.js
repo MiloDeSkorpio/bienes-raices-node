@@ -105,9 +105,16 @@ const buscador = async (req, res) => {
   })
 }
 
+const contacto = async (req, res) => {
+  res.render('contacto', {
+    pagina: 'Contacto',
+    csrfToken: req.csrfToken()
+  })
+}
 export {
   inicio,
   categoria,
   noEncontrado,
-  buscador
+  buscador,
+  contacto
 }
