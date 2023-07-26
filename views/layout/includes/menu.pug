@@ -1,5 +1,17 @@
-div(class="hidden" id="menu")
-  div(class="flex justify-between w-full my-3 bg-dkblue-800")
-    div(class="")
-      a(href="/") 
-        img(src="/img/exit.svg" alt="home" class="cursor-pointer")
+div.p-4.container.max-h-28.shadow-md.bg-white.sticky.bottom-0.z-50.flex.flex-col.bottom-bar
+  div.flex.justify-between.border-t-2
+    div
+      a(href="/")
+        img(src="/img/home.svg" alt="home" class="cursor-pointer")
+    div
+      a(href="adm/mi-perfil")
+        img(src="/img/user.svg" alt="perfil" class="cursor-pointer")
+    div
+      a(href="/contacto")
+        img(src="/img/contact.svg" alt="contacto" class="cursor-pointer")
+    div
+      a(href="/favoritos")
+        img(src="/img/heart.svg" alt="cuenta" class="cursor-pointer")
+    div
+      a(href="/verificadas")
+        img(src="/img/verified.svg")
