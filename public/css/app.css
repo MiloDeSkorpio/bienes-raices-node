@@ -591,6 +591,9 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
+.mt-3 {
+  margin-top: 0.75rem;
+}
 .block {
   display: block;
 }
@@ -663,6 +666,12 @@ video {
 }
 .h-14 {
   height: 3.5rem;
+}
+.h-2 {
+  height: 0.5rem;
+}
+.h-3 {
+  height: 0.75rem;
 }
 .max-h-28 {
   max-height: 7rem;
@@ -762,6 +771,9 @@ video {
 .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-divide-opacity));
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 .truncate {
   overflow: hidden;

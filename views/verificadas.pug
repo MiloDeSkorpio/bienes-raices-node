@@ -3,20 +3,20 @@ block styles
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 block contenido 
-  section(class="py-5")
+  section(class="py-5 overflow-x-hidden")
     h2(class="text-center jus text-3xl font-bold mb-5" )= pagina
     div(class="swiper-container")
       div(class="swiper-wrapper")
         each propiedad in casas 
           div(class="swiper-slide flex justify-center items-center mb-4")
             include ./templates/card
-      div(class="swiper-pagination")
+      div(class="swiper-pagination h-3")
 
 
   script.
     var swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
-      spaceBetween: 30,
+      spaceBetween: 5,
       loop: true,
       autoplay: {
         delay: 5000,
