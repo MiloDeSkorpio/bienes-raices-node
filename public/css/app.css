@@ -845,6 +845,22 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(131 183 226 / var(--tw-bg-opacity));
 }
+.bg-dkgray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(133 160 173 / var(--tw-bg-opacity));
+}
+.bg-dkgray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(163 184 194 / var(--tw-bg-opacity));
+}
+.bg-dkgray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(194 207 214 / var(--tw-bg-opacity));
+}
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
