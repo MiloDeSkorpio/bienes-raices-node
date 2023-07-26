@@ -9,11 +9,11 @@ html(lang="es")
     link(rel="icon", type="image/png", href="/img/icop.png")
     link(rel="stylesheet", href="/css/app.css")
   body.min-h-screen.bg-gray-50
-    include includes/header-app
+  include includes/header-app
 
     main(class="mx-auto container mt-5 px-2")
       block contenido 
-    include ./includes/menu
+  include ./includes/menu
   block scripts
     script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
     script(src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js")
