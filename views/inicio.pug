@@ -4,14 +4,14 @@ block styles
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 block contenido 
   div(class="py-5 overflow-x-hidden z-0")
-    h2(class="text-center text-2xl font-semibold mb-5" ) Verificadas Recientemente
+    h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900" ) Verificadas Recientemente
     div(class="swiper-container")
       div(class="swiper-wrapper")
         each propiedad in casas 
           div(class="swiper-slide flex justify-center items-center mb-4")
             include ./templates/card
       div(class="swiper-pagination h-3")
-    h2(class="text-center text-2xl font-semibold mb-5") Agregadas Recientemente
+    h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900") Agregadas Recientemente
     div(class="swiper-container")
       div(class="swiper-wrapper")
         each propiedad in recientes 
