@@ -1,4 +1,3 @@
-import { Sequelize } from 'sequelize';
 import { Precio, Categoria, Propiedad, Tipotr, Estado} from '../models/index.js'
 
 const inicio = async (req, res) => {
@@ -102,7 +101,7 @@ const buscador = async (req, res) => {
   })
 }
 
-const contacto = async (req, res) => {
+const ajustes = async (req, res) => {
   res.render('ajustes', {
     pagina: 'Ajustes',
     csrfToken: req.csrfToken()
@@ -143,7 +142,7 @@ export {
   categoria,
   noEncontrado,
   buscador,
-  contacto,
+  ajustes,
   favoritos,
   verificadas
 }
