@@ -1,23 +1,19 @@
+// Obtener el enlace del footer actual basado en la ruta de la página
+function getCurrentFooterLink() {
+  const path = window.location.pathname;
+  if (path === "/") return document.getElementById("home-link");
+  if (path === "/buscador") return document.getElementById("buscador-link");
+  if (path === "/favoritos") return document.getElementById("favoritos-link");
+  if (path === "/verificadas") return document.getElementById("verificadas-link");
+  if (path === "/ajustes") return document.getElementById("ajustes-link");
+}
 
-// const btnMenu = document.querySelector('.btnMenu');
-// const menu = document.querySelector('#menu')
-// const btnClose = document.querySelector("#clearMenu")
-//     btnMenu.addEventListener('click', function () {
-//         btnMenu.classList.add("hidden")
-//         btnClose.classList.remove("hidden")
-//         btnClose.classList.add("flex")
-//         menu.classList.remove("hidden")
-//         menu.classList.add('flex')     
-//       });
-//       btnClose.addEventListener('click', function () {
-//         btnMenu.classList.remove("hidden")
-//         btnMenu.classList.add("flex")
-//         btnClose.classList.add("hidden")
-//         btnClose.classList.remove("flex")
-//         menu.classList.remove('flex')     
-//         menu.classList.add("hidden")
-//     });
+// Agregar la clase 'active' al enlace del footer actual
+function setActiveFooterLink() {
+  const currentFooterLink = getCurrentFooterLink();
+  if (currentFooterLink) {
+    currentFooterLink.classList.add("active");
+  }
+}
 
-
-
-
+setActiveFooterLink();
