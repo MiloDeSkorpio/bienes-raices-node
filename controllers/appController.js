@@ -69,49 +69,48 @@ const noEncontrado = (req, res) => {
 }
 
 const buscador = async (req, res) => {
-  const { termino } = req.body
-
-  //Validar que el termino no este vacio
-  if(!termino.trim()){
-    return res.redirect('back')
-  }
-
-  // Consultar las propiedades
-  const propiedades = await Propiedad.findAll({
-    where: {
-      [Sequelize.Op.or]: [
+  const [categorias,tipos, estados, precios, casas ] = await Promise.all([
+    Categoria.findAll({ raw: true }),
+    Tipotr.findAll({ raw: true }),  
+    Estado.findAll({ raw: true }),  
+    Precio.findAll({ raw: true }),
+    Propiedad.findAll({
+      limit: 10,
+      where: {
+        verificado: 1
+      },
+      include: [
         {
-          titulo: {
-            [Sequelize.Op.like]: '%' + termino + '%'
-          }
-        },
-        {
-          calle: {
-            [Sequelize.Op.like]: '%' + termino + '%'
-          }
+          model: Precio,
+          as: 'precio'
         }
+      ],
+      order: [
+        ['createdAt', 'DESC']
       ]
-    },
-    include: [
-      { model: Precio, as: 'precio' }
-    ]
-  })
-  res.render('busqueda',{
-    pagina: 'Resultados de la Busqueda',
-    propiedades,
+    }),
+  ]);
+
+  res.render('buscador',{
+    pagina: 'Buscador',
+    categorias,
+    tipos,
+    estados,
+    precios,
+    casas,
     csrfToken: req.csrfToken()
   })
 }
 
 const contacto = async (req, res) => {
-  res.render('contacto', {
-    pagina: 'Contáctanos',
+  res.render('ajustes', {
+    pagina: 'Ajustes',
     csrfToken: req.csrfToken()
   })
 }
 const favoritos = async (req, res) => {
   res.render('favoritos', {
-    pagina: 'Mis Favoritos',
+    pagina: 'Favoritos',
     csrfToken: req.csrfToken()
   })
 }
@@ -134,7 +133,7 @@ const verificadas = async (req, res) => {
     }),
   ])
   res.render('verificadas', {
-    pagina: 'Propiedades Verificadas',
+    pagina: 'Verificadas',
     casas,
     csrfToken: req.csrfToken()
   })

@@ -521,14 +521,14 @@ video {
 .sticky {
   position: sticky;
 }
-.top-0 {
-  top: 0px;
-}
 .bottom-0 {
   bottom: 0px;
 }
 .left-0 {
   left: 0px;
+}
+.top-0 {
+  top: 0px;
 }
 .z-0 {
   z-index: 0;
@@ -546,10 +546,6 @@ video {
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
 }
 .my-5 {
   margin-top: 1.25rem;
@@ -591,9 +587,6 @@ video {
 .mt-8 {
   margin-top: 2rem;
 }
-.mt-3 {
-  margin-top: 0.75rem;
-}
 .block {
   display: block;
 }
@@ -615,6 +608,9 @@ video {
 .h-12 {
   height: 3rem;
 }
+.h-3 {
+  height: 0.75rem;
+}
 .h-6 {
   height: 1.5rem;
 }
@@ -624,11 +620,14 @@ video {
 .h-96 {
   height: 24rem;
 }
-.h-\[400px\] {
-  height: 400px;
+.h-\[40px\] {
+  height: 40px;
 }
 .h-\[50px\] {
   height: 50px;
+}
+.h-\[525px\] {
+  height: 525px;
 }
 .h-auto {
   height: auto;
@@ -636,57 +635,8 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-\[40px\] {
-  height: 40px;
-}
-.h-3\/4 {
-  height: 75%;
-}
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
-}
-.h-\[600px\] {
-  height: 600px;
-}
-.h-\[450px\] {
-  height: 450px;
-}
-.h-\[50s0px\] {
-  height: 50s0px;
-}
-.h-\[500px\] {
-  height: 500px;
-}
-.h-\[550px\] {
-  height: 550px;
-}
-.h-\[525px\] {
-  height: 525px;
-}
-.h-14 {
-  height: 3.5rem;
-}
-.h-2 {
-  height: 0.5rem;
-}
-.h-3 {
-  height: 0.75rem;
-}
-.max-h-28 {
-  max-height: 7rem;
-}
-.max-h-20 {
-  max-height: 5rem;
-}
 .max-h-10 {
   max-height: 2.5rem;
-}
-.max-h-14 {
-  max-height: 3.5rem;
-}
-.max-h-full {
-  max-height: 100%;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -804,9 +754,6 @@ video {
 .border-t {
   border-top-width: 1px;
 }
-.border-t-2 {
-  border-top-width: 2px;
-}
 .border-dashed {
   border-style: dashed;
 }
@@ -830,6 +777,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
+.bg-dkblue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 183 226 / var(--tw-bg-opacity));
+}
 .bg-dkblue-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 68 103 / var(--tw-bg-opacity));
@@ -838,9 +789,13 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(18 50 77 / var(--tw-bg-opacity));
 }
-.bg-gray-50 {
+.bg-dkgray-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  background-color: rgb(194 207 214 / var(--tw-bg-opacity));
+}
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 .bg-green-100 {
   --tw-bg-opacity: 1;
@@ -890,29 +845,21 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
-.bg-dkblue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(131 183 226 / var(--tw-bg-opacity));
-}
 .bg-dkgray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(133 160 173 / var(--tw-bg-opacity));
 }
-.bg-dkgray-200 {
+.bg-dkgray-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(163 184 194 / var(--tw-bg-opacity));
+  background-color: rgb(108 140 156 / var(--tw-bg-opacity));
 }
-.bg-dkgray-100 {
+.bg-dkgray-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(194 207 214 / var(--tw-bg-opacity));
+  background-color: rgb(92 122 138 / var(--tw-bg-opacity));
 }
-.bg-gray-100 {
+.bg-dkgray-600 {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-.bg-dkgray-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(41 54 61 / var(--tw-bg-opacity));
+  background-color: rgb(180 117 246 / var(--tw-bg-opacity));
 }
 .object-cover {
   -o-object-fit: cover;
@@ -930,8 +877,9 @@ video {
 .p-6 {
   padding: 1.5rem;
 }
-.p-1 {
-  padding: 0.25rem;
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -988,10 +936,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 .pt-10 {
   padding-top: 2.5rem;
@@ -1310,12 +1254,12 @@ video {
     display: block;
   }
 
-  .lg\:h-\[600px\] {
-    height: 600px;
-  }
-
   .lg\:h-24 {
     height: 6rem;
+  }
+
+  .lg\:h-\[600px\] {
+    height: 600px;
   }
 
   .lg\:w-4\/6 {

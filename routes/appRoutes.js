@@ -13,7 +13,7 @@ router.get('/categorias/:id', categoria)
 router.get('/404', noEncontrado)
 
 // Buscador
-router.post('/buscador', buscador)
+router.get('/buscador', buscador)
 
 //contacto
 router.get('/contacto',contacto)
