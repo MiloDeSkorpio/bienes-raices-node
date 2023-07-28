@@ -1,7 +1,7 @@
 import { Precio, Categoria, Propiedad, Tipotr, Estado} from '../models/index.js'
 
 const inicio = async (req, res) => {
-  const [categorias,tipos, estados, precios, casas ] = await Promise.all([
+  const [categorias,tipos, estados, precios, casas, recientes ] = await Promise.all([
     Categoria.findAll({ raw: true }),
     Tipotr.findAll({ raw: true }),  
     Estado.findAll({ raw: true }),  
@@ -10,6 +10,21 @@ const inicio = async (req, res) => {
       limit: 10,
       where: {
         verificado: 1
+      },
+      include: [
+        {
+          model: Precio,
+          as: 'precio'
+        }
+      ],
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    }),
+    Propiedad.findAll({
+      limit: 10,
+      where: {
+        publicado: 1
       },
       include: [
         {
@@ -30,6 +45,7 @@ const inicio = async (req, res) => {
     estados,
     precios,
     casas,
+    recientes,
     csrfToken: req.csrfToken()
   });
 };
