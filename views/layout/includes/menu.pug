@@ -7,14 +7,14 @@ footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-1
       a(href="/buscador" )
         img(src="/img/location.svg"  id="buscador-link" alt="search" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
     div
+      a(href="/propiedades/crear")
+        img(src="/img/add.svg" id="ajustes-link" alt="add" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
+    div
       a(href="/favoritos" )
         img(src="/img/heart.svg" id="favoritos-link" alt="favs" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
     div
-      a(href="/verificadas")
-        img(src="/img/verified.svg" id="verificadas-link" alt="verified" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
-    div
-      a(href="/ajustes")
-        img(src="/img/settings.svg" id="ajustes-link" alt="settings" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
+      a(href="/mis-propiedades")
+        img(src="/img/user.svg" id="verificadas-link" alt="user" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
 script.
   // Obtener el enlace del footer actual basado en la ruta de la página
   function getCurrentFooterLink() {
