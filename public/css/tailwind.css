@@ -17,9 +17,7 @@
   /* Efecto de escala al hacer hover */
   transition-property: transform;
   transition-duration: 0.3s;
-  transform: scale(1.1);
-  background-color: #8b8f92;
-  border-radius: 0.25rem;
+
 }
 
 
