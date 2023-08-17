@@ -39,9 +39,6 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-
-
-
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -55,6 +52,8 @@ function(req, accessToken, refreshToken, profile, cb) {
       nombre: profile.displayName,
       email: profile.emails[0].value,
       password: 'google-' + profile.id,
+      confirmado: 1,
+      rolId: 3,
       googleAccessToken: accessToken,
       googleRefreshToken: refreshToken 
     }
@@ -66,15 +65,12 @@ function(req, accessToken, refreshToken, profile, cb) {
 }
 ));
 
-
-
-
 router.get('/google', passport.authenticate('google'));
 
 // Manejador de redireccionamiento de autenticación de Google
 router.get('/google/callback', 
   passport.authenticate('google', {
-    successRedirect: '/', 
+    successRedirect: '/mis-propiedades', 
     failureRedirect: '/login' 
 }));
 

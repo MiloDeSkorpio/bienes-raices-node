@@ -61,7 +61,7 @@ const autenticar = async (req,res) => {
     // secure: true,
     // sameSite: true
   }).redirect('/mis-propiedades');
-}
+} // fin autenticar
 
 const cerrarSesion = (req,res) => {
   return res.clearCookie('_token').status(200).redirect('/auth/login')
@@ -239,7 +239,6 @@ const nuevoPassword = async (req,res) => {
       pagina: 'Restablece tu Password',
       csrfToken: req.csrfToken(),
       errores: resultado.array(),
-
     });
   }
   const {token } =req.params;
@@ -258,30 +257,7 @@ const nuevoPassword = async (req,res) => {
     mensaje: 'El password se guardo correctamente'
   })
 }
-const createOrUpdateUserWithExternalAccount = async (externalData, usuarioData) => {
-  try {
-    const [usuario, created] = await Usuario.findOrCreate({
-      where: { googleId: externalData.sub },
-      defaults: {
-        nombre: usuarioData.nombre,
-        email: usuarioData.email,
-        password: usuarioData.password,
-        googleId: externalData.sub
-      }
-    });
 
-    if (!created) {
-      usuario.nombre = usuarioData.nombre;
-      usuario.email = usuarioData.email;
-      usuario.password = usuarioData.password;
-      await usuario.save();
-    }
-
-    return usuario;
-  } catch (error) {
-    throw new Error(`Error al crear o actualizar usuario: ${error.message}`);
-  }
-};
 
 export {
   formularioLogin,
@@ -294,5 +270,5 @@ export {
   resetPassword,
   comprobarToken,
   nuevoPassword,
-  createOrUpdateUserWithExternalAccount
+
 }
