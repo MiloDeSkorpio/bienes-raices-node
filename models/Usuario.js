@@ -21,7 +21,8 @@ const Usuario = db.define('usuarios',{
     type: DataTypes.STRING,
     unique: true,
     allowNull: true
-  }
+  },
+  rolId: DataTypes.INTEGER,
 }, {
   hooks: {
     beforeCreate: async function(usuario){

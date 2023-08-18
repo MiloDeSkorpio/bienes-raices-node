@@ -57,6 +57,7 @@ function(req, accessToken, refreshToken, profile, cb) {
       googleAccessToken: accessToken,
       googleRefreshToken: refreshToken 
     }
+    
   }).then(([usuario, created]) => {
     return cb(null, usuario);
   }).catch(err => {
