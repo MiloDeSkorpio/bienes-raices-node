@@ -22,6 +22,11 @@ const Usuario = db.define('usuarios',{
     unique: true,
     allowNull: true
   },
+  facebookId: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: true
+  },
   rolId: DataTypes.INTEGER,
 }, {
   hooks: {

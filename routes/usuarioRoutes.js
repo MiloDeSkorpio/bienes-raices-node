@@ -3,6 +3,7 @@ import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOl
 import Usuario from '../models/Usuario.js';
 import passport from 'passport';
 import GoogleStrategy  from 'passport-google-oauth20';
+import FacebookStrategy from 'passport-facebook'
 
 const router = express.Router();
 
@@ -52,7 +53,6 @@ function(req, accessToken, refreshToken, profile, cb) {
       nombre: profile.displayName,
       email: profile.emails[0].value,
       password: 'google-' + profile.id,
-      confirmado: 1,
       rolId: 3,
       googleAccessToken: accessToken,
       googleRefreshToken: refreshToken 
@@ -75,5 +75,38 @@ router.get('/google/callback',
     failureRedirect: '/login' 
 }));
 
+//Login with FB
+passport.use(new FacebookStrategy({
+  clientID: process.env.FACEBOOK_APP_ID,
+  clientSecret: process.env.FACEBOOK_APP_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+  scope: ['profile', 'email'] 
+},
+function(accessToken, refreshToken, profile, cb) {
+  console.log(profile)
+  Usuario.findOrCreate({ 
+    where: {facebookId: profile.id},
+    defaults: {
+      nombre: profile.displayName,
+      // email: profile.emails[0].value,
+      password: 'facebook-' + profile.id,
+      rolId: 3,
+    }
+  }).then(([usuario, created]) => {
+    return cb(null, usuario);
+  }).catch(err => {
+    return cb(err);
+  });
+}
+));
+router.get('/facebook',
+  passport.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/mis-propiedades');
+  });
 
 export default router;
