@@ -46,7 +46,7 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
   scope: ['profile', 'email'] 
 },
-function(req, accessToken, refreshToken, profile, cb) {
+function(accessToken, refreshToken, profile, cb) {
   Usuario.findOrCreate({
     where: { googleId: profile.id },
     defaults: {
@@ -58,7 +58,7 @@ function(req, accessToken, refreshToken, profile, cb) {
       googleRefreshToken: refreshToken 
     }
     
-  }).then(([usuario, created]) => {
+  }).then(([usuario]) => {
     return cb(null, usuario);
   }).catch(err => {
     return cb(err);
@@ -80,7 +80,7 @@ passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
   callbackURL: process.env.FACEBOOK_CALLBACK_URL,
-  scope: ['profile', 'email'] 
+  scope: ['profile'] 
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile)
@@ -91,6 +91,8 @@ function(accessToken, refreshToken, profile, cb) {
       // email: profile.emails[0].value,
       password: 'facebook-' + profile.id,
       rolId: 3,
+      facebookAccessToken: accessToken,        // Almacenar token de acceso
+      facebookRefreshToken: refreshToken 
     }
   }).then(([usuario, created]) => {
     return cb(null, usuario);
@@ -103,10 +105,9 @@ router.get('/facebook',
   passport.authenticate('facebook'));
 
 router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/mis-propiedades');
-  });
+  passport.authenticate('facebook', { 
+    successRedirect: '/mis-propiedades',
+    failureRedirect: '/login' 
+  }));
 
 export default router;
