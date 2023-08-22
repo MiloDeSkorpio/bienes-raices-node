@@ -1,10 +1,11 @@
 import express from 'express';
-import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion,  } from '../controllers/usuarioController.js';
+import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion, autenticarGoogle  } from '../controllers/usuarioController.js';
 import Usuario from '../models/Usuario.js';
 import passport from 'passport';
 import GoogleStrategy  from 'passport-google-oauth20';
 import FacebookStrategy from 'passport-facebook'
-
+import { generarId, generarJWT } from '../helpers/tokens.js';
+import { emailRegistro } from '../helpers/emails.js';
 const router = express.Router();
 
 router.get('/login', formularioLogin);
@@ -46,19 +47,30 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
   scope: ['profile', 'email'] 
 },
-function(accessToken, refreshToken, profile, cb) {
+function(res,accessToken, refreshToken, profile, cb) {
   Usuario.findOrCreate({
     where: { googleId: profile.id },
     defaults: {
       nombre: profile.displayName,
       email: profile.emails[0].value,
       password: 'google-' + profile.id,
+      token: generarId(),
       rolId: 3,
       googleAccessToken: accessToken,
-      googleRefreshToken: refreshToken 
+      googleRefreshToken: refreshToken ,
     }
     
-  }).then(([usuario]) => {
+  }).then(([usuario, created]) => {
+    // Envía el correo de confirmación si el usuario no ha sido creado
+    if(created) {
+      emailRegistro({
+        nombre: usuario.nombre,
+        email: usuario.email,
+        token: usuario.token
+      });
+    }
+
+
     return cb(null, usuario);
   }).catch(err => {
     return cb(err);
@@ -66,10 +78,13 @@ function(accessToken, refreshToken, profile, cb) {
 }
 ));
 
-router.get('/google', passport.authenticate('google'));
+router.get('/google', 
+  passport.authenticate('google')
+  );
 
 // Manejador de redireccionamiento de autenticación de Google
-router.get('/google/callback', 
+router.get('/google/callback',
+  autenticarGoogle,
   passport.authenticate('google', {
     successRedirect: '/mis-propiedades', 
     failureRedirect: '/login' 
@@ -83,13 +98,14 @@ passport.use(new FacebookStrategy({
   scope: ['profile'] 
 },
 function(accessToken, refreshToken, profile, cb) {
-  console.log(profile)
+ 
   Usuario.findOrCreate({ 
     where: {facebookId: profile.id},
     defaults: {
       nombre: profile.displayName,
-      // email: profile.emails[0].value,
+      email: profile.emails[0].value,
       password: 'facebook-' + profile.id,
+      token: generarId(),
       rolId: 3,
       facebookAccessToken: accessToken,        // Almacenar token de acceso
       facebookRefreshToken: refreshToken 
