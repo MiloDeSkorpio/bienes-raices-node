@@ -62,33 +62,48 @@ const autenticar = async (req,res) => {
     sameSite: true
   }).redirect('/mis-propiedades');
 } // fin autenticar
-const autenticarGoogle = async (req,res) => {
-  const usuario = await Usuario.findOne({ where: { googleId }})
-  if(!usuario){
-    return res.render('auth/login',{
-      pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
-      errores: [{msg: 'El Usuario no Existe'}]
-    });
-  }
-  //Comprobar si el usuario esta confirmado
-  if(!usuario.confirmado){
-    return res.render('auth/login',{
-      pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
-      errores: [{msg: 'Tu cuenta no ha sido confirmada'}]
-    });
-  }
-    //Autenticar al Usuario
-    const token = generarJWT({id: usuario.id, nombre: usuario.nombre, rolId: usuario.rolId});
-    
-    //Almacenar en Cookies
-    return res.cookie('_token',token,{
+//Nueva autenticacion
+const autenticarGoogle = async (req, res) => {
+  const googleId = req.user.googleId; // Obtener el googleId del perfil
+
+  try {
+    const usuario = await Usuario.findOne({ where: { googleId } });
+
+    if (!usuario) {
+      return res.render('auth/login', {
+        pagina: 'Iniciar Sesión',
+        csrfToken: req.csrfToken(),
+        errores: [{msg: 'El Usuario no Existe'}]
+      });
+    }
+
+    if (!usuario.confirmado) {
+      return res.render('auth/login', {
+        pagina: 'Iniciar Sesión',
+        csrfToken: req.csrfToken(),
+        errores: [{msg: 'Tu cuenta no ha sido confirmada'}]
+      });
+    }
+
+    // Autenticar al Usuario
+    const token = generarJWT({ id: usuario.id, nombre: usuario.nombre, rolId: usuario.rolId });
+
+    // Almacenar en Cookies
+    return res.cookie('_token', token, {
       httpOnly: true,
       secure: true,
       sameSite: true
     }).redirect('/mis-propiedades');
-}
+  } catch (error) {
+    // Manejo de errores en caso de fallo en la búsqueda o autenticación
+    return res.render('auth/login', {
+      pagina: 'Iniciar Sesión',
+      csrfToken: req.csrfToken(),
+      errores: [{msg: 'Error en la autenticación'}]
+    });
+  }
+};
+
 const cerrarSesion = (req,res) => {
   return res.clearCookie('_token').status(200).redirect('/auth/login')
 }
