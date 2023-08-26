@@ -64,8 +64,9 @@ const autenticar = async (req,res) => {
 } // fin autenticar
 //Nueva autenticacion
 const autenticarGoogle = async (req, res) => {
-  const googleId = req.user.googleId; // Obtener el googleId del perfil
 
+console.log(res.socket.parser.socket.parser.incoming)
+// const googleId = req.user.googleId
   try {
     const usuario = await Usuario.findOne({ where: { googleId } });
 
@@ -95,11 +96,12 @@ const autenticarGoogle = async (req, res) => {
       sameSite: true
     }).redirect('/mis-propiedades');
   } catch (error) {
-    // Manejo de errores en caso de fallo en la búsqueda o autenticación
+    // Manejo de errores en caso
+    console.log(error) 
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
       csrfToken: req.csrfToken(),
-      errores: [{msg: 'Error en la autenticación'}]
+      errores: [{msg: 'Error en la autenticación con google'}]
     });
   }
 };

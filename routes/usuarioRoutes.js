@@ -48,6 +48,7 @@ passport.use(new GoogleStrategy({
   scope: ['profile', 'email'] 
 },
 function(res,accessToken, refreshToken, profile, cb) {
+  console.log(profile)
   Usuario.findOrCreate({
     where: { googleId: profile.id },
     defaults: {
@@ -68,6 +69,8 @@ function(res,accessToken, refreshToken, profile, cb) {
         email: usuario.email,
         token: usuario.token
       });
+    }else {
+      console.log("No se Creo")
     }
 
 
@@ -84,7 +87,8 @@ router.get('/google',
 
 // Manejador de redireccionamiento de autenticación de Google
 router.get('/google/callback',
-  autenticarGoogle,
+autenticarGoogle
+,
   passport.authenticate('google', {
     successRedirect: '/mis-propiedades', 
     failureRedirect: '/login' 
