@@ -62,11 +62,12 @@ const autenticar = async (req,res) => {
     sameSite: true
   }).redirect('/mis-propiedades');
 } // fin autenticar
-//Nueva autenticacion
+//Nueva autenticacion para cuentas externas
 const autenticarGoogle = async (req, res) => {
 
-console.log(res.socket.parser.socket.parser.incoming)
-// const googleId = req.user.googleId
+  const googleId = Usuario.googleId
+  console.log(googleId)
+
   try {
     const usuario = await Usuario.findOne({ where: { googleId } });
 

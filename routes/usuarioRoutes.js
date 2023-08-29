@@ -64,16 +64,16 @@ function(res,accessToken, refreshToken, profile, cb) {
   }).then(([usuario, created]) => {
     // Envía el correo de confirmación si el usuario no ha sido creado
     if(created) {
+      console.log("Usuario nuevo registrado")
       emailRegistro({
         nombre: usuario.nombre,
         email: usuario.email,
         token: usuario.token
       });
     }else {
-      console.log("No se Creo")
+      console.log("Usuario ya registrado, Autenticando")
+      console.log(profile)
     }
-
-
     return cb(null, usuario);
   }).catch(err => {
     return cb(err);
@@ -87,8 +87,7 @@ router.get('/google',
 
 // Manejador de redireccionamiento de autenticación de Google
 router.get('/google/callback',
-autenticarGoogle
-,
+autenticarGoogle,
   passport.authenticate('google', {
     successRedirect: '/mis-propiedades', 
     failureRedirect: '/login' 
