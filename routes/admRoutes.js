@@ -1,5 +1,4 @@
 import express from 'express';
-import { body } from 'express-validator';
 import { miPerfil } from '../controllers/admController.js'
 import protegerRuta from "../middleware/protegerRuta.js";
 
@@ -10,4 +9,4 @@ router.get('/mi-perfil',
   protegerRuta,
   miPerfil )
 
-export default routers
+export default router

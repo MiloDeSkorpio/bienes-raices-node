@@ -60,7 +60,7 @@ const autenticar = async (req,res) => {
     httpOnly: true,
     secure: true,
     sameSite: true
-  }).redirect('/mis-propiedades');
+  }).redirect('/adm/mi-perfil');
 } // fin autenticar
 //Nueva autenticacion para cuentas externas
 const autenticarGoogle = async (req, res) => {
@@ -95,7 +95,7 @@ const autenticarGoogle = async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: true
-    }).redirect('/mis-propiedades');
+    }).redirect('/adm/mi-perfil');
   } catch (error) {
     // Manejo de errores en caso
     console.log(error) 
@@ -302,11 +302,7 @@ const nuevoPassword = async (req,res) => {
   })
 }
 
-const miPerfil = async (req,res) => {
-  res.render('perfil/mi-perfil',{
-    pagina: 'Mi perfil'
-  })
-}
+
 
 export {
   formularioLogin,
@@ -320,5 +316,5 @@ export {
   comprobarToken,
   nuevoPassword,
   autenticarGoogle,
-  miPerfil
+
 }

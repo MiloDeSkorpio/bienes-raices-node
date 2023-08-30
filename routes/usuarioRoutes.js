@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion, autenticarGoogle, miPerfil  } from '../controllers/usuarioController.js';
+import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion, autenticarGoogle  } from '../controllers/usuarioController.js';
 import Usuario from '../models/Usuario.js';
 import passport from 'passport';
 import GoogleStrategy  from 'passport-google-oauth20';
@@ -90,7 +90,7 @@ router.get('/google',
 router.get('/google/callback',
 autenticarGoogle,
   passport.authenticate('google', {
-    successRedirect: '/mis-propiedades', 
+    successRedirect: 'adm/mi-perfil', 
     failureRedirect: '/login' 
 }));
 
@@ -126,7 +126,7 @@ router.get('/facebook',
 
 router.get('/facebook/callback',
   passport.authenticate('facebook', { 
-    successRedirect: '/mis-propiedades',
+    successRedirect: 'adm/mi-perfil',
     failureRedirect: '/login' 
   }));
 
