@@ -3,7 +3,6 @@ import { Usuario } from '../models/index.js'
 
 const protegerRuta = async (req, res, next) => {
   //Verificar si hay un Token
-  console.log(req.cookies)
   const { _token } = req.cookies 
 
   if(!_token ) {
