@@ -1,10 +1,10 @@
 import express from 'express';
-import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion, autenticarGoogle  } from '../controllers/usuarioController.js';
+import { formularioLogin, formularioRegistro, registrar, confirmar, formularioOlvidePassword, resetPassword, comprobarToken, nuevoPassword, autenticar, cerrarSesion, autenticarGoogle, miPerfil  } from '../controllers/usuarioController.js';
 import Usuario from '../models/Usuario.js';
 import passport from 'passport';
 import GoogleStrategy  from 'passport-google-oauth20';
 import FacebookStrategy from 'passport-facebook'
-import { generarId, generarJWT } from '../helpers/tokens.js';
+import { generarId } from '../helpers/tokens.js';
 import { emailRegistro } from '../helpers/emails.js';
 const router = express.Router();
 
@@ -25,6 +25,7 @@ router.post('/olvide-password', resetPassword);
 //Almacena el nuevo password
 router.get('/olvide-password/:token', comprobarToken);
 router.post('/olvide-password/:token', nuevoPassword);
+
 
 // Autenticación con Google
 
@@ -128,5 +129,6 @@ router.get('/facebook/callback',
     successRedirect: '/mis-propiedades',
     failureRedirect: '/login' 
   }));
+
 
 export default router;

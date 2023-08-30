@@ -59,6 +59,7 @@ app.use('/', propiedadesRoutes);
 app.use('/api', apiRoutes)
 app.use('/adm', admRoutes)
 
+
 //Definir un puerto y arrancar el proyecto
 const port =  process.env.PORT || 3000;
 app.listen(port, () => {

@@ -269,7 +269,6 @@ const comprobarToken = async (req,res) => {
     pagina: 'Restablece tu Password',
     csrfToken : req.csrfToken(),
   });
-
 }
 
 const nuevoPassword = async (req,res) => {
@@ -303,7 +302,11 @@ const nuevoPassword = async (req,res) => {
   })
 }
 
-
+const miPerfil = async (req,res) => {
+  res.render('perfil/mi-perfil',{
+    pagina: 'Mi perfil'
+  })
+}
 
 export {
   formularioLogin,
@@ -316,5 +319,6 @@ export {
   resetPassword,
   comprobarToken,
   nuevoPassword,
-  autenticarGoogle
+  autenticarGoogle,
+  miPerfil
 }
