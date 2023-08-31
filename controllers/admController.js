@@ -1,17 +1,18 @@
+import { Roles } from "../models/index.js"
 
 const miPerfil = async (req, res) => {
- 
-  const { dataValues} = req.usuario
-  console.log(dataValues)
+  //Datos Usuario
+  const { dataValues } = req.usuario
   const usuario = dataValues
-  console.log(usuario)
-
-
+  //Datos del Rol
+  const rol = await Roles.findByPk(usuario.rolId)
+  const roles = rol.dataValues 
 
   res.render('adm/mi-perfil', {
     pagina: 'Mi Perfil',
     csrfToken: req.csrfToken(),
     usuario,
+    roles
   });
 }
 export {

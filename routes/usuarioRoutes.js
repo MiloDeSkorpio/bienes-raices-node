@@ -11,7 +11,6 @@ const router = express.Router();
 router.get('/login', formularioLogin);
 router.post('/login', autenticar);
 
-
 //cerrar Sesion
 router.post('/cerrar-sesion', cerrarSesion)
 router.get('/registro', formularioRegistro);
@@ -25,7 +24,6 @@ router.post('/olvide-password', resetPassword);
 //Almacena el nuevo password
 router.get('/olvide-password/:token', comprobarToken);
 router.post('/olvide-password/:token', nuevoPassword);
-
 
 // Autenticación con Google
 

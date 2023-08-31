@@ -6,16 +6,21 @@ block contenido
         div(class="p-2 flex  justify-center")  
           img(src="/img/karen.jpg" alt="ico_wc" class="w-20 h-20 rounded-full items-center")
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
-          legend(class="font-semibold text-lg p-2 text-dkblue-800") Información Basica
-          p(class="") Usuario:  
-            span(class="" )= usuario.nombre
-          p(class="" )= usuario.email
-          p(class="" )= usuario.rolId
+          legend(class="font-semibold text-lg p-1 text-dkblue-800") Información Basica
+          p(class="font-semibold text-lg p-1") Usuario:  
+            span(class="font-normal" )= usuario.nombre
+          p(class="font-semibold text-lg p-1" ) Email: 
+            span(class="font-normal")= usuario.email
+          p(class="font-semibold text-lg p-1" ) Nivel de Cuenta: 
+            span(class="font-normal")= roles.nombre
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")
-          legend(class="font-semibold text-lg p-2 text-dkblue-800") Gestionar
-          p(class="" ) Cambiar Password
-          p(class="" ) Cuentas Externas
-          a(href="/auth/cerrar-sesion" ) Cerrar Sessión
+          legend(class="font-semibold text-lg p-1 text-dkblue-800") Gestionar
+          p(class="font-semibold text-lg p-1" ) Cambiar Password
+          p(class="font-semibold text-lg p-1" ) Cuentas Externas
         div(class="py-2")
           a(href="/mis-propiedades" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Mis Propiedades
+        div(class="py-2")
+          form(action="/auth/cerrar-sesion" method="POST")
+            input(type="hidden" name="_csrf" value= csrfToken)
+            input(type="submit" class="rounded py-2 bg-dkred-600 hover:bg-dkred-800 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" value="Cerrar Sesión")
         div(class="h-9")
