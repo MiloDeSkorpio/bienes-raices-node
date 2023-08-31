@@ -47,13 +47,14 @@ passport.use(new GoogleStrategy({
   scope: ['profile', 'email'] 
 },
 function(res,accessToken, refreshToken, profile, cb) {
-  console.log(profile)
+  
   Usuario.findOrCreate({
     where: { googleId: profile.id },
     defaults: {
       nombre: profile.displayName,
       email: profile.emails[0].value,
       password: 'google-' + profile.id,
+      imgPerfil: profile.photos[0].value,
       token: generarId(),
       rolId: 3,
       googleAccessToken: accessToken,
@@ -71,7 +72,7 @@ function(res,accessToken, refreshToken, profile, cb) {
       });
     }else {
       console.log("Usuario ya registrado, Autenticando")
-      console.log(profile)
+      console.log()
     }
     return cb(null, usuario);
   }).catch(err => {
@@ -86,9 +87,8 @@ router.get('/google',
 
 // Manejador de redireccionamiento de autenticación de Google
 router.get('/google/callback',
-autenticarGoogle,
   passport.authenticate('google', {
-    successRedirect: 'adm/mi-perfil', 
+    successRedirect: '/adm/mi-perfil', 
     failureRedirect: '/login' 
 }));
 
