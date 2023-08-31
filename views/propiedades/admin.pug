@@ -3,10 +3,8 @@ extends ../layout/admin
 block styles
   meta(name="csrf-token" content= csrfToken)
 block contenido 
-  .py-7
-    h2.text-center.text-2xl.font-bold= pagina
-
-    a(href="/propiedades/crear" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-5 inline-block w-full md:w-auto") Publicar Propiedad
+  div(class="p-2")
+    a(href="/propiedades/crear" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Publicar Propiedad
     //- pre= JSON.stringify(propiedades, undefined, 2)
     if propiedades.length 
       div(class="bg-white shadow rounded-lg")

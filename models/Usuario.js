@@ -15,6 +15,10 @@ const Usuario = db.define('usuarios', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  imgPerfil: {
+    type: DataTypes.STRING,
+    allowNull: null
+  },
   token: DataTypes.STRING,
   confirmado: DataTypes.BOOLEAN,
   googleId: {

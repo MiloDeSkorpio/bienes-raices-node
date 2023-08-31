@@ -6,6 +6,7 @@ const usuarios = [
     email: 'karen@correo.es',
     confirmado: 1,
     password: bcrypt.hashSync('password',10),
+    imgPerfil: 'karen.jpg',
     rolId: 1
   },
   {
@@ -13,6 +14,7 @@ const usuarios = [
     email: 'rafa@correo.com',
     confirmado: 1,
     password: bcrypt.hashSync('password',10),
+    imgPerfil: 'rafa.jpg',
     rolId: 3
   },
   {
@@ -20,6 +22,7 @@ const usuarios = [
     email: 'pedro@correo.com',
     confirmado: 1,
     password: bcrypt.hashSync('password',10),
+    imgPerfil: 'pedro.jpg',
     rolId: 4
   },
   {
@@ -27,6 +30,7 @@ const usuarios = [
     email: 'luis@correo.com',
     confirmado: 1,
     password: bcrypt.hashSync('password',10),
+    imgPerfil: 'luis.jpg',
     rolId: 5
   },
 ]
