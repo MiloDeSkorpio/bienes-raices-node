@@ -32,6 +32,14 @@ const Usuario = db.define('usuarios', {
     allowNull: true
   },
   rolId: DataTypes.INTEGER,
+  startSub: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
+  endSub: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
   accessToken: {
     type: DataTypes.STRING,
     allowNull: true,

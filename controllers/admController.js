@@ -15,6 +15,15 @@ const miPerfil = async (req, res) => {
     roles
   });
 }
+
+const subscripcion = async (req,res) => {
+  res.render('adm/subscripcion', {
+    pagina: 'Subscripciones',
+    csrfToken: req.csrfToken(),
+
+  });
+}
 export {
-  miPerfil
+  miPerfil,
+  subscripcion
 }

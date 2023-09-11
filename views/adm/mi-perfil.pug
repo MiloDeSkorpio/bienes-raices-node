@@ -6,13 +6,19 @@ block contenido
         div(class="p-2 flex  justify-center")  
           img(src=`/uploads/profiles/${usuario.imgPerfil}` alt=`Img de ${usuario.nombre}` class="w-24 h-24 rounded-full items-center")
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
-          legend(class="font-semibold text-lg p-1 text-dkblue-800") Información Basica
+          legend(class="font-semibold text-lg p-1 text-dkblue-800") Información Basica  
           p(class="font-semibold text-lg p-1") Usuario:  
             span(class="font-normal" )= usuario.nombre
           p(class="font-semibold text-lg p-1" ) Email: 
             span(class="font-normal")= usuario.email
           p(class="font-semibold text-lg p-1" ) Nivel de Cuenta: 
             span(class="font-normal")= roles.nombre
+          p(class="font-semibold text-lg p-1" ) Inicio de Suscripcion: 
+            span(class="font-normal") 01/09/23
+          p(class="font-semibold text-lg p-1" ) Fin de Suscripcion: 
+            span(class="font-normal") 01/10/23
+        div(class="py-2 flex")
+          a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Ampliar Subscripción
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Gestionar
           p(class="font-semibold text-lg p-1" ) Cambiar Password
