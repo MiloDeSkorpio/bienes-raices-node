@@ -8,7 +8,8 @@ export default {
     cambiarEstado: './src/js/cambiarEstado.js',
     mapaInicio: './src/js/mapaInicio.js',
     menu: './src/js/menu.js',
-    mostrarContenido: './src/js/mostrarContenidos.js'
+    mostrarContenido: './src/js/mostrarContenidos.js',
+    mercadopago: './src/js/mercadoPago.js'
   },
   output:{
     filename: '[name].js',

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import express from 'express';
 import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
@@ -11,6 +10,7 @@ import apiRoutes from './routes/apiRoutes.js';
 import admRoutes from './routes/admRoutes.js';
 import db from './config/db.js';
 import passport from 'passport';
+import mercadopago from 'mercadopago';
 
 
 
@@ -22,6 +22,11 @@ app.use( express.urlencoded({extended: true}));
 
 //Habilitar cookie parser
 app.use( cookieParser())
+
+// Mercado pago
+mercadopago.configure({
+	access_token: process.env.MERCADOPAGO_ACCES_TOKEN,
+});
 
 //Habilitar sesiones
 app.use(session({
