@@ -11,6 +11,7 @@ import admRoutes from './routes/admRoutes.js';
 import db from './config/db.js';
 import passport from 'passport';
 import mercadopago from 'mercadopago';
+import cors from 'cors'
 
 
 
@@ -56,6 +57,7 @@ app.set('views', './views');
 
 //Carpeta Publica
 app.use(express.static('public'));
+app.use(cors())
 
 //Routing
 app.use('/', appRoutes)

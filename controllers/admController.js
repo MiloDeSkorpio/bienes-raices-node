@@ -1,4 +1,5 @@
 import { Roles } from "../models/index.js"
+import config from "../src/js/configMP.js"
 
 const miPerfil = async (req, res) => {
   //Datos Usuario
@@ -24,7 +25,9 @@ const subscripcion = async (req,res) => {
   });
 }
 
-const preferences = async (req,res) => {
+const preferences = (req,res) => {
+  req.csrfToken()
+  console.log(req.csrfToken())
   let preference = {
 		items: [
 			{
@@ -34,9 +37,9 @@ const preferences = async (req,res) => {
 			}
 		],
 		back_urls: {
-			"success": "http://localhost:8080/feedback",
-			"failure": "http://localhost:8080/feedback",
-			"pending": "http://localhost:8080/feedback"
+			"success": config.url+"/feedback",
+			"failure": config.url+"/feedback",
+			"pending": config.url+"/feedback"
 		},
 		auto_return: "approved",
 	};
@@ -49,24 +52,17 @@ const preferences = async (req,res) => {
 		}).catch(function (error) {
 			console.log(error);
 		});
-  res.render('adm/subscripcion', {
-    pagina: 'Subscripciones',
-    csrfToken: req.csrfToken(),
-
-  });
+  
 }
 
-const feedback = async (req,res) => {
+const feedback =  (req,res) => {
+  req.csrfToken()
   res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
 		MerchantOrder: req.query.merchant_order_id
 	});
-  res.render('adm/subscripcion', {
-    pagina: 'Subscripciones',
-    csrfToken: req.csrfToken(),
 
-  });
 }
 export {
   miPerfil,

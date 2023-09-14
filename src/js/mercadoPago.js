@@ -5,10 +5,33 @@ import config from "./configMP.js";
 const mercadopago = new MercadoPago(config.mercadoPagoPublicKey, {
   locale: 'es-MX' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });
+// Obtener el token CSRF de la cookie
+function getCSRFToken() {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=');
+    if (name === '_csrf') { // Asegúrate de que '_csrf' coincida con el nombre de la cookie
+      return decodeURIComponent(value); // Decodifica el valor si es necesario
+    }
+  }
+  return null; // Si no se encuentra el token CSRF en las cookies
+}
+
+// Obtén el token CSRF
+const csrfToken = getCSRFToken();
+
+// Ahora puedes usar csrfToken en tu código
+if (csrfToken) {
+  // El token CSRF se ha encontrado, puedes usarlo en tu solicitud POST, por ejemplo.
+  console.log('Token CSRF:', csrfToken);
+} else {
+  // El token CSRF no se encontró en las cookies
+  console.log('Token CSRF no encontrado.');
+}
 
 // Handle call to backend and generate preference.
 document.getElementById("checkout-btn").addEventListener("click", function () {
-  console.log('desde el btn de cobrar')
+
   $('#checkout-btn').attr("disabled", true);
 
   const orderData = {
@@ -17,10 +40,11 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     price: document.getElementById("unit-price").innerHTML
   };
 
-  fetch("http://localhost:8080/create_preference", {
+  fetch(config.url+'/create_preference', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      '_csrf': csrfToken
     },
     body: JSON.stringify(orderData),
   })
