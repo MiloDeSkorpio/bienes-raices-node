@@ -9,7 +9,7 @@ export default {
     mapaInicio: './src/js/mapaInicio.js',
     menu: './src/js/menu.js',
     mostrarContenido: './src/js/mostrarContenidos.js',
-    mercadopago: './src/js/mercadoPago.js'
+    mercadoPago: './src/js/mercadoPago.js'
   },
   output:{
     filename: '[name].js',

@@ -18,11 +18,13 @@ import cors from 'cors'
 //Crear la app
 const app = express();
 
-//Habilitar lectura de datos de formularios
-app.use( express.urlencoded({extended: true}));
-
 //Habilitar cookie parser
 app.use( cookieParser())
+
+//Habilitar CSRF
+app.use(csrf({cookie : true}));
+//Habilitar lectura de datos de formularios
+app.use( express.urlencoded({extended: true}));
 
 // Mercado pago
 mercadopago.configure({
@@ -39,8 +41,6 @@ app.use(session({
   //Inicializar passport
   app.use(passport.initialize());
   app.use(passport.session());
-//Habilitar CSRF
-app.use(csrf({cookie : true}));
 
 //Conexion a la base de datos
 try {
