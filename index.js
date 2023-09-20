@@ -14,17 +14,16 @@ import mercadopago from 'mercadopago';
 import cors from 'cors'
 
 
-
 //Crear la app
 const app = express();
 
 //Habilitar cookie parser
 app.use( cookieParser())
+//Habilitar lectura de datos de formularios
+app.use( express.urlencoded({extended: true}));
 
 //Habilitar CSRF
 app.use(csrf({cookie : true}));
-//Habilitar lectura de datos de formularios
-app.use( express.urlencoded({extended: true}));
 
 // Mercado pago
 mercadopago.configure({

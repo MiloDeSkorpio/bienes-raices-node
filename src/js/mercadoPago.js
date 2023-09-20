@@ -6,7 +6,6 @@ const mercadopago = new MercadoPago(config.mercadoPagoPublicKey, {
   locale: 'es-MX' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });
 
-
 // Handle call to backend and generate preference.
 document.getElementById("checkout-btn").addEventListener("click", function () {
 
@@ -18,11 +17,10 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     price: document.getElementById("unit-price").innerHTML
   };
 
-  fetch("localhost:3000/adm/create_preferenc", {
+  fetch("localhost:3000/adm/create_preference", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      
     },
     body: JSON.stringify(orderData),
   })

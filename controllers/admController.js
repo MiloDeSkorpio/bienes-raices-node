@@ -1,5 +1,6 @@
 import { Roles } from "../models/index.js"
 import config from "../src/js/configMP.js"
+import mercadopago from "mercadopago"
 
 const miPerfil = async (req, res) => {
   //Datos Usuario
@@ -30,6 +31,7 @@ const preferences = async (req, res) => {
   res.cookie('_csrf', csrfToken);
 
 	console.log('Token CSRF recibido:', csrfToken);
+	console.log(req.body)
   let preference = {
 		items: [
 			{
@@ -39,9 +41,9 @@ const preferences = async (req, res) => {
 			}
 		],
 		back_urls: {
-			"success": config.url+"/feedback",
-			"failure": config.url+"/feedback",
-			"pending": config.url+"/feedback"
+			"success": config.url+"/adm/feedback",
+			"failure": config.url+"/adm/feedback",
+			"pending": config.url+"/adm/feedback"
 		},
 		auto_return: "approved",
 	};
