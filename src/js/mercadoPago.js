@@ -16,11 +16,13 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     description: document.getElementById("product-description").innerHTML,
     price: document.getElementById("unit-price").innerHTML
   };
-
-  fetch("localhost:3000/adm/create_preference", {
+  const csrfToken = document.getElementById("csrf").value
+  console.log(csrfToken)
+  fetch("http://localhost:3000/adm/create_preference", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      '_csrf': csrfToken
     },
     body: JSON.stringify(orderData),
   })

@@ -3,7 +3,7 @@ extends ../layout/admin
 block contenido 
   div(class='py-2 flex flex-col space-y-4 justify-center items-center shopping-cart')
     form(action="/adm/create_preference" method="POST" class="w-72 h-auto p-2  border border-dkblue-900 rounded-md") 
-      input(type="hidden" name="_csrf" value= csrfToken)
+      input(type="hidden" name="_csrf" id="csrf" value= csrfToken)
       div(class="flex justify-center items-center")
         h3(class="font-semibold" id="product-description") Premium Mensual
         img(src="/img/star.svg" alt="")

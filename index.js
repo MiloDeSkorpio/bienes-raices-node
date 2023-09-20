@@ -16,7 +16,13 @@ import cors from 'cors'
 
 //Crear la app
 const app = express();
-
+const corsOptions = {
+    origin: 'http://localhost:3000', // Reemplaza esto con tu dominio o '*'
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Habilita las cookies en las solicitudes (si es necesario)
+    optionsSuccessStatus: 204, // Algunos navegadores pueden requerir esto para las solicitudes OPTIONS
+  };
+app.use(cors(corsOptions))
 //Habilitar cookie parser
 app.use( cookieParser())
 //Habilitar lectura de datos de formularios
@@ -56,7 +62,6 @@ app.set('views', './views');
 
 //Carpeta Publica
 app.use(express.static('public'));
-app.use(cors())
 
 //Routing
 app.use('/', appRoutes)
@@ -64,6 +69,7 @@ app.use('/auth', usuarioRoutes);
 app.use('/', propiedadesRoutes);
 app.use('/api', apiRoutes)
 app.use('/adm', admRoutes)
+
 
 
 //Definir un puerto y arrancar el proyecto
