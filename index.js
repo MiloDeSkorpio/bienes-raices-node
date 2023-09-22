@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import express from 'express';
-import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import usuarioRoutes from './routes/usuarioRoutes.js';
@@ -27,9 +26,6 @@ app.use(cors(corsOptions))
 app.use( cookieParser())
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended: true}));
-
-//Habilitar CSRF
-app.use(csrf({cookie : true}));
 
 // Mercado pago
 mercadopago.configure({
@@ -69,7 +65,6 @@ app.use('/auth', usuarioRoutes);
 app.use('/', propiedadesRoutes);
 app.use('/api', apiRoutes)
 app.use('/adm', admRoutes)
-
 
 
 //Definir un puerto y arrancar el proyecto

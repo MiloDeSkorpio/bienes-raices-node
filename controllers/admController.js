@@ -12,25 +12,18 @@ const miPerfil = async (req, res) => {
 
   res.render('adm/mi-perfil', {
     pagina: 'Mi Perfil',
-    csrfToken: req.csrfToken(),
     usuario,
     roles
   });
 }
 
 const subscripcion = async (req, res) => {
-  res.render('adm/subscripcion', {
+	  res.render('adm/subscripcion', {
     pagina: 'Subscripciones',
-    csrfToken: req.csrfToken(),
   });
 }
 
 const preferences = async (req, res) => {
-  // Genera el token CSRF y envíalo como cookie
-  const csrfToken = req.csrfToken();
-  res.cookie('_csrf', csrfToken);
-
-	console.log('Token CSRF recibido:', csrfToken);
 	console.log(req.body)
   let preference = {
 		items: [
@@ -59,7 +52,7 @@ const preferences = async (req, res) => {
 }
 
 const feedback = async (req,res) => {
-  req.csrfToken()
+
   res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,

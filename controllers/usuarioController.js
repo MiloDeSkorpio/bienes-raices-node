@@ -9,7 +9,6 @@ import passport from 'passport';
 const formularioLogin = (req, res) => {
   res.render('auth/login', {
     pagina: 'Inicio de Sesión',
-    csrfToken: req.csrfToken(),
   });
 }
 

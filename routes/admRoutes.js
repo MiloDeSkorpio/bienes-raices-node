@@ -4,20 +4,22 @@ import protegerRuta from "../middleware/protegerRuta.js";
 
 const router = express.Router();
 
-
 router.get('/mi-perfil',
   protegerRuta,
   miPerfil )
 
 router.get('/subscripcion',
+  protegerRuta,
   subscripcion
 )
 
 router.post('/create_preference',
-  preferences  
-)
+  protegerRuta,
+  preferences 
+  );
 
 router.get('/feedback',
+  protegerRuta,
   feedback
 )
 

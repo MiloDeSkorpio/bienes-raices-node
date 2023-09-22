@@ -1,4 +1,3 @@
-
 import config from "./configMP.js";
 // Add SDK credentials
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
@@ -17,7 +16,7 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     price: document.getElementById("unit-price").innerHTML
   };
 
-  fetch(config.url+"/adm/create_preference", {
+  fetch("/adm/create_preference", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,12 +55,12 @@ function createCheckoutButton(preferenceId) {
         },
         callbacks: {
           onError: (error) => console.error(error),
-          onReady: () => { }
+          onReady: () => {}
         }
       }
     );
   };
-  window.checkoutButton = renderComponent(bricksBuilder);
+  window.checkoutButton =  renderComponent(bricksBuilder);
 }
 
 // Handle price update
