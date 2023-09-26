@@ -11,6 +11,7 @@ import db from './config/db.js';
 import passport from 'passport';
 import mercadopago from 'mercadopago';
 import cors from 'cors'
+import helmet from 'helmet';
 
 
 //Crear la app
@@ -26,7 +27,15 @@ app.use(cors(corsOptions))
 app.use( cookieParser())
 //Habilitar lectura de datos de formularios
 app.use( express.urlencoded({extended: true}));
-
+//habilitar helmet
+// app.use(helmet());
+// helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+//     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "http://localhost:3000"],
+//     styleSrc: ["'self'", "'unsafe-inline'"],
+//   },
+// });
 // Mercado pago
 mercadopago.configure({
 	access_token: process.env.MERCADOPAGO_ACCES_TOKEN,

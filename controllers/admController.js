@@ -24,17 +24,16 @@ const subscripcion = async (req, res) => {
 }
 
 const preferences = async (req, res) => {
-	console.log(req.body)
   let preference = {
 		items: [
 			{
-				title: req.body.description,
-				unit_price: Number(req.body.price),
-				quantity: Number(req.body.quantity),
+        title: "Premium Mensual",
+        unit_price: 180,
+        quantity: 1,
 			}
 		],
 		back_urls: {
-			"success": config.url+"/adm/feedback",
+			"success": config.url+"/adm/mi-perfil",
 			"failure": config.url+"/adm/feedback",
 			"pending": config.url+"/adm/feedback"
 		},

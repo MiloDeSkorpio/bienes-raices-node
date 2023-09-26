@@ -18,10 +18,10 @@ block contenido
         h3(class="font-semibold") Costo
         div(class="flex flex-col")
           label(class="" for="quantity") Meses: 
-            input(class="" id="quantity" value="1" min="1" type="number")  
+            input(class="" id="quantity" name="quantity" value="1" min="1" type="number")  
           label(class="") Total: 
             span(id="cart-total")
-          input(id="checkout-btn"  class="rounded py-2 bg-dkblue-600 hover:bg-dkblue-700 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit" value="Suscribirse") 
+          input(id="checkout-btn" name="checkout-btn" class="rounded py-2 bg-dkblue-600 hover:bg-dkblue-700 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit" value="Suscribirse") 
     //- div(class="w-72 h-auto p-2  border border-dkblue-900 rounded-md")
     //-   div(class="flex justify-center items-center")
     //-     h3(class="font-semibold") Empresarial Mensual

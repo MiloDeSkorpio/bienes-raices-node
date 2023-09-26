@@ -6,7 +6,8 @@ const router = express.Router();
 
 router.get('/mi-perfil',
   protegerRuta,
-  miPerfil )
+  miPerfil 
+)
 
 router.get('/subscripcion',
   protegerRuta,
@@ -16,7 +17,7 @@ router.get('/subscripcion',
 router.post('/create_preference',
   protegerRuta,
   preferences 
-  );
+);
 
 router.get('/feedback',
   protegerRuta,
