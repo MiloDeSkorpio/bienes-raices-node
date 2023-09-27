@@ -1,0 +1,25 @@
+extends ../layout/admin 
+
+block contenido 
+  div(class='py-2 flex flex-col space-y-4 justify-center items-center shopping-cart')
+    h2(class="font-semibold") 7 Días de Premium Gratis
+    div(class="w-72 h-auto p-2  border border-dkblue-900 rounded-md")
+      div(class="flex flex-col justify-center items-center")
+        div(class="flex")
+          h3(class="font-semibold" id="product-description") Premium 7 Días
+          img(src="/img/star.svg" alt="")
+        div(class="flex items-center")
+          img(src="/img/coin.svg" alt="")
+          p(class="" id="unit-price") 0
+      div(class="")
+        h3(class="font-semibold text-center") Beneficios
+        p(class="") 10 Publicaciones
+        p(class="") 10 Favoritos
+      div(class="flex flex-col items-center py-1")
+        h3(class="font-semibold") Costo
+        div(class="flex flex-col")
+          label(class="" for="quantity") Meses: 
+            input(class="" id="quantity" name="quantity" value="1" min="1" type="number")  
+          label(class="") Total: 
+            span(id="cart-total")
+          input(id="checkout-btn" name="checkout-btn" class="rounded py-2 bg-dkblue-600 hover:bg-dkblue-700 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit" value="Suscribirse") 

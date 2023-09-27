@@ -20,9 +20,14 @@ const tiposubs = [
         duracion: 365
     },
     {
-        nombre: 'Gratuita',
+        nombre: 'Empresarial Anual',
         precio: 3600,
         duracion: 365
+    },
+    {
+        nombre: 'Prueba Premium',
+        precio: 0,
+        duracion: 7
     },
 ]
 

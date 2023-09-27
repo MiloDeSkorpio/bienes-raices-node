@@ -18,7 +18,7 @@ const miPerfil = async (req, res) => {
 }
 
 const subscripcion = async (req, res) => {
-	  res.render('adm/subscripcion', {
+	res.render('adm/subscripcion', {
     pagina: 'Subscripciones',
   });
 }
@@ -51,17 +51,22 @@ const preferences = async (req, res) => {
 }
 
 const feedback = async (req,res) => {
-
   res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
 		MerchantOrder: req.query.merchant_order_id
 	});
+}
 
+const prueba = async (req,res) => {
+	res.render('adm/prueba', {
+		pagina: 'Premium Gratis',
+	  });
 }
 export {
   miPerfil,
   subscripcion,
   preferences,
-  feedback
+  feedback,
+  prueba
 }

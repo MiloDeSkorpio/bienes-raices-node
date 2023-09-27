@@ -1,5 +1,5 @@
 import express from 'express';
-import { miPerfil, subscripcion, preferences, feedback } from '../controllers/admController.js'
+import { miPerfil, subscripcion, preferences, feedback, prueba } from '../controllers/admController.js'
 import protegerRuta from "../middleware/protegerRuta.js";
 
 const router = express.Router();
@@ -22,6 +22,11 @@ router.post('/create_preference',
 router.get('/feedback',
   protegerRuta,
   feedback
+)
+
+router.get('/prueba',
+  protegerRuta,
+  prueba
 )
 
 export default router
