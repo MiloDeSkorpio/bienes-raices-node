@@ -24,6 +24,7 @@ const subscripcion = async (req, res) => {
 }
 
 const preferences = async (req, res) => {
+	
   let preference = {
 		items: [
 			{
@@ -33,13 +34,12 @@ const preferences = async (req, res) => {
 			}
 		],
 		back_urls: {
-			"success": config.url+"/adm/mi-perfil",
-			"failure": config.url+"/adm/feedback",
-			"pending": config.url+"/adm/feedback"
+			success: config.url+"/adm/feedback",
+			failure: config.url+"/adm/feedback",
+			pending: config.url+"/adm/feedback"
 		},
 		auto_return: "approved",
 	};
-
 	mercadopago.preferences.create(preference)
 		.then(function (response) {
 			res.json({

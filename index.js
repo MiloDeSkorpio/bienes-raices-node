@@ -32,7 +32,7 @@ app.use( express.urlencoded({extended: true}));
 // helmet.contentSecurityPolicy({
 //   directives: {
 //     defaultSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-//     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "http://localhost:3000"],
+//     scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "'http://localhost:3000'","'www.mercadopago.com.mx'"],
 //     styleSrc: ["'self'", "'unsafe-inline'"],
 //   },
 // });

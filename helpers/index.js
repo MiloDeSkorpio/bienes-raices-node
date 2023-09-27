@@ -2,7 +2,6 @@ const esVendedor = (usuarioId, propiedadUsuarioId) => {
   return usuarioId === propiedadUsuarioId
 }
 
-
 const formatearFecha = fecha => {
   const nuevaFecha = new Date(fecha).toISOString().slice(0, 10)
 

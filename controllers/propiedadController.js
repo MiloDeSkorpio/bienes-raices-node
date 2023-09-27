@@ -50,7 +50,7 @@ const admin = async (req, res) => {
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
       propiedades,
-      csrfToken: req.csrfToken(),
+
       paginas: Math.ceil(total / limit),
       paginaActual: Number(paginaActual),
       total,
@@ -73,7 +73,6 @@ const crear = async (req, res) => {
 
   res.render('propiedades/crear', {
     pagina: 'Crear Propiedad',
-    csrfToken: req.csrfToken(),
     categorias,
     precios,
     datos: {}
@@ -91,7 +90,7 @@ const guardar = async (req, res) => {
     ]);
     return res.render('propiedades/crear', {
       pagina: 'Crear Propiedad',
-      csrfToken: req.csrfToken(),
+
       categorias,
       precios,
       errores: resultado.array(),
@@ -146,7 +145,6 @@ const agregarImagen = async (req, res) => {
 
   res.render('propiedades/agregar-imagen', {
     pagina: `Agregar Imagenes: ${propiedad.titulo}`,
-    csrfToken: req.csrfToken(),
     propiedad
   });
 }
@@ -206,7 +204,6 @@ const editar = async (req, res) => {
 
   res.render('propiedades/editar', {
     pagina: `Editar Propiedad: ${propiedad.titulo}`,
-    csrfToken: req.csrfToken(),
     categorias,
     precios,
     datos: propiedad
@@ -227,7 +224,7 @@ const guardarCambios = async (req, res) => {
 
     return res.render('propiedades/editar', {
       pagina: 'Editar Propiedad',
-      csrfToken: req.csrfToken(),
+
       categorias,
       precios,
       errores: resultado.array(),
@@ -339,7 +336,6 @@ const mostrarPropiedad = async (req, res) => {
   res.render('propiedades/mostrar', {
     propiedad,
     pagina: propiedad.titulo,
-    csrfToken: req.csrfToken(),
     usuario: req.usuario,
     esVendedor: esVendedor(req.usuario?.id, propiedad.usuarioId)
   })
@@ -370,7 +366,7 @@ const enviarMensaje = async (req,res) => {
    return res.render('propiedades/mostrar', {
       propiedad,
       pagina: propiedad.titulo,
-      csrfToken: req.csrfToken(),
+
       usuario: req.usuario,
       esVendedor: esVendedor(req.usuario?.id, propiedad.usuarioId),
       errores: resultado.array()
@@ -391,7 +387,6 @@ const enviarMensaje = async (req,res) => {
   res.render('propiedades/mostrar', {
     propiedad,
     pagina: propiedad.titulo,
-    csrfToken: req.csrfToken(),
     usuario: req.usuario,
     esVendedor: esVendedor(req.usuario?.id, propiedad.usuarioId),
     enviado: true

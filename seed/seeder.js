@@ -7,9 +7,10 @@ import usuarios from './usuarios.js';
 import estados from './estados.js';
 import municipios from './municipios.js';
 import propiedades from './propiedades.js';
+import tiposubs from './tiposubs.js';
 import db from "../config/db.js";
 //Importamos el modelo que se llenara
-import { Categoria, Precio,Tipotr, Roles, Usuario, Estado ,Municipio , Propiedad   } from '../models/index.js';
+import { Categoria, Precio,Tipotr, Roles, Usuario, Estado ,Municipio , Propiedad, TipoSubs   } from '../models/index.js';
 const importarDatos = async () => {
   try {
     //Autenticar
@@ -28,6 +29,7 @@ const importarDatos = async () => {
       Estado.bulkCreate(estados),
       Municipio.bulkCreate(municipios),
       Propiedad.bulkCreate(propiedades),
+      TipoSubs.bulkCreate(tiposubs)
     ])
     console.log('Datos Importados Correctamente');
     exit() // 1 error - 0 se realizo bien
