@@ -8,7 +8,8 @@ const usuarios = [
     password: bcrypt.hashSync('password',10),
     imgPerfil: 'karen.jpg',
     rolId: 2,
-    prueba: 0
+    prueba: 0,
+    
   },
   {
     nombre: 'Rafa',
@@ -17,7 +18,8 @@ const usuarios = [
     password: bcrypt.hashSync('password',10),
     imgPerfil: 'rafa.jpg',
     rolId: 2,
-    prueba: 0
+    prueba: 0,
+    
   },
   {
     nombre: 'Pedro',
@@ -26,7 +28,8 @@ const usuarios = [
     password: bcrypt.hashSync('password',10),
     imgPerfil: 'pedro.jpg',
     rolId: 2,
-    prueba: 0
+    prueba: 0,
+    
   },
   {
     nombre: 'Luis',
@@ -35,7 +38,8 @@ const usuarios = [
     password: bcrypt.hashSync('password',10),
     imgPerfil: 'luis.jpg',
     rolId: 2,
-    prueba: 0
+    prueba: 0,
+    
   },
 ]
 

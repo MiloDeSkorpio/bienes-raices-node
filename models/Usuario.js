@@ -33,7 +33,6 @@ const Usuario = db.define('usuarios', {
   },
   rolId: DataTypes.INTEGER,
   prueba: DataTypes.INTEGER,
-  sub: DataTypes.BOOLEAN,
   accessToken: {
     type: DataTypes.STRING,
     allowNull: true,

@@ -25,6 +25,7 @@ Mensaje.belongsTo(Usuario, {foreignKey: 'usuarioId'})
 
 Usuario.belongsTo(Roles,{foreignKey: 'rolId'})
 
+
 Subscripciones.belongsTo(Usuario,{foreignKey:'usuarioId'})
 Subscripciones.belongsTo(TipoSubs,{foreignKey:'tiposubId'})
 

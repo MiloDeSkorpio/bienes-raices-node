@@ -50,7 +50,6 @@ const admin = async (req, res) => {
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
       propiedades,
-
       paginas: Math.ceil(total / limit),
       paginaActual: Number(paginaActual),
       total,

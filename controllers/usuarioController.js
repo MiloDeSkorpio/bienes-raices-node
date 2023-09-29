@@ -24,7 +24,6 @@ const autenticar = async (req, res) => {
     //Errores
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
       errores: resultado.array()
     });
   }
@@ -33,7 +32,6 @@ const autenticar = async (req, res) => {
   if (!usuario) {
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
       errores: [{ msg: 'El Usuario no Existe' }]
     });
   }
@@ -41,7 +39,6 @@ const autenticar = async (req, res) => {
   if (!usuario.confirmado) {
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
       errores: [{ msg: 'Tu cuenta no ha sido confirmada' }]
     });
   }
@@ -49,7 +46,6 @@ const autenticar = async (req, res) => {
   if (!usuario.verificarPassword(password)) {
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
-      csrfToken: req.csrfToken(),
       errores: [{ msg: 'El password es incorrecto' }]
     });
   }
@@ -100,7 +96,7 @@ const autenticarGoogle = async (req, res) => {
           password: 'google-' + profile.id,
           imgPerfil: profile.photos[0].value,
           token: generarId(),
-          rolId: 3,
+          rolId: 2,
           googleAccessToken: accessToken,
           googleRefreshToken: refreshToken,
         }
@@ -156,7 +152,6 @@ const registrar = async (req, res) => {
     // Errores
     return res.render('auth/registro', {
       pagina: 'Crear Cuenta',
-      csrfToken: req.csrfToken(),
       errores: resultado.array(),
       usuario: {
         nombre: req.body.nombre,
@@ -172,7 +167,6 @@ const registrar = async (req, res) => {
   if (existeUsuario) {
     return res.render('auth/registro', {
       pagina: 'Crear Cuenta',
-      csrfToken: req.csrfToken(),
       errores: [{ msg: 'El usuario ya esta Registrado' }],
       usuario: {
         nombre: req.body.nombre,
@@ -187,7 +181,7 @@ const registrar = async (req, res) => {
     email,
     password,
     token: generarId(),
-    rolId: 3
+    rolId: 2
   });
 
   //Envia email de confirmacion
@@ -244,7 +238,6 @@ const resetPassword = async (req, res) => {
     // Errores
     return res.render('auth/olvide-password', {
       pagina: 'Recupera tu acceso',
-      csrfToken: req.csrfToken(),
       errores: resultado.array()
     });
   }
@@ -257,7 +250,6 @@ const resetPassword = async (req, res) => {
   if (!usuario) {
     return res.render('auth/olvide-password', {
       pagina: 'Recupera tu acceso',
-      csrfToken: req.csrfToken(),
       errores: [{ msg: 'El Email no Pertenece a ningún usuario Registrado' }]
     });
   }
@@ -293,8 +285,7 @@ const comprobarToken = async (req, res) => {
   }
   //Mostrar formulario para modificar el password
   res.render('auth/reset-password', {
-    pagina: 'Restablece tu Password',
-    csrfToken: req.csrfToken(),
+    pagina: 'Restablece tu Password'
   });
 }
 
@@ -308,7 +299,6 @@ const nuevoPassword = async (req, res) => {
     // Errores
     return res.render('auth/reset-password', {
       pagina: 'Restablece tu Password',
-      csrfToken: req.csrfToken(),
       errores: resultado.array(),
     });
   }

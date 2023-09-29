@@ -1,19 +1,19 @@
-import { Roles } from "../models/index.js"
+import {  Subscripciones, Usuario } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 
 const miPerfil = async (req, res) => {
   //Datos Usuario
-  const { dataValues } = req.usuario
-  const usuario = dataValues
+  const id  = req.usuario.id
+  const usuario = await Usuario.findByPk(id);	
+   console.log(id)	
+console.log(usuario)
   //Datos del Rol
-  const rol = await Roles.findByPk(usuario.rolId)
-  const roles = rol.dataValues 
+	// continuar con la presentacion de los datos en la plataforma
 
   res.render('adm/mi-perfil', {
     pagina: 'Mi Perfil',
-    usuario,
-    roles
+    usuario
   });
 }
 
@@ -59,10 +59,19 @@ const feedback = async (req,res) => {
 }
 
 const prueba = async (req,res) => {
+	  //Datos Usuario
+	  const { dataValues } = req.usuario
+	  const usuario = dataValues
+	console.log(usuario)
 	res.render('adm/prueba', {
 		pagina: 'Premium Gratis',
 	  });
 }
+
+const freepremium = async (req,res) => {
+	res.render()
+}
+
 export {
   miPerfil,
   subscripcion,
