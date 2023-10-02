@@ -72,14 +72,14 @@ const categoria =  async (req, res) => {
   res.render('categoria',{
     pagina: `${categoria.nombre}s en Venta`,
     propiedades,
-    csrfToken: req.csrfToken()
+    
   })
 }
 
 const noEncontrado = (req, res) => {
   res.render('404', {
     pagina: 'No Encontrada',
-    csrfToken: req.csrfToken()
+    
   })
 }
 
@@ -113,20 +113,20 @@ const buscador = async (req, res) => {
     estados,
     precios,
     casas,
-    csrfToken: req.csrfToken()
+    
   })
 }
 
 const ajustes = async (req, res) => {
   res.render('ajustes', {
     pagina: 'Ajustes',
-    csrfToken: req.csrfToken()
+    
   })
 }
 const favoritos = async (req, res) => {
   res.render('favoritos', {
     pagina: 'Favoritos',
-    csrfToken: req.csrfToken()
+    
   })
 }
 const verificadas = async (req, res) => {
@@ -150,7 +150,7 @@ const verificadas = async (req, res) => {
   res.render('verificadas', {
     pagina: 'Verificadas',
     casas,
-    csrfToken: req.csrfToken()
+    
   })
 }
 export {

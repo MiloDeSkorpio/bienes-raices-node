@@ -18,7 +18,7 @@ const usuarios = [
     password: bcrypt.hashSync('password',10),
     imgPerfil: 'rafa.jpg',
     rolId: 2,
-    prueba: 0,
+    prueba: 1,
     
   },
   {

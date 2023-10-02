@@ -16,11 +16,11 @@ block contenido
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Información de Subscripcion
           p(class="font-semibold text-lg p-1" ) Subscripcion: 
-            span(class="font-normal")= usuario.rolId
+            span(class="font-normal")= tipos.nombre
           p(class="font-semibold text-lg p-1" ) Inicio de Suscripcion: 
-            span(class="font-normal") 01/09/23
+            span(class="font-normal")= infos.createdAt
           p(class="font-semibold text-lg p-1" ) Fin de Suscripcion: 
-            span(class="font-normal") 01/10/23
+            span(class="font-normal")= infos.endSub
         div(class="py-2 flex")
           a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
         if !usuario.prueba

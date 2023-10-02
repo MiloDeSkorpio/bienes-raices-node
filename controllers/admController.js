@@ -1,19 +1,38 @@
-import {  Subscripciones, Usuario } from "../models/index.js"
+import {  Subscripciones, Usuario, TipoSubs } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 
 const miPerfil = async (req, res) => {
-  //Datos Usuario
-  const id  = req.usuario.id
-  const usuario = await Usuario.findByPk(id);	
-   console.log(id)	
-console.log(usuario)
-  //Datos del Rol
-	// continuar con la presentacion de los datos en la plataforma
-
+	//Datos Usuario
+	const { dataValues } = req.usuario
+	const usuario = dataValues
+  const id  = usuario.id
+	console.log(usuario)
+  console.log(id)	
+  //Datos de la subscripcion
+	const subs = await Subscripciones.findAll({
+		where: {
+			usuarioId: id
+		}
+	})
+	console.log(subs[0].dataValues)
+	const infos  = subs[0].dataValues
+	//datos del tipo de subscripcion
+	const idT = subs[0].dataValues.tiposubId
+	console.log(idT)
+	const tsubs = await TipoSubs.findAll({
+		where:{
+			id: idT
+		}
+	})
+	console.log(tsubs[0].dataValues)
+	//Estructurar Datos para presentarlos al cliente
+	const tipos = tsubs[0].dataValues
   res.render('adm/mi-perfil', {
     pagina: 'Mi Perfil',
-    usuario
+    usuario,
+		tipos,
+		infos
   });
 }
 
