@@ -1,61 +1,62 @@
-import {  Subscripciones, Usuario, TipoSubs } from "../models/index.js"
+import { Subscripciones, Usuario, TipoSubs } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
-
+import { formatearFecha } from '../helpers/index.js'
 const miPerfil = async (req, res) => {
 	//Datos Usuario
 	const { dataValues } = req.usuario
 	const usuario = dataValues
-  const id  = usuario.id
+	const id = usuario.id
 	console.log(usuario)
-  console.log(id)	
-  //Datos de la subscripcion
+	console.log(id)
+	//Datos de la subscripcion
 	const subs = await Subscripciones.findAll({
 		where: {
 			usuarioId: id
 		}
 	})
 	console.log(subs[0].dataValues)
-	const infos  = subs[0].dataValues
+	const infos = subs[0].dataValues
 	//datos del tipo de subscripcion
 	const idT = subs[0].dataValues.tiposubId
 	console.log(idT)
 	const tsubs = await TipoSubs.findAll({
-		where:{
+		where: {
 			id: idT
 		}
 	})
 	console.log(tsubs[0].dataValues)
 	//Estructurar Datos para presentarlos al cliente
 	const tipos = tsubs[0].dataValues
-  res.render('adm/mi-perfil', {
-    pagina: 'Mi Perfil',
-    usuario,
+	res.render('adm/mi-perfil', {
+		pagina: 'Mi Perfil',
+		usuario,
 		tipos,
-		infos
-  });
+		infos,
+		formatearFecha
+	});
 }
 
 const subscripcion = async (req, res) => {
 	res.render('adm/subscripcion', {
-    pagina: 'Subscripciones',
-  });
+		pagina: 'Subscripciones',
+	});
 }
 
 const preferences = async (req, res) => {
-	
-  let preference = {
+
+	let preference = {
 		items: [
 			{
-        title: "Premium Mensual",
-        unit_price: 180,
-        quantity: 1,
+				title: "Premium Mensual",
+				unit_price: 180,
+				quantity: 1,
 			}
 		],
 		back_urls: {
-			success: config.url+"/adm/feedback",
-			failure: config.url+"/adm/feedback",
-			pending: config.url+"/adm/feedback"
+			success: config.url + "/adm/feedback",
+			failure: config.url + "/adm/feedback",
+			pending: config.url + "/adm/feedback"
 		},
 		auto_return: "approved",
 	};
@@ -69,32 +70,78 @@ const preferences = async (req, res) => {
 		});
 }
 
-const feedback = async (req,res) => {
-  res.json({
+const feedback = async (req, res) => {
+	res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
 		MerchantOrder: req.query.merchant_order_id
 	});
 }
 
-const prueba = async (req,res) => {
-	  //Datos Usuario
-	  const { dataValues } = req.usuario
-	  const usuario = dataValues
+//Seguir con la ruta post ///************* */
+const prueba = async (req, res) => {
+	//Datos Usuario
+	const { dataValues } = req.usuario
+	const usuario = dataValues
+	const id = usuario.id
 	console.log(usuario)
+	//Datos de la subscripcion
+	const subs = await Subscripciones.findAll({
+		where: {
+			usuarioId: id
+		}
+	})
+	const infos = subs[0].dataValues
+	console.log(infos)
+	//datos del tipo de subscripcion
+	const idT = subs[0].dataValues.tiposubId
+	console.log(idT)
+	const tsubs = await TipoSubs.findAll({
+		where: {
+			id: idT
+		}
+	})
+	//Estructurar Datos para presentarlos al cliente
+	const tipos = tsubs[0].dataValues
+	console.log(tipos)
 	res.render('adm/prueba', {
 		pagina: 'Premium Gratis',
-	  });
+		usuario,
+		infos,
+		tipos
+	});
 }
 
-const freepremium = async (req,res) => {
-	res.render()
+const freepremium = async (req, res) => {
+	// //Datos Usuario
+	// const { dataValues } = req.usuario
+	// const usuario = dataValues
+	// console.log(usuario)
+	// //Datos de la subscripcion
+	// const subs = await Subscripciones.findAll({
+	// 	where: {
+	// 		usuarioId: id
+	// 	}
+	// })
+	// console.log(subs[0].dataValues)
+	// const infos = subs[0].dataValues
+	// console.log(infos)
+	// //datos del tipo de subscripcion
+	// const idT = subs[0].dataValues.tiposubId
+	// const tsubs = await TipoSubs.findAll({
+	// 	where: {
+	// 		id: idT
+	// 	}
+	// })
+	// console.log(tsubs[0].tiposubs)
+	// res.render('adm/mi-perfil')
 }
 
 export {
-  miPerfil,
-  subscripcion,
-  preferences,
-  feedback,
-  prueba
+	miPerfil,
+	subscripcion,
+	preferences,
+	feedback,
+	prueba,
+	freepremium
 }

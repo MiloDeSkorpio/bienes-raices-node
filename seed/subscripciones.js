@@ -1,21 +1,23 @@
+import { calcularFinSuscripcion } from "../helpers/finsub.js";
+
 const subscripciones = [
     {
-        endSub: new Date(),
+        endSub: calcularFinSuscripcion(new Date(),3650),
         usuarioId: 1,
         tiposubId: 1
     },
     {
-        endSub: new Date(),
+        endSub: calcularFinSuscripcion(new Date(),3650),
         usuarioId: 2,
         tiposubId: 1
     },
     {
-        endSub: new Date(),
+        endSub: calcularFinSuscripcion(new Date(),3650),
         usuarioId: 3,
         tiposubId: 1
     },
     {
-        endSub: new Date(),
+        endSub: calcularFinSuscripcion(new Date(),3650),
         usuarioId: 4,
         tiposubId: 1
     }

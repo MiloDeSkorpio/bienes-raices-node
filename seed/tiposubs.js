@@ -2,7 +2,7 @@ const tiposubs = [
     {
         nombre: 'Gratuita',
         precio: 0,
-        duracion: 31557600
+        duracion: 3650
     },
     {
         nombre: 'Premium Mensual',
