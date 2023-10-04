@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/mostrarMapa.js":
-/*!*******************************!*\
-  !*** ./src/js/mostrarMapa.js ***!
-  \*******************************/
+/***/ "./src/js/freeSub.js":
+/*!***************************!*\
+  !*** ./src/js/freeSub.js ***!
+  \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n(function() {\n  const lat = document.querySelector('#lat').textContent\n  const lng = document.querySelector('#lng').textContent\n  const titulo = document.querySelector('#titulo').textContent\n  const mapa = L.map('mapa-prop').setView([lat,lng],16)\n\n  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'\n}).addTo(mapa);\n\n  // Agregar el Pin\n  L.marker([lat,lng])\n    .addTo(mapa)\n    .bindPopup(titulo)\n})()\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/mostrarMapa.js?");
+eval("__webpack_require__.r(__webpack_exports__);\ndocument.getElementById(\"pfree\").addEventListener('click', function () {\r\n  const url = `/adm/freepremium`;\r\n  const method = \"POST\";\r\n\r\n  const data = {\r\n    idUsuario: document.getElementById(\"idUsuario\")\r\n  }\r\n\r\n  fetch(url, {\r\n    method,\r\n    headers: {\r\n      \"Content-Type\": \"application/json\",\r\n    },\r\n    body: JSON.stringify(data)\r\n  })\r\n\r\n});\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
 
 /***/ })
 
@@ -43,7 +43,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n(function() {\n  const lat = 
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/js/mostrarMapa.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/js/freeSub.js"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;

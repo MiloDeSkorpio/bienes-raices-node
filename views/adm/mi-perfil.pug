@@ -9,6 +9,7 @@ block contenido
           a(href="/mis-propiedades" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Mis Propiedades
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Información Basica  
+          p(class="hidden" id="idUsuario" )= usuario.id
           p(class="font-semibold text-lg p-1") Usuario:  
             span(class="font-normal" )= usuario.nombre
           p(class="font-semibold text-lg p-1" ) Email: 
@@ -25,7 +26,7 @@ block contenido
           a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
         if !usuario.prueba
           div(class="py-2 flex")
-            a(href="/adm/prueba" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Prueba Premium
+            a(id="pfree" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Prueba Premium
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Gestionar
           p(class="font-semibold text-lg p-1" ) Cambiar Password

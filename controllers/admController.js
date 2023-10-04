@@ -78,63 +78,16 @@ const feedback = async (req, res) => {
 	});
 }
 
-//Seguir con la ruta post ///************* */
 const prueba = async (req, res) => {
-	//Datos Usuario
-	const { dataValues } = req.usuario
-	const usuario = dataValues
-	const id = usuario.id
-	console.log(usuario)
-	//Datos de la subscripcion
-	const subs = await Subscripciones.findAll({
-		where: {
-			usuarioId: id
-		}
-	})
-	const infos = subs[0].dataValues
-	console.log(infos)
-	//datos del tipo de subscripcion
-	const idT = subs[0].dataValues.tiposubId
-	console.log(idT)
-	const tsubs = await TipoSubs.findAll({
-		where: {
-			id: idT
-		}
-	})
-	//Estructurar Datos para presentarlos al cliente
-	const tipos = tsubs[0].dataValues
-	console.log(tipos)
+	
 	res.render('adm/prueba', {
 		pagina: 'Premium Gratis',
-		usuario,
-		infos,
-		tipos
+
 	});
 }
-
+//** Crear Metodo POST **/
 const freepremium = async (req, res) => {
-	// //Datos Usuario
-	// const { dataValues } = req.usuario
-	// const usuario = dataValues
-	// console.log(usuario)
-	// //Datos de la subscripcion
-	// const subs = await Subscripciones.findAll({
-	// 	where: {
-	// 		usuarioId: id
-	// 	}
-	// })
-	// console.log(subs[0].dataValues)
-	// const infos = subs[0].dataValues
-	// console.log(infos)
-	// //datos del tipo de subscripcion
-	// const idT = subs[0].dataValues.tiposubId
-	// const tsubs = await TipoSubs.findAll({
-	// 	where: {
-	// 		id: idT
-	// 	}
-	// })
-	// console.log(tsubs[0].tiposubs)
-	// res.render('adm/mi-perfil')
+	console.log(req)
 }
 
 export {
