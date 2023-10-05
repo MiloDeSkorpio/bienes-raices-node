@@ -29,7 +29,7 @@ router.get('/prueba',
   prueba
 )
 
-router.post('/freepremium',
+router.post('/freepremium/:id',
   freepremium
 )
 

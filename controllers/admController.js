@@ -3,31 +3,31 @@ import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
 const miPerfil = async (req, res) => {
+	/** PENDIENTE AGREGAR EL METODO DE VERIFICACION DEL DATE DE VENCIMIENTO DE TODAS LAS MEMBRESIAS **/
 	//Datos Usuario
 	const { dataValues } = req.usuario
 	const usuario = dataValues
 	const id = usuario.id
-	console.log(usuario)
-	console.log(id)
+	// console.log(usuario)
+	// console.log(id)
 	//Datos de la subscripcion
 	const subs = await Subscripciones.findAll({
 		where: {
 			usuarioId: id
 		}
 	})
-	console.log(subs[0].dataValues)
+	// console.log(subs[0].dataValues)
 	const infos = subs[0].dataValues
 	//datos del tipo de subscripcion
 	const idT = subs[0].dataValues.tiposubId
-	console.log(idT)
-	const tsubs = await TipoSubs.findAll({
+	// console.log(idT)
+	const tiposubs = await TipoSubs.findAll({
 		where: {
 			id: idT
 		}
 	})
-	console.log(tsubs[0].dataValues)
-	//Estructurar Datos para presentarlos al cliente
-	const tipos = tsubs[0].dataValues
+	const tipos = tiposubs[0].dataValues
+	
 	res.render('adm/mi-perfil', {
 		pagina: 'Mi Perfil',
 		usuario,
@@ -87,7 +87,24 @@ const prueba = async (req, res) => {
 }
 //** Crear Metodo POST **/
 const freepremium = async (req, res) => {
-	console.log(req)
+	const { id } = req.params
+	const subscripcion = await Subscripciones.findAll({
+		where: {
+			usuarioId: id
+		}
+	})
+	const sub = subscripcion[0].dataValues
+	const usuario = await Usuario.findByPk(id)
+	const usr = usuario.dataValues
+	console.log(usr)
+	console.log(sub)
+	const tiposubs = await TipoSubs.findAll()
+	const prueba = tiposubs[5].dataValues
+	console.log(prueba)
+	//Pendiente Agregar el metodo para reeescribir la subscripcion con la duracion de la prueba
+	if (usr.prueba === 0){
+		console.log('Empezemos con la prueba')
+	} 
 }
 
 export {

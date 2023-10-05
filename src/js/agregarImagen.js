@@ -1,9 +1,5 @@
 import {Dropzone} from "dropzone";
 
-const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-console.log(token)
-
 Dropzone.options.imagen = {
   dictDefaultMessage: 'Sube tus imagenes aqui',
   acceptedFiles: '.png,.jpg,.webp,.jpeg',
@@ -16,9 +12,6 @@ Dropzone.options.imagen = {
   dictRemoveFile: 'Eliminar Imagen',
   dictMaxFilesExceeded: 'El Limite son 10 Imagenes',
   dictFileTooBig: 'El archivo es demasiado grande.',
-  headers: {
-    'CSRF-Token': token
-  },
   paramName: 'imagen',
   init: function() {
     const dropzone = this;
