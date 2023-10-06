@@ -88,12 +88,8 @@ const prueba = async (req, res) => {
 //** Crear Metodo POST **/
 const freepremium = async (req, res) => {
 	const { id } = req.params
-	const subscripcion = await Subscripciones.findAll({
-		where: {
-			usuarioId: id
-		}
-	})
-	const sub = subscripcion[0].dataValues
+	const subscripcion = await Subscripciones.findByPk(id)
+	const sub = (subscripcion.dataValues)
 	const usuario = await Usuario.findByPk(id)
 	const usr = usuario.dataValues
 	console.log(usr)
@@ -101,9 +97,25 @@ const freepremium = async (req, res) => {
 	const tiposubs = await TipoSubs.findAll()
 	const prueba = tiposubs[5].dataValues
 	console.log(prueba)
+	console.log(prueba.duracion)
 	//Pendiente Agregar el metodo para reeescribir la subscripcion con la duracion de la prueba
 	if (usr.prueba === 0){
 		console.log('Empezemos con la prueba')
+		console.log(sub.tiposubId = prueba.id)
+		const fechaAct = new Date()
+		console.log(fechaAct)
+		console.log(sub.endSub)
+		// Clona la fecha actual para no modificarla directamente
+		const nuevaFecha = new Date(fechaAct);
+		nuevaFecha.setDate(fechaAct.getDate() + prueba.duracion);
+		sub.endSub = nuevaFecha;
+
+		console.log(sub.endSub);
+		try {
+			
+		} catch (error) {
+			
+		}
 	} 
 }
 
