@@ -4,35 +4,33 @@ import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
 const miPerfil = async (req, res) => {
 	/** PENDIENTE AGREGAR EL METODO DE VERIFICACION DEL DATE DE VENCIMIENTO DE TODAS LAS MEMBRESIAS **/
+	const fechaActual = new Date()
 	//Datos Usuario
-	const { dataValues } = req.usuario
-	const usuario = dataValues
+	const usuario = req.usuario.dataValues
 	const id = usuario.id
-	// console.log(usuario)
-	// console.log(id)
 	//Datos de la subscripcion
-	const subs = await Subscripciones.findAll({
-		where: {
-			usuarioId: id
-		}
-	})
-	// console.log(subs[0].dataValues)
-	const infos = subs[0].dataValues
+	const subs = await Subscripciones.findByPk( id )
 	//datos del tipo de subscripcion
-	const idT = subs[0].dataValues.tiposubId
-	// console.log(idT)
-	const tiposubs = await TipoSubs.findAll({
-		where: {
-			id: idT
-		}
-	})
-	const tipos = tiposubs[0].dataValues
-	
+	const idT = subs.tiposubId
+	const tiposubs = await TipoSubs.findByPk(idT)
+	//datos de subgratuita
+	const gratis = await TipoSubs.findByPk(1)
+	const nuevaFecha = new Date(fechaActual);
+	nuevaFecha.setDate(fechaActual.getDate() + gratis.duracion);
+	// console.log(nuevaFecha)
+	if(fechaActual > subs.endSub) {
+		console.log('Prueba Vencida')
+		subs.endSub = nuevaFecha
+		subs.tiposubId = 1
+		await subs.save()
+	} else {
+		console.log('Subscripcion Activa')
+	}
 	res.render('adm/mi-perfil', {
 		pagina: 'Mi Perfil',
 		usuario,
-		tipos,
-		infos,
+		subs,
+		tiposubs,
 		formatearFecha
 	});
 }
@@ -79,7 +77,6 @@ const feedback = async (req, res) => {
 }
 
 const prueba = async (req, res) => {
-	
 	res.render('adm/prueba', {
 		pagina: 'Premium Gratis',
 
@@ -92,26 +89,24 @@ const freepremium = async (req, res) => {
 	const usuario = await Usuario.findByPk(id)
 	const tiposubs = await TipoSubs.findAll()
 	const prueba = tiposubs[5]
-	//Pendiente Agregar el metodo para reeescribir la subscripcion con la duracion de la prueba
-	console.log('Empezemos con la prueba')
+	
 	// Clona la fecha actual para no modificarla directamente
 	const fechaAct = new Date()
 	const nuevaFecha = new Date(fechaAct);
 	nuevaFecha.setDate(fechaAct.getDate() + prueba.duracion);
-	console.log(nuevaFecha)
 	if (usuario.prueba === 0){
+		try {
+			//guardar nuevos valores en base de datos
+			subscripcion.endSub = nuevaFecha,
+			subscripcion.tiposubId = prueba.id
+			await subscripcion.save()
+			usuario.prueba = 1
+			await usuario.save()
+			res.redirect('/mi-perfil')
+		} catch (error) {
+			console.log(error)
+		}
 	} 
-	try {
-		//guardar nuevos valores en base de datos
-		subscripcion.endSub = nuevaFecha,
-		subscripcion.tiposubId = prueba.id
-		await subscripcion.save()
-		usuario.prueba = 1
-		await usuario.save()
-		res.redirect('/mi-perfil')
-	} catch (error) {
-		console.log(error)
-	}
 }
 
 export {

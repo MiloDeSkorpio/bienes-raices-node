@@ -30,6 +30,7 @@ router.get('/prueba',
 )
 
 router.post('/prueba/:id',
+  protegerRuta,
   freepremium
 )
 
