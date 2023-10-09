@@ -25,7 +25,7 @@ block contenido
           a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
         if !usuario.prueba
           div(class="py-2 flex")
-            form( method="POST" action=`/adm/freepremium/${usuario.id}` )
+            form( method="POST" action=`/adm/prueba/${usuario.id}` )
             input(class="hidden" id="idUsuario" value=`${usuario.id}`)
             button(id="pfree" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit") Prueba Premium
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")

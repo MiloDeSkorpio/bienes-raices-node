@@ -16,7 +16,7 @@
   \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\ndocument.getElementById(\"pfree\").addEventListener('click', function () {\r\n  //Bloquear btn\r\n  $('#pfree').attr(\"disabled\", true);\r\n  //Declaracion de variables\r\n  const idUsuario = document.getElementById(\"idUsuario\").value\r\n  const url = `/adm/freepremium/${idUsuario}`;\r\n  const method = \"POST\";\r\n  //Fetch al url\r\n  fetch(url, {\r\n    method,\r\n    headers: {\r\n      \"Content-Type\": \"application/json\",\r\n    }\r\n  })\r\n});\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
+eval("__webpack_require__.r(__webpack_exports__);\ndocument.getElementById(\"pfree\").addEventListener('click', function () {\r\n  //Bloquear btn\r\n  $('#pfree').attr(\"disabled\", true);\r\n  //Declaracion de variables\r\n  const idUsuario = document.getElementById(\"idUsuario\").value\r\n  const url = `/adm/prueba/${idUsuario}`;\r\n  const method = \"POST\";\r\n  //Fetch al url\r\n  fetch(url, {\r\n    method,\r\n    headers: {\r\n      \"Content-Type\": \"application/json\",\r\n    }\r\n  })\r\n});\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
 
 /***/ })
 

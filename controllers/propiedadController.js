@@ -152,6 +152,7 @@ const almacenarImagen = async (req, res, next) => {
   const { id } = req.params;
   // Validar que la propiedad exista
   const propiedad = await Propiedad.findByPk(id);
+
   if (!propiedad) {
     return res.redirect('/mis-propiedades');
   }
@@ -223,7 +224,6 @@ const guardarCambios = async (req, res) => {
 
     return res.render('propiedades/editar', {
       pagina: 'Editar Propiedad',
-
       categorias,
       precios,
       errores: resultado.array(),
@@ -235,7 +235,7 @@ const guardarCambios = async (req, res) => {
 
   // Validar que la propiedad exista
   const propiedad = await Propiedad.findByPk(id)
-
+  console.log(propiedad)
   if (!propiedad) {
     return res.redirect('/mis-propiedades')
   }
