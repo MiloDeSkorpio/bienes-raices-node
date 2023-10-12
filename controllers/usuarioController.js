@@ -136,7 +136,7 @@ const cerrarSesion = (req, res) => {
 const formularioRegistro = (req, res) => {
   res.render('auth/registro', {
     pagina: 'Crear Cuenta',
-    csrfToken: req.csrfToken()
+    
   });
 }
 
@@ -223,7 +223,7 @@ const confirmar = async (req, res) => {
 const formularioOlvidePassword = (req, res) => {
   res.render('auth/olvide-password', {
     pagina: 'Recupera tu acceso',
-    csrfToken: req.csrfToken()
+    
   });
 }
 
