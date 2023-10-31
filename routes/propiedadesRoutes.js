@@ -94,6 +94,9 @@ router.get('/mensajes/:id',
  verMensajes
 )
 
-
+router.put('/propiedad/:id',
+ protegerRuta,
+ cambiarEstado
+)
 
 export default router;

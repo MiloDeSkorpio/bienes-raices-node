@@ -181,7 +181,8 @@ const registrar = async (req, res) => {
     email,
     password,
     token: generarId(),
-    rolId: 2
+    rolId: 2,
+    prueba: 0
   });
 
   //Envia email de confirmacion

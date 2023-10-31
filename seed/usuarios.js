@@ -19,7 +19,6 @@ const usuarios = [
     imgPerfil: 'rafa.jpg',
     rolId: 2,
     prueba: 1,
-    
   },
   {
     nombre: 'Pedro',
