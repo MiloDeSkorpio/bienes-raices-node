@@ -4,29 +4,29 @@ block contenido
     section(class="py-1")
       div(class="p-2")
         div(class="p-2 flex  justify-center")  
-          img(src=`/uploads/profiles/${usuario.imgPerfil}` alt=`Img de ${usuario.nombre}` class="w-24 h-24 rounded-full items-center")
+          img(src=`/uploads/profiles/${imgPerfil}` alt=`Img de ${nombre}` class="w-24 h-24 rounded-full items-center")
         div(class="py-2")
           a(href="/mis-propiedades" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Mis Propiedades
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Información Basica  
-          p(class="font-semibold text-lg p-1") Usuario:  
-            span(class="font-normal" )= usuario.nombre
+          p(class="font-semibold text-lg p-1") Usuario:   
+            span(class="font-normal" )= nombre
           p(class="font-semibold text-lg p-1" ) Email: 
-            span(class="font-normal")= usuario.email
+            span(class="font-normal")= email
         fieldset(class="py-2 border border-dkblue-900 flex flex-col")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Información de Subscripcion
           p(class="font-semibold text-lg p-1" ) Subscripcion: 
-            span(class="font-normal")= tiposubs.nombre
+            span(class="font-normal")= nombreS
           p(class="font-semibold text-lg p-1" ) Inicio de Suscripcion: 
-            span(class="font-normal")= formatearFecha(subs.createdAt)
+            span(class="font-normal")= formatearFecha(createdAt)
           p(class="font-semibold text-lg p-1" ) Fin de Suscripcion: 
-            span(class="font-normal")= formatearFecha(subs.endSub)
+            span(class="font-normal")= formatearFecha(endSub)
         div(class="py-2 flex")
           a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
-        if !usuario.prueba
+        if !prueba
           div(class="py-2 flex")
-            form( method="POST" action=`/adm/prueba/${usuario.id}` )
-            input(class="hidden" id="idUsuario" value=`${usuario.id}`)
+            form( method="POST" action=`/adm/prueba/${id}` )
+            input(class="hidden" id="id" value=`${id}`)
             button(id="pfree" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit") Prueba Premium
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Gestionar

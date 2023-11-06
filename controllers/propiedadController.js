@@ -22,10 +22,9 @@ const admin = async (req, res) => {
   try {
     const { id } = req.usuario
 
-    //Limites y Offfset para el Pagiiandor
+    //Limites y Offfset para el Pagiandor
     const limit = 10
     const offset = ((paginaActual * limit ) - limit)
-
 
     const [propiedades, total] = await Promise.all([
       Propiedad.findAll({
@@ -46,7 +45,9 @@ const admin = async (req, res) => {
         }
       })
     ])
-    
+    console.log(propiedades)
+    console.log(total)
+
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
       propiedades,

@@ -1,36 +1,45 @@
-import { Subscripciones, Usuario, TipoSubs } from "../models/index.js"
+import { Subscripciones, Usuario, TipoSubs, Propiedad } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
+
 const miPerfil = async (req, res) => {
+
 	/** PENDIENTE AGREGAR EL METODO DE VERIFICACION DEL DATE DE VENCIMIENTO DE TODAS LAS MEMBRESIAS **/
-	const fechaActual = new Date()
-	//Datos Usuario
-	const usuario = req.usuario.dataValues
-	const id = usuario.id
-	//Datos de la subscripcion
-	const subs = await Subscripciones.findByPk( id )
-	//datos del tipo de subscripcion
-	const idT = subs.tiposubId
-	const tiposubs = await TipoSubs.findByPk(idT)
-	//datos de subgratuita
-	const gratis = await TipoSubs.findByPk(1)
-	const nuevaFecha = new Date(fechaActual);
-	nuevaFecha.setDate(fechaActual.getDate() + gratis.duracion);
-	// console.log(nuevaFecha)
-	if(fechaActual > subs.endSub) {
-		console.log('Prueba Vencida')
-		subs.endSub = nuevaFecha
-		subs.tiposubId = 1
-		await subs.save()
-	} else {
-		console.log('Subscripcion Activa')
-	}
+
+	/** Desestructuración de objetos y definicion de variables **/
+		// Desestructuración
+		const { dataValues: { id, nombre, email, imgPerfil, rolId, prueba  } } = req.usuario;
+		const { tiposubId, endSub, createdAt } = await Subscripciones.findByPk( id )
+		const { nombre: nombreS } = await TipoSubs.findByPk(tiposubId)
+		const { duracion } = await TipoSubs.findByPk(1)
+	
+		// Metodo para asignar la subscripcion gratuita una vez se venza alguna subscripcion
+		// El metodo renovara la subscripcion gratuita cada que se finalize una subscripcion
+		// Variables 
+		const fechaActual = new Date()
+		const nuevaFecha = new Date();
+
+		// Asignar la duracion de la subscripcion gratuita a la fecha actual
+		nuevaFecha.setDate(fechaActual.getDate() + duracion);
+
+		// Condicional para el vencimiento de la subscripcion
+		if(fechaActual > endSub) {
+			endSub = nuevaFecha
+			tiposubId = 1
+			await Subscripciones.save()
+		} 
+
 	res.render('adm/mi-perfil', {
 		pagina: 'Mi Perfil',
-		usuario,
-		subs,
-		tiposubs,
+		nombre,
+		email,
+		imgPerfil,
+		rolId,
+		prueba,
+		nombreS,
+		endSub,
+		createdAt,
 		formatearFecha
 	});
 }
