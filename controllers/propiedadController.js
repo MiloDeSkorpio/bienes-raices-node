@@ -1,18 +1,17 @@
 import { unlink } from 'node:fs/promises';
 import { validationResult } from 'express-validator';
-import { Precio, Categoria, Propiedad, Mensaje, Usuario } from '../models/index.js';
+import { Precio, Categoria, Propiedad, Mensaje, Usuario, Subscripciones, TipoSubs } from '../models/index.js';
 import { esVendedor, formatearFecha } from '../helpers/index.js'
 
 const admin = async (req, res) => {
-
-  //Leer QueryString
+// Paginador
+  // Leer QueryString
   const { pagina: paginaActual } = req.query
 
   //Expresion Regular 
   // -- [0-9] Solo acepta digitos del 0 al 9 
   // -- ^ Siempre debe iniciar con digitos
   // -- $ Siempre tiene que finalizar con digitos
-
   const expresion = /^[0-9]$/
 
   if(!expresion.test(paginaActual)){
@@ -21,12 +20,11 @@ const admin = async (req, res) => {
 
   try {
     const { id } = req.usuario
-
-    //Limites y Offfset para el Pagiandor
+    //Limites y Offfset para el Paginador
     const limit = 10
+    const publicada = 1
     const offset = ((paginaActual * limit ) - limit)
-
-    const [propiedades, total] = await Promise.all([
+    const [propiedades, total,publicadas] = await Promise.all([
       Propiedad.findAll({
         limit,
         offset,
@@ -43,19 +41,34 @@ const admin = async (req, res) => {
         where: {
           usuarioId: id
         }
+      }),
+      Propiedad.count({
+        where: {
+          usuarioId: id,
+          publicado: publicada
+        }
       })
     ])
-    console.log(propiedades)
-    console.log(total)
+    console.log(publicadas)
+// Limite de subscripciones
+    const { tiposubId } = await Subscripciones.findByPk(id)
+    const { limite } = await TipoSubs.findByPk(tiposubId)
+    console.log(tiposubId)
+    //limite
+    console.log(limite)
+    
 
+    //Renderizado de pagina
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
       propiedades,
       paginas: Math.ceil(total / limit),
       paginaActual: Number(paginaActual),
       total,
+      publicadas,
       offset,
-      limit
+      limit,
+      limite
     });
   } catch (error) {
     console.log(error)

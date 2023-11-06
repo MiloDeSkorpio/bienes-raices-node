@@ -7,7 +7,8 @@ const TipoSubs = db.define('tiposubs',{
         allowNull: false
     },
     precio: DataTypes.INTEGER,
-    duracion: DataTypes.INTEGER
+    duracion: DataTypes.INTEGER,
+    limite: DataTypes.BIGINT
     
 });
 
