@@ -9,7 +9,8 @@ const inicio = async (req, res) => {
     Propiedad.findAll({
       limit: 10,
       where: {
-        verificado: 1
+        verificado: 1,
+        publicado: 1
       },
       include: [
         {
@@ -37,7 +38,7 @@ const inicio = async (req, res) => {
       ]
     }),
   ]);
-
+  console.log(recientes)
   res.render('inicio', {
     pagina: 'Inicio',
     categorias,
@@ -117,6 +118,7 @@ const buscador = async (req, res) => {
   })
 }
 
+//** Pendientes  **//
 const ajustes = async (req, res) => {
   res.render('ajustes', {
     pagina: 'Ajustes',
@@ -129,6 +131,8 @@ const favoritos = async (req, res) => {
     
   })
 }
+
+//** Verificar su funcionamiento o depurar **/
 const verificadas = async (req, res) => {
   const [casas] = await Promise.all([
     Propiedad.findAll({

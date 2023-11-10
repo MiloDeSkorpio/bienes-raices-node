@@ -3,7 +3,7 @@ extends ../layout/admin
 block styles
   meta(name="csrf-token" content= csrfToken)
 block contenido 
-    if publicadas < limite
+    if publicadasMenorLimite
       div(class="p-2")
         a(href="/propiedades/crear" class="rounded py-2 bg-dkblue-800 hover:bg-dkblue-900 text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Publicar Propiedad
         //- pre= JSON.stringify(propiedades, undefined, 2)
@@ -26,7 +26,7 @@ block contenido
                   a(href=`/mensajes/${propiedad.id}` class="text-sm text-gray-600")= `${propiedad.mensajes.length} Mensajes`
                 div(class="sm:w-1/4 md:w-2/6 lg:w-1/6/ flex flex-col gap-2 lg:flex-row")
 
-                  button(type="button" data-propiedad-id=`${propiedad.id}` class=` cambiar-estado w-full px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer ${propiedad.publicado ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`)=`${propiedad.publicado ? 'Publicado' : 'No Publicado'}`
+                  button(type="button" data-propiedad-id=`${propiedad.id}` class=`cambiar-estado w-full px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer ${publicadasMenorQueLimite ? 'bg-gray-300 cursor-not-allowed' : (propiedad.publicado ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800')}`)=`${propiedad.publicado ? 'Publicado' : 'No Publicado'}`
                   a(href=`/propiedades/editar/${propiedad.id}` class="text-center px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer bg-indigo-100 text-indigo-800") Editar  
                   form(method="POST" action=`/propiedades/eliminar/${propiedad.id}`)
                     input(type="hidden" name="_csrf" value= csrfToken)

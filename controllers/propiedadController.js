@@ -22,7 +22,7 @@ const admin = async (req, res) => {
     const { id } = req.usuario
     //Limites y Offfset para el Paginador
     const limit = 10
-    const publicada = 1
+    const publicada = 1 // identificar propiedades publicadas
     const offset = ((paginaActual * limit ) - limit)
     const [propiedades, total,publicadas] = await Promise.all([
       Propiedad.findAll({
@@ -49,15 +49,11 @@ const admin = async (req, res) => {
         }
       })
     ])
-    console.log(publicadas)
+
 // Limite de subscripciones
     const { tiposubId } = await Subscripciones.findByPk(id)
     const { limite } = await TipoSubs.findByPk(tiposubId)
-    console.log(tiposubId)
-    //limite
-    console.log(limite)
-    
-
+    const publicadasMenorLimite = publicadas < limite
     //Renderizado de pagina
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
@@ -68,7 +64,7 @@ const admin = async (req, res) => {
       publicadas,
       offset,
       limit,
-      limite
+      publicadasMenorLimite
     });
   } catch (error) {
     console.log(error)
@@ -103,7 +99,6 @@ const guardar = async (req, res) => {
     ]);
     return res.render('propiedades/crear', {
       pagina: 'Crear Propiedad',
-
       categorias,
       precios,
       errores: resultado.array(),

@@ -13,6 +13,7 @@
           method: 'PUT',
         })
         const {resultado} = await respuesta.json()
+        console.log(resultado)
         if(resultado){
           if(e.target.classList.contains('bg-yellow-100')){
             e.target.classList.add('bg-green-100', 'text-green-800')

@@ -13,7 +13,8 @@
     categoria: '',
     tipo: '',
     estado: '',
-    municipio: ''
+    municipio: '',
+    publicada: 1
   }
   //hide&show filtros
   const btnDown = document.querySelector('#iconDown')
@@ -100,7 +101,8 @@
       const url = '/api/propiedades'
       const respuesta = await fetch(url)
       propiedades = await respuesta.json()
-      mostrarPropiedades(propiedades)
+      const propiedadesPublicadas = propiedades.filter(propiedad => propiedad.publicado === true);
+      mostrarPropiedades(propiedadesPublicadas);
     } catch (error) {
       console.log(error)
     }
@@ -155,7 +157,7 @@
     const resultado = propiedades.filter(filtrarCategoria).filter(filtrarTipo).filter(filtrarMunicipio).filter(filtrarEstado)
     mostrarPropiedades(resultado)
   }
-
+  //const filtrarPublicadas = propiedad => filtros.publicada ? propiedad.publicado === filtros.publicada : propiedad
   const filtrarCategoria = propiedad => filtros.categoria ? propiedad.categoriaId === filtros.categoria : propiedad
   const filtrarTipo = propiedad => filtros.tipo ? propiedad.tipoId === filtros.tipo : propiedad
   const filtrarEstado = propiedad => filtros.estado ? propiedad.estadoId === filtros.estado : propiedad;
