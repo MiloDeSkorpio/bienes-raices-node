@@ -33,6 +33,7 @@ const Usuario = db.define('usuarios', {
   },
   rolId: DataTypes.INTEGER,
   prueba: DataTypes.INTEGER,
+  favoritos: DataTypes.INTEGER,
   accessToken: {
     type: DataTypes.STRING,
     allowNull: true,

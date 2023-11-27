@@ -32,7 +32,7 @@ const tiposubs = [
     {
         nombre: 'Prueba Premium',
         precio: 0,
-        duracion: 7,
+        duracion: 1,
         limite: 10
     },
 ]
