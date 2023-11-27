@@ -32,6 +32,7 @@ const miPerfil = async (req, res) => {
 
 	res.render('adm/mi-perfil', {
 		pagina: 'Mi Perfil',
+		id,
 		nombre,
 		email,
 		imgPerfil,

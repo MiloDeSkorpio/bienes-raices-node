@@ -7,43 +7,26 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/freeSub.js":
 /*!***************************!*\
   !*** ./src/js/freeSub.js ***!
   \***************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-eval("__webpack_require__.r(__webpack_exports__);\ndocument.getElementById(\"pfree\").addEventListener('click', function () {\r\n  //Bloquear btn\r\n  $('#pfree').attr(\"disabled\", true);\r\n  //Declaracion de variables\r\n  const idUsuario = document.getElementById(\"idUsuario\").value\r\n  const url = `/adm/prueba/${idUsuario}`;\r\n  const method = \"POST\";\r\n  //Fetch al url\r\n  fetch(url, {\r\n    method,\r\n    headers: {\r\n      \"Content-Type\": \"application/json\",\r\n    }\r\n  })\r\n});\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
+eval("throw new Error(\"Module parse failed: Cannot use keyword 'await' outside an async function (10:17)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|       const method = 'PUT';\\n|       //Fetch al url\\n>     const res =  await fetch(url, {\\n|         method,\\n|         headers: {\");\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/js/freeSub.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/js/freeSub.js"]();
 /******/ 	
 /******/ })()
 ;

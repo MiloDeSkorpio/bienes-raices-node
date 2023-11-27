@@ -1,5 +1,8 @@
 extends ../layout/admin 
-
+block styles 
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script(src="https://sdk.mercadopago.com/js/v2")
+    script(src="/js/mercadoPago.js" defer) 
 block contenido 
   div(class='py-2 flex flex-col space-y-4 justify-center items-center shopping-cart')
     div(class="w-72 h-auto p-2  border border-dkblue-900 rounded-md")
