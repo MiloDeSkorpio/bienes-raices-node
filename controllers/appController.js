@@ -38,7 +38,7 @@ const inicio = async (req, res) => {
       ]
     }),
   ]);
-  console.log(recientes)
+  
   res.render('inicio', {
     pagina: 'Inicio',
     categorias,
