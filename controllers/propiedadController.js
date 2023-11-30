@@ -51,9 +51,43 @@ const admin = async (req, res) => {
     ])
 
 // Limite de subscripciones
-    const { tiposubId } = await Subscripciones.findByPk(id)
-    const { limite } = await TipoSubs.findByPk(tiposubId)
-    const publicadasMenorLimite = publicadas < limite
+const { tiposubId } = await Subscripciones.findByPk(id);
+const { limite } = await TipoSubs.findByPk(tiposubId);
+const publicadasMenorLimite = publicadas < limite;
+
+if (publicadasMenorLimite) {
+  // Obtener todas las propiedades publicadas del usuario ordenadas por fecha de creación ascendente
+  const propiedadesOrdenadas = await Propiedad.findAll({
+    where: {
+      usuarioId: id,
+      publicado: publicada,
+    },
+    order: [['createdAt', 'ASC']],
+  });
+
+  // Mantener la propiedad más antigua y desactivar las demás
+  const propiedadMasAntigua = propiedadesOrdenadas[0];
+
+  // Actualizar las propiedades en la base de datos
+  await Promise.all(
+    propiedadesOrdenadas.map(async (propiedad) => {
+      if (propiedad.id !== propiedadMasAntigua.id) {
+        // Desactivar la propiedad
+        propiedad.publicado = 0;
+
+        // Verificar si el campo 'verificada' está activo
+        if (propiedad.verificada) {
+          // La propiedad verificada tiene prioridad para mantenerse activa
+          propiedad.publicado = 1;
+        }
+
+        // Guardar los cambios en la base de datos
+        await propiedad.save();
+      }
+    })
+  );
+}
+   
     //Renderizado de pagina
     res.render('propiedades/admin', {
       pagina: 'Mis Propiedades',
@@ -69,7 +103,6 @@ const admin = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 // Formulario para crear nueva propiedad

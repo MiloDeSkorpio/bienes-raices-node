@@ -16,7 +16,7 @@
   \***************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\ndocument.addEventListener('DOMContentLoaded', function() {\r\n  try {\r\n    // Tu código aquí\r\n    document.getElementById(\"pfree\").addEventListener('click', function () {\r\n      //Declaracion de variables\r\n      const idUsuario = document.getElementById(\"id\").value;\r\n      const url = `/adm/prueba/${idUsuario}`;\r\n      const method = 'PUT';\r\n      //Fetch al url\r\n      fetch(url, {\r\n        method,\r\n        headers: {\r\n          \"Content-Type\": \"application/json\",\r\n        }\r\n      });\r\n    });\r\n  } catch (error) {\r\n    console.error(\"Error:\", error);\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
+eval("__webpack_require__.r(__webpack_exports__);\ndocument.addEventListener('DOMContentLoaded',  function() {\r\n  try {\r\n    // Tu código aquí\r\n    document.getElementById(\"pfree\").addEventListener('click', async function () {\r\n      //Declaracion de variables\r\n      const idUsuario = document.getElementById(\"id\").value;\r\n      const url = `/adm/prueba/${idUsuario}`;\r\n      const method = 'PUT';\r\n      //Fetch al url\r\n  await fetch(url, {\r\n        method,\r\n        headers: {\r\n          \"Content-Type\": \"application/json\",\r\n        }\r\n      });\r\n    });\r\n  } catch (error) {\r\n    console.error(\"Error:\", error);\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/freeSub.js?");
 
 /***/ })
 

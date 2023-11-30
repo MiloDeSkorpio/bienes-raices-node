@@ -1,11 +1,10 @@
 import  express  from "express";
-import { inicio, categoria, noEncontrado, buscador, ajustes, favoritos, verificadas } from '../controllers/appController.js'
+import { inicio, categoria, noEncontrado, buscador, favoritos, verificadas } from '../controllers/appController.js'
 
 const router = express.Router();
 
 // Pagina de Inicio
 router.get('/', inicio)
-
 
 // Buscador
 router.get('/buscador', buscador)
@@ -15,9 +14,6 @@ router.get('/favoritos', favoritos)
 
 //verificados
 router.get('/verificadas',verificadas)
-
-//ajustes
-router.get('/ajustes',ajustes)
 
 //Categorias
 router.get('/categorias/:id', categoria)

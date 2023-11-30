@@ -119,12 +119,16 @@ const buscador = async (req, res) => {
 }
 
 //** Pendientes  **//
-const ajustes = async (req, res) => {
-  res.render('ajustes', {
-    pagina: 'Ajustes',
-    
+const menu = async (req, res) => {
+  // Identificar si hay un token
+  console.log(req)
+  const {_token} = req.cookies
+  console.log(_token)
+  res.render('layout/includes/menu', {
+    _token 
   })
 }
+
 const favoritos = async (req, res) => {
   res.render('favoritos', {
     pagina: 'Favoritos',
@@ -162,7 +166,7 @@ export {
   categoria,
   noEncontrado,
   buscador,
-  ajustes,
+  menu,
   favoritos,
   verificadas
 }

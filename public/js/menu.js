@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ \"./node_modules/js-cookie/dist/js.cookie.mjs\");\n\r\nconst _token =  js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get('_token')\r\n  if(!_token){\r\n    console.log('Eres Visitante')\r\n  } else {\r\n   console.log(_token)\r\n  }\r\n\n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/menu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ \"./node_modules/js-cookie/dist/js.cookie.mjs\");\n\r\n\r\n    const _token = js_cookie__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get('_token')\r\n\r\n  \r\n  if (_token) {\r\n    console.log('Valor de la cookie _token:', _token);\r\n  } else {\r\n    console.log('La cookie _token no existe o está vacía');\r\n  }\r\n  \n\n//# sourceURL=webpack://bienesraices_mvc/./src/js/menu.js?");
 
 /***/ })
 
