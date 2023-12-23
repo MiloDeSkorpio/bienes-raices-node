@@ -51,7 +51,7 @@ const propiedades = [
     precioId: 5,
     categoriaId: 2,
     usuarioId: 1,
-    verificado: 0,
+    verificado: 1,
     estadoId: 14,
     municipioId: 3,
     tipoId: 2
@@ -89,7 +89,7 @@ const propiedades = [
     precioId: 3,
     categoriaId: 2,
     usuarioId: 1,
-    verificado: 0,
+    verificado: 1,
     estadoId: 12,
     municipioId: 5,
     tipoId: 3
@@ -222,7 +222,7 @@ const propiedades = [
     precioId: 6,
     categoriaId: 3,
     usuarioId: 3,
-    verificado: 1,
+    verificado: 0,
     estadoId: 2,
     municipioId: 12,
     tipoId: 2
@@ -260,7 +260,7 @@ const propiedades = [
     precioId: 9,
     categoriaId: 2,
     usuarioId: 3,
-    verificado: 1,
+    verificado: 0,
     estadoId: 26,
     municipioId: 14,
     tipoId: 3
@@ -336,7 +336,7 @@ const propiedades = [
     precioId: 10,
     categoriaId: 3,
     usuarioId: 4,
-    verificado: 1,
+    verificado: 0,
     estadoId: 5,
     municipioId: 18,
     tipoId: 2
@@ -374,7 +374,7 @@ const propiedades = [
     precioId: 8,
     categoriaId: 3,
     usuarioId: 4,
-    verificado: 1,
+    verificado: 0,
     estadoId: 25,
     municipioId: 20,
     tipoId: 3

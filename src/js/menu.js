@@ -1,11 +1,16 @@
-import Cookies from "js-cookie";
 
-    const _token = Cookies.get('_token')
+var log = 1
+const usuario = document.getElementById('usuario')
+const visitante = document.getElementById('visitante')
 
-  
-  if (_token) {
-    console.log('Valor de la cookie _token:', _token);
-  } else {
-    console.log('La cookie _token no existe o está vacía');
-  }
-  
+console.log(usuario)
+
+console.log(visitante)
+
+if(!log) {
+  usuario.classList.add('hidden')
+  usuario.classList.remove('flex')
+} else {
+  visitante.classList.add('hidden')
+  visitante.classList.remove('flex')
+}

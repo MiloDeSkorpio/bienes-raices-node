@@ -1,7 +1,8 @@
-import { Subscripciones, Usuario, TipoSubs, Propiedad } from "../models/index.js"
+import { Subscripciones, Usuario, TipoSubs, Favorito } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
+
 
 const miPerfil = async (req, res) => {
 
@@ -10,26 +11,39 @@ const miPerfil = async (req, res) => {
 	/** Desestructuración de objetos y definicion de variables **/
 		// Desestructuración
 		const { dataValues: { id, nombre, email, imgPerfil, rolId, prueba  } } = req.usuario;
-		const { tiposubId, endSub, createdAt } = await Subscripciones.findByPk( id )
+		let { tiposubId, createdAt } = await Subscripciones.findByPk( id )
 		const { nombre: nombreS } = await TipoSubs.findByPk(tiposubId)
 		const { duracion } = await TipoSubs.findByPk(1)
-	
+		const subscripciones = await Subscripciones.findByPk(id)
+
 		// Metodo para asignar la subscripcion gratuita una vez se venza alguna subscripcion
 		// El metodo renovara la subscripcion gratuita cada que se finalize una subscripcion
 		// Variables 
-		const fechaActual = new Date()
-		const nuevaFecha = new Date();
-
-		// Asignar la duracion de la subscripcion gratuita a la fecha actual
+		const fechaActual = new Date();
+		let endSub = new Date(subscripciones.endSub);
+		const nuevaFecha = new Date(fechaActual);
 		nuevaFecha.setDate(fechaActual.getDate() + duracion);
 
+		// Asignar la duracion de la subscripcion gratuita a la fecha actual
 		// Condicional para el vencimiento de la subscripcion
 		if(fechaActual > endSub) {
-			endSub = nuevaFecha
-			tiposubId = 1
-			await Subscripciones.save()
-		} 
-
+			console.log('Subscripcion vecnida')
+			try {	
+				endSub = nuevaFecha
+				tiposubId = 1
+				subscripciones.set({
+					endSub,
+					tiposubId
+				})
+				await subscripciones.save()
+					
+			} catch (error) {
+				console.log("Error:",error)
+			}
+			return res.redirect('/adm/mi-perfil')
+		} 		
+		
+		
 	res.render('adm/mi-perfil', {
 		pagina: 'Mi Perfil',
 		id,
@@ -52,7 +66,6 @@ const subscripcion = async (req, res) => {
 }
 
 const preferences = async (req, res) => {
-
 	let preference = {
 		items: [
 			{
@@ -118,12 +131,18 @@ const freepremium = async (req, res) => {
 		}
 	} 
 }
-
+const addFav = async (req,res) => {
+	const  {id} = req.usuario
+	const idPropiedad = req
+	console.log(id)
+	console.log(idPropiedad)
+}
 export {
 	miPerfil,
 	subscripcion,
 	preferences,
 	feedback,
 	prueba,
-	freepremium
+	freepremium,
+	addFav
 }

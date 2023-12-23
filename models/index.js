@@ -9,6 +9,7 @@ import Roles from './Roles.js';
 import Tipotr from './Tipotr.js';
 import Subscripciones from './Subscripciones.js';
 import TipoSubs from './TipoSubs.js';
+import Favorito from './Favoritos.js';
 
 Propiedad.belongsTo(Precio, {foreignKey: 'precioId'});
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaId'});
@@ -25,9 +26,11 @@ Mensaje.belongsTo(Usuario, {foreignKey: 'usuarioId'})
 
 Usuario.belongsTo(Roles,{foreignKey: 'rolId'})
 
-
 Subscripciones.belongsTo(Usuario,{foreignKey:'usuarioId'})
 Subscripciones.belongsTo(TipoSubs,{foreignKey:'tiposubId'})
+
+Favorito.belongsTo(Usuario,{foreignKey: 'usuarioId'})
+Favorito.belongsTo(Propiedad,{foreignKey: 'usuarioId'})
 
 
 export {
@@ -41,5 +44,6 @@ export {
   Roles,
   Tipotr,
   Subscripciones,
-  TipoSubs
+  TipoSubs,
+  Favorito
 }

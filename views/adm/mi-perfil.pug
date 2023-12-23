@@ -19,17 +19,17 @@ block contenido
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Información de Subscripcion
           p(class="font-semibold text-lg p-1" ) Subscripcion: 
             span(class="font-normal")= nombreS
-          p(class="font-semibold text-lg p-1" ) Inicio de Suscripcion: 
-            span(class="font-normal")= formatearFecha(createdAt)
+          //- p(class="font-semibold text-lg p-1" ) Inicio de Suscripcion: 
+          //-   span(class="font-normal")= formatearFecha(createdAt)
           p(class="font-semibold text-lg p-1" ) Fin de Suscripcion: 
             span(class="font-normal")= formatearFecha(endSub)
-        div(class="py-2 flex")
-          a(href="/adm/subscripcion" class="rounded py-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
-        if !prueba
           div(class="py-2 flex")
-            form( method="POST" action=`/adm/prueba/${id}` )
-            input(class="hidden" id="id" value=`${id}`)
-            button(id="pfree" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit") Prueba Premium
+            a(href="/adm/subscripcion" class="rounded py-2 mx-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
+          if !prueba
+            div(class="py-2 flex")
+              form( method="POST" action=`/adm/prueba/${id}` )
+              input(class="hidden" id="id" value=`${id}`)
+              button(id="pfree" class="rounded py-2 bg-orange-500 hover:bg-orange-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto" type="submit") Prueba Premium
         fieldset(class="py-2 border border-dkblue-900 flex flex-col ")
           legend(class="font-semibold text-lg p-1 text-dkblue-800") Gestionar
           p(class="font-semibold text-lg p-1" ) Cambiar Password

@@ -1,6 +1,6 @@
 footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-14 md:h-20 lg:h-24")
  
-    div(class="usuario flex justify-between")
+    div(class="flex justify-between" id="usuario")
       div
         a(href="/" )
           img(src="/img/home.svg" id="home-link" alt="home" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
@@ -17,7 +17,7 @@ footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-1
         a(href="/adm/mi-perfil")
           img(src="/img/user.svg" id="perfil-link" alt="user" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
  
-    div(class="visitante flex justify-between")
+    div(class=" flex justify-between" id="visitante")
       div
         a(href="/" )
           img(src="/img/home.svg" id="home-link" alt="home" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
@@ -62,3 +62,4 @@ script.
   }
   setActiveFooterLink();
 
+  

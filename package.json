@@ -48,7 +48,8 @@
     "pg": "^8.10.0",
     "pug": "^3.0.2",
     "sequelize": "^6.29.3",
-    "swiper": "^10.0.4"
+    "swiper": "^10.0.4",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

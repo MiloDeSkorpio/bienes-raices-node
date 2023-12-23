@@ -80,7 +80,6 @@ const categoria =  async (req, res) => {
 const noEncontrado = (req, res) => {
   res.render('404', {
     pagina: 'No Encontrada',
-    
   })
 }
 
@@ -130,8 +129,13 @@ const menu = async (req, res) => {
 }
 
 const favoritos = async (req, res) => {
+  const [propiedad] = await Promise.all([
+    propiedad.findAll()
+  ])
+  console.log(propiedad)
   res.render('favoritos', {
-    pagina: 'Favoritos',
+    pagina: 'Mis Favoritos',
+    propiedad
     
   })
 }

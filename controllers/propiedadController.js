@@ -53,9 +53,10 @@ const admin = async (req, res) => {
 // Limite de subscripciones
 const { tiposubId } = await Subscripciones.findByPk(id);
 const { limite } = await TipoSubs.findByPk(tiposubId);
-const publicadasMenorLimite = publicadas < limite;
 
-if (publicadasMenorLimite) {
+const publicadasMayorLimite = publicadas > limite;
+
+if (publicadasMayorLimite) {
   // Obtener todas las propiedades publicadas del usuario ordenadas por fecha de creación ascendente
   const propiedadesOrdenadas = await Propiedad.findAll({
     where: {
@@ -64,26 +65,37 @@ if (publicadasMenorLimite) {
     },
     order: [['createdAt', 'ASC']],
   });
-
   // Mantener la propiedad más antigua y desactivar las demás
   const propiedadMasAntigua = propiedadesOrdenadas[0];
-
   // Actualizar las propiedades en la base de datos
   await Promise.all(
     propiedadesOrdenadas.map(async (propiedad) => {
-      if (propiedad.id !== propiedadMasAntigua.id) {
-        // Desactivar la propiedad
-        propiedad.publicado = 0;
-
-        // Verificar si el campo 'verificada' está activo
-        if (propiedad.verificada) {
+      // Verificar si el campo 'verificada' está activo
+      let {id, verificado, publicado} = propiedad.dataValues
+      console.log(propiedadMasAntigua.id)
+      
+        if (verificado) {
+          console.log('Esta verficado')
           // La propiedad verificada tiene prioridad para mantenerse activa
-          propiedad.publicado = 1;
+          if (id != propiedadMasAntigua.id) {
+            console.log('No es la mas antigua')
+            // Desactivar la propiedad
+            publicado = false
+            propiedad.set({
+              publicado 
+            })
+            await propiedad.save();
+          return res.redirect('/mis-propiedades')
+          }
+        }else if(id != propiedadMasAntigua.id) {
+          publicado = false
+          propiedad.set({
+            publicado 
+          })
+          await propiedad.save();
+        return res.redirect('/mis-propiedades')
         }
 
-        // Guardar los cambios en la base de datos
-        await propiedad.save();
-      }
     })
   );
 }
@@ -98,7 +110,7 @@ if (publicadasMenorLimite) {
       publicadas,
       offset,
       limit,
-      publicadasMenorLimite
+      publicadasMayorLimite
     });
   } catch (error) {
     console.log(error)
@@ -277,7 +289,7 @@ const guardarCambios = async (req, res) => {
 
   // Validar que la propiedad exista
   const propiedad = await Propiedad.findByPk(id)
-  console.log(propiedad)
+  
   if (!propiedad) {
     return res.redirect('/mis-propiedades')
   }
@@ -357,10 +369,10 @@ const cambiarEstado = async(req,res) => {
 
 
 const mostrarPropiedad = async (req, res) => {
-  const { id } = req.params
-
-  // Validar que la propiedad exista
-  const propiedad = await Propiedad.findByPk(id,{
+  const { id: idPropiedad } = req.params
+  
+  // ValidPropiedadar que la propiedad exista
+  const propiedad = await Propiedad.findByPk(idPropiedad,{
     include: [
       {
         model: Categoria, as: 'categoria',
@@ -370,11 +382,14 @@ const mostrarPropiedad = async (req, res) => {
       }
     ]
   })
-
+  console.log(req)
+  console.log(idPropiedad)
+  
   if (!propiedad || !propiedad.publicado) {
     return res.redirect('/404')
   }
   res.render('propiedades/mostrar', {
+    idPropiedad,
     propiedad,
     pagina: propiedad.titulo,
     usuario: req.usuario,
