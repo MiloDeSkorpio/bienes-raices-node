@@ -1,4 +1,5 @@
-import { Precio, Categoria, Propiedad, Tipotr, Estado} from '../models/index.js'
+import jwt from "jsonwebtoken";
+import { Precio, Categoria, Propiedad, Tipotr, Estado, Favorito, Usuario} from '../models/index.js'
 
 const inicio = async (req, res) => {
   const [categorias,tipos, estados, precios, casas, recientes ] = await Promise.all([
@@ -129,14 +130,28 @@ const menu = async (req, res) => {
 }
 
 const favoritos = async (req, res) => {
-  const [propiedad] = await Promise.all([
-    propiedad.findAll()
-  ])
-  console.log(propiedad)
+  const {_token} = req.cookies
+  console.log(_token)
+  try {
+    const decoded = jwt.verify(_token, process.env.JWT_SECRET);
+    const usuario = await Usuario.scope('eliminarPassword').findByPk(decoded.id);
+   //Almacenar el usuario al Req
+   if(usuario){
+    req.usuario = usuario;
+   } 
+
+  } catch (error) {
+    console.log(error)
+  }
+
+  const {dataValues:{id}} = req.usuario
+  console.log(id)
+  const favoritos = await Favorito.findAll({
+    idUsuario: id
+  })
   res.render('favoritos', {
     pagina: 'Mis Favoritos',
-    propiedad
-    
+    favoritos
   })
 }
 
