@@ -34,7 +34,7 @@ router.put('/prueba/:id',
   freepremium
 )
 
-router.post('/agregar-favorito/',
+router.post('/agregar-favorito/:id',
   protegerRuta,
   addFav
 )
