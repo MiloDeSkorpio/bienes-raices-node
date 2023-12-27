@@ -132,11 +132,22 @@ const freepremium = async (req, res) => {
 	} 
 }
 const addFav = async (req,res) => {
-	const  {id} = req.usuario
-	const idPropiedad = req
-	console.log(id)
-	console.log(idPropiedad)
+	try {	
+		const  { id: idPropiedad } = req.params
+		console.log(idPropiedad)
+		const {dataValues: { id} } = req.usuario
+		console.log(id)
+		const favorito = await Favorito.create({
+			usuarioId: id,
+			propiedadId: idPropiedad
+		  })
+		  res.redirect('/favoritos')
+	} catch (error) {
+		console.log(error)
+	}
+
 }
+	
 export {
 	miPerfil,
 	subscripcion,
