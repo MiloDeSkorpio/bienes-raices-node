@@ -382,8 +382,6 @@ const mostrarPropiedad = async (req, res) => {
       }
     ]
   })
-  console.log(req)
-  console.log(idPropiedad)
   
   if (!propiedad || !propiedad.publicado) {
     return res.redirect('/404')
