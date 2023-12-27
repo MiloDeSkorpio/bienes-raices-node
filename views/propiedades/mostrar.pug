@@ -55,6 +55,10 @@ block contenido
           span(class="text-gray-800 block text-lg")= propiedad.calle
 
         if !esVendedor
+          p= propiedad.id 
+          form( action=`/adm/agregar-favorito/${propiedad.id}` method="POST")   
+            div(class="space-y-5")
+              input(type="submit" value="Agregar a Favoritos" class="w-full bg-sky-600 hover:bg-sky-800 text-white font-bold py-3 cursor-pointer rounded-md" )
           h3(class="text-2xl text-center my-10 font-extrabold text-gray-900") Vendedor
           if enviado 
             p(class="p-2 text-center bg-green-300 text-green-600 uppercase font-bold") Mensaje Enviado Correctamente
@@ -64,10 +68,6 @@ block contenido
               div(class="max-w-md mx-auto my-10")
                 each error in errores
                   p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold= error.msg
-            form(action=`#` method="post")   
-              div(class="space-y-5")
-                input(type="hidden",name="property" value=`${propiedad.id}`)
-                input(type="submit" value="Agregar a Favoritos" class="w-full bg-sky-600 hover:bg-sky-800 text-white font-bold py-3 cursor-pointer rounded-md" )
             form(method="POST")
               div(class="space-y-5")
                 label(for="mensaje") Mensaje 
