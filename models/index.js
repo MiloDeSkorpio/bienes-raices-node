@@ -30,7 +30,7 @@ Subscripciones.belongsTo(Usuario,{foreignKey:'usuarioId'})
 Subscripciones.belongsTo(TipoSubs,{foreignKey:'tiposubId'})
 
 Favorito.belongsTo(Usuario,{foreignKey: 'usuarioId'})
-Favorito.belongsTo(Propiedad,{foreignKey: 'usuarioId'})
+Favorito.belongsTo(Propiedad,{foreignKey: 'propiedadId'})
 
 
 export {
