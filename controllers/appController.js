@@ -143,14 +143,14 @@ const favoritos = async (req, res) => {
       // Limite de subscripciones
       const { tiposubId } = await Subscripciones.findByPk(id);
       const { limite } = await TipoSubs.findByPk(tiposubId);
-      console.log(limite)
+
       const agregados  = await Favorito.count({
         where: {
           usuarioId: id
         }
       })
       const agregadosMayorLimite = agregados > limite;
-      console.log(agregadosMayorLimite)
+
       if(agregadosMayorLimite) {
         const favorito = await Favorito.findAll({
           where: {
@@ -158,7 +158,7 @@ const favoritos = async (req, res) => {
           }
         })
         const excedentes = favorito.slice(favorito.length - limite)
-        console.log(excedentes)
+
         console.log('Eliminando sobrantes')
         // Obtenemos los IDs de los excedentes
         const idsExcedentes = excedentes.map(favorito => favorito.id)
@@ -170,23 +170,23 @@ const favoritos = async (req, res) => {
         })
       }
       // Buscamos entre la tabla favoritos todos los que coincidan con el id del usuario
-      const favorito = await Favorito.findAll({
+      const favoritos = await Favorito.findAll({
           where: {
             usuarioId: id
           }
         })
       // Extraemos todas los ids de las propiedades de los favoritos del usuario
-      const propiedadesId = favorito.map(favorito => favorito.propiedadId)
+      const propiedadesId = favoritos.map(favorito => favorito.propiedadId)
       // Extraemos de la tabla propiedades todas las que coincidan con los ids del arreglo anterior
       const propiedades = await Propiedad.findAll({
         where: {
           id: propiedadesId
         }
       })
-
       res.render('favoritos', {
         pagina: 'Mis Favoritos',
-        propiedades
+        propiedades,
+        favoritos
       })
     }else{
       res.redirect('/auth/login')

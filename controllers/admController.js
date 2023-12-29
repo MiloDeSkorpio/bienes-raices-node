@@ -2,6 +2,7 @@ import { Subscripciones, Usuario, TipoSubs, Favorito } from "../models/index.js"
 import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
+import { eliminar } from "./propiedadController.js"
 
 
 const miPerfil = async (req, res) => {
@@ -145,6 +146,27 @@ const addFav = async (req,res) => {
 	}
 
 }
+
+const delFav = async (req, res) => {
+	
+	const { id } = req.params
+	const {id: idVisitante } = req.usuario
+	 // Validar que la propiedad exista
+	const favorito = await Favorito.findByPk(id)
+	
+	if(!favorito){
+		console.log('No existe')
+		return res.redirect('/favoritos')
+	}
+	// Revisar que quien visita la URL, es quien agrego el favorito
+	if(favorito.usuarioId.toString() !== idVisitante.toString()) {
+		console.log('Este no es tuyo')
+		return res.redirect('favoritos')
+	}
+	// eliminar favorito
+	await favorito.destroy()
+	res.redirect('/favoritos')
+}
 	
 export {
 	miPerfil,
@@ -153,5 +175,6 @@ export {
 	feedback,
 	prueba,
 	freepremium,
-	addFav
+	addFav,
+	delFav
 }

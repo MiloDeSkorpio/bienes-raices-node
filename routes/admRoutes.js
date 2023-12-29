@@ -1,5 +1,5 @@
 import express from 'express';
-import { miPerfil, subscripcion, preferences, feedback, prueba, freepremium, addFav } from '../controllers/admController.js'
+import { miPerfil, subscripcion, preferences, feedback, prueba, freepremium, addFav, delFav } from '../controllers/admController.js'
 import protegerRuta from "../middleware/protegerRuta.js";
 
 const router = express.Router();
@@ -39,5 +39,9 @@ router.post('/agregar-favorito/:id',
   addFav
 )
 
+router.post('/eliminar-favorito/:id',
+  protegerRuta,
+  delFav
+)
 
 export default router
