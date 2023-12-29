@@ -134,9 +134,7 @@ const freepremium = async (req, res) => {
 const addFav = async (req,res) => {
 	try {	
 		const  { id: idPropiedad } = req.params
-		console.log(idPropiedad)
 		const {dataValues: { id} } = req.usuario
-		console.log(id)
 		const favorito = await Favorito.create({
 			usuarioId: id,
 			propiedadId: idPropiedad

@@ -71,14 +71,10 @@ if (publicadasMayorLimite) {
   await Promise.all(
     propiedadesOrdenadas.map(async (propiedad) => {
       // Verificar si el campo 'verificada' está activo
-      let {id, verificado, publicado} = propiedad.dataValues
-      console.log(propiedadMasAntigua.id)
-      
+      let {id, verificado, publicado} = propiedad.dataValues   
         if (verificado) {
-          console.log('Esta verficado')
           // La propiedad verificada tiene prioridad para mantenerse activa
           if (id != propiedadMasAntigua.id) {
-            console.log('No es la mas antigua')
             // Desactivar la propiedad
             publicado = false
             propiedad.set({

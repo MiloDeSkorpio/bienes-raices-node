@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Precio, Categoria, Propiedad, Tipotr, Estado, Favorito, Usuario} from '../models/index.js'
+import { Precio, Categoria, Propiedad, Tipotr, Estado, Favorito, Usuario, Subscripciones, TipoSubs} from '../models/index.js'
 
 const inicio = async (req, res) => {
   const [categorias,tipos, estados, precios, casas, recientes ] = await Promise.all([
@@ -140,6 +140,35 @@ const favoritos = async (req, res) => {
     const { id } = usuario
     // Si hay un usuario
     if (usuario) {
+      // Limite de subscripciones
+      const { tiposubId } = await Subscripciones.findByPk(id);
+      const { limite } = await TipoSubs.findByPk(tiposubId);
+      console.log(limite)
+      const agregados  = await Favorito.count({
+        where: {
+          usuarioId: id
+        }
+      })
+      const agregadosMayorLimite = agregados > limite;
+      console.log(agregadosMayorLimite)
+      if(agregadosMayorLimite) {
+        const favorito = await Favorito.findAll({
+          where: {
+            usuarioId: id
+          }
+        })
+        const excedentes = favorito.slice(favorito.length - limite)
+        console.log(excedentes)
+        console.log('Eliminando sobrantes')
+        // Obtenemos los IDs de los excedentes
+        const idsExcedentes = excedentes.map(favorito => favorito.id)
+        // Eliminamos los registros de la base de datos
+        const registrosEliminados = await Favorito.destroy({
+          where: {
+            id: idsExcedentes
+          }
+        })
+      }
       // Buscamos entre la tabla favoritos todos los que coincidan con el id del usuario
       const favorito = await Favorito.findAll({
           where: {
@@ -154,7 +183,7 @@ const favoritos = async (req, res) => {
           id: propiedadesId
         }
       })
-      
+
       res.render('favoritos', {
         pagina: 'Mis Favoritos',
         propiedades
