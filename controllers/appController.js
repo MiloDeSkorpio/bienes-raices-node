@@ -130,31 +130,37 @@ const menu = async (req, res) => {
 }
 
 const favoritos = async (req, res) => {
+  //Obtener las cookies del navegador
   const {_token} = req.cookies
   try {
+    // Decodificar el token para leer los datos del usuario
     const decoded = jwt.verify(_token, process.env.JWT_SECRET);
     const usuario = await Usuario.scope('eliminarPassword').findByPk(decoded.id);
-
+    // Desestructureacion del usuario
+    const { id } = usuario
+    // Si hay un usuario
     if (usuario) {
-      const favoritos = await Favorito.findAll({
-        where: {
-          usuarioId: usuario.id
-        }
-      })
-
-      const propiedades = favoritos.map(favorito => {
-        const propiedad = Propiedad.findOne({
+      // Buscamos entre la tabla favoritos todos los que coincidan con el id del usuario
+      const favorito = await Favorito.findAll({
           where: {
-            id: favorito.propiedadId
+            usuarioId: id
           }
         })
-        return propiedad
+      // Extraemos todas los ids de las propiedades de los favoritos del usuario
+      const propiedadesId = favorito.map(favorito => favorito.propiedadId)
+      // Extraemos de la tabla propiedades todas las que coincidan con los ids del arreglo anterior
+      const propiedades = await Propiedad.findAll({
+        where: {
+          id: propiedadesId
+        }
       })
-
+      
       res.render('favoritos', {
         pagina: 'Mis Favoritos',
         propiedades
       })
+    }else{
+      res.redirect('/auth/login')
     }
   } catch (error) {
     console.log(error)
