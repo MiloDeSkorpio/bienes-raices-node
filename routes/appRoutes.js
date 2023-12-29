@@ -1,6 +1,6 @@
 import  express  from "express";
 import { inicio, categoria, noEncontrado, buscador, favoritos, verificadas } from '../controllers/appController.js'
-
+import protegerRuta from "../middleware/protegerRuta.js";
 const router = express.Router();
 
 // Pagina de Inicio
@@ -10,7 +10,7 @@ router.get('/', inicio)
 router.get('/buscador', buscador)
 
 //favoritos
-router.get('/favoritos', favoritos)
+router.get('/favoritos', protegerRuta,favoritos)
 
 //verificados
 router.get('/verificadas',verificadas)

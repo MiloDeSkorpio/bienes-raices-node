@@ -131,28 +131,34 @@ const menu = async (req, res) => {
 
 const favoritos = async (req, res) => {
   const {_token} = req.cookies
-  console.log(_token)
   try {
     const decoded = jwt.verify(_token, process.env.JWT_SECRET);
     const usuario = await Usuario.scope('eliminarPassword').findByPk(decoded.id);
-   //Almacenar el usuario al Req
-   if(usuario){
-    req.usuario = usuario;
-   } 
 
+    if (usuario) {
+      const favoritos = await Favorito.findAll({
+        where: {
+          usuarioId: usuario.id
+        }
+      })
+
+      const propiedades = favoritos.map(favorito => {
+        const propiedad = Propiedad.findOne({
+          where: {
+            id: favorito.propiedadId
+          }
+        })
+        return propiedad
+      })
+
+      res.render('favoritos', {
+        pagina: 'Mis Favoritos',
+        propiedades
+      })
+    }
   } catch (error) {
     console.log(error)
   }
-
-  const {dataValues:{id}} = req.usuario
-  console.log(id)
-  const favoritos = await Favorito.findAll({
-    idUsuario: id
-  })
-  res.render('favoritos', {
-    pagina: 'Mis Favoritos',
-    favoritos
-  })
 }
 
 //** Verificar su funcionamiento o depurar **/
