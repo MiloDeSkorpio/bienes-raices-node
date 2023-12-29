@@ -24,7 +24,7 @@ block contenido
           p(class="font-semibold text-lg p-1" ) Fin de Suscripcion: 
             span(class="font-normal")= formatearFecha(endSub)
           div(class="py-2 flex")
-            a(href="/adm/subscripcion" class="rounded py-2 mx-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
+            //- a(href="/adm/subscripcion" class="rounded py-2 mx-2 bg-green-500 hover:bg-green-600  text-sm px-10 font-bold text-center text-white uppercase my-1 inline-block w-full md:w-auto") Subscripciónes Premium
           if !prueba
             div(class="py-2 flex")
               form( method="POST" action=`/adm/prueba/${id}` )
