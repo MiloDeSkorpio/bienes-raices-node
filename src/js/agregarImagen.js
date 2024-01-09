@@ -10,7 +10,7 @@ Dropzone.options.imagen = {
   addRemoveLinks: true,
   method: 'post',
   dictRemoveFile: 'Eliminar Imagen',
-  dictMaxFilesExceeded: 'El Limite son 10 Imagenes',
+  dictMaxFilesExceeded: 'El Limite es 1 Imagene',
   dictFileTooBig: 'El archivo es demasiado grande.',
   paramName: 'imagen',
   init: function() {
