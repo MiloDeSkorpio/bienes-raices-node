@@ -1,9 +1,9 @@
 extends ../layout/app 
 block styles 
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
-  script(src="/js/mostrarMapa.js" defer)
 block contenido 
   div(class="p-2")
+    h1(id="titulo" class="text-2xl my-10 font-extrabold text-center")= propiedad.titulo 
     div 
       a(href="#" class="font-bold text-gray-600 text-sm") Categoria: 
         span(class="font-normal")= propiedad.categoria.nombre 
@@ -79,9 +79,6 @@ block contenido
               p(class="text-center") Si deseas contactar al vendedor 
               a(class="text-dkblue-800" href="/auth/registro") debes crear una cuenta
             div(class="h-9")
-block scripts 
+block scripts
   script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
-  script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
-  script(src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js")
-  script(src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js")
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/2.7.0/bundle.min.js")   
+  script(src="/js/mostrarMapa.js") 
