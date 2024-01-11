@@ -28,6 +28,14 @@ const Propiedad = db.define('propiedades',{
     type: DataTypes.INTEGER,
     allowNull: false
   },
+  areac: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  areat: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
   calle: {
     type: DataTypes.STRING(60),
     allowNull: false
@@ -55,7 +63,6 @@ const Propiedad = db.define('propiedades',{
     defaultValue: false
   },
   
-
 
 });
 

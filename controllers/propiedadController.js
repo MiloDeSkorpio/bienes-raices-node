@@ -1,6 +1,6 @@
 import { unlink } from 'node:fs/promises';
 import { validationResult } from 'express-validator';
-import { Precio, Categoria, Propiedad, Mensaje, Usuario, Subscripciones, TipoSubs } from '../models/index.js';
+import { Precio, Categoria, Propiedad, Mensaje, Usuario, Subscripciones, TipoSubs, Tipotr } from '../models/index.js';
 import { esVendedor, formatearFecha } from '../helpers/index.js'
 
 const admin = async (req, res) => {
@@ -116,15 +116,17 @@ if (publicadasMayorLimite) {
 // Formulario para crear nueva propiedad
 const crear = async (req, res) => {
   // Consultar Modelo de precio y categorias
-  const [categorias, precios] = await Promise.all([
+  const [categorias, precios, tipos] = await Promise.all([
     Categoria.findAll(),
-    Precio.findAll()
+    Precio.findAll(),
+    Tipotr.findAll()
   ]);
 
   res.render('propiedades/crear', {
     pagina: 'Crear Propiedad',
     categorias,
     precios,
+    tipos,
     datos: {}
   });
 }

@@ -16,7 +16,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 11,
     municipioId: 1,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa en la playa',
@@ -35,7 +37,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 30,
     municipioId: 2,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa con alberca',
@@ -54,7 +58,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 14,
     municipioId: 3,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa con Garage',
@@ -73,7 +79,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 22,
     municipioId: 4,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa Residencial',
@@ -92,7 +100,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 12,
     municipioId: 5,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa Cerca de  la playa',
@@ -111,7 +121,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 18,
     municipioId: 6,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa lujosa con piscina',
@@ -130,7 +142,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 13,
     municipioId: 7,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Departamento de lujo',
@@ -149,7 +163,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 19,
     municipioId: 8,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa minimalista con piscina',
@@ -168,7 +184,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 28,
     municipioId: 9,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Lujosa Casa',
@@ -187,7 +205,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 6,
     municipioId: 10,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Bonita Casa de Campo',
@@ -206,7 +226,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 29,
     municipioId: 11,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Departamento de lujo',
@@ -225,7 +247,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 2,
     municipioId: 12,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Bonito Departamento',
@@ -244,7 +268,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 3,
     municipioId: 13,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Casa Residencial Minimalista',
@@ -263,7 +289,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 26,
     municipioId: 14,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Hermoso y Lujoso Departamento',
@@ -282,7 +310,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 7,
     municipioId: 15,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Excelente Departamento',
@@ -301,7 +331,9 @@ const propiedades = [
     verificado: 1,
     estadoId: 11,
     municipioId: 16,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Pequeña Casa de Campo',
@@ -320,7 +352,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 16,
     municipioId: 17,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Departamento con Terraza',
@@ -339,7 +373,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 5,
     municipioId: 18,
-    tipoId: 2
+    tipoId: 2,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Departamento Minimalista',
@@ -358,7 +394,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 31,
     municipioId: 19,
-    tipoId: 1
+    tipoId: 1,
+    areac: 45,
+    areat: 60,
   },
   {
     titulo: 'Bonito Departamento',
@@ -377,7 +415,9 @@ const propiedades = [
     verificado: 0,
     estadoId: 25,
     municipioId: 20,
-    tipoId: 3
+    tipoId: 3,
+    areac: 45,
+    areat: 60,
   },
 ]
 
