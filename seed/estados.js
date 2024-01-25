@@ -42,7 +42,7 @@ const estados = [
     zoom: 8
   },
   {
-    nombre: 'Coahuila',
+    nombre: 'Coahuila de Zaragoza',
     lat: 25.419730000000072,
     lng: -100.99993999999998,
     zoom: 8
@@ -90,7 +90,7 @@ const estados = [
     zoom: 8
   },
   {
-    nombre: 'Michoacán',
+    nombre: 'Michoacán de Ocampo',
     lat: 19.70225000000005,
     lng: -101.19597999999996,
     zoom: 8
@@ -174,7 +174,7 @@ const estados = [
     zoom: 8
   },
   {
-    nombre: 'Veracruz',
+    nombre: 'Veracruz de Ignacio de la Llave',
     lat: 19.539009984367993,
     lng: -96.9155600000711,
     zoom: 8
