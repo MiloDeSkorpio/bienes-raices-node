@@ -3,7 +3,7 @@ import db from '../config/db.js';
 
 const Estado = db.define('estados',{ 
   nombre: {
-    type: DataTypes.STRING(30),
+    type: DataTypes.STRING(60),
     allowNull: false
   },
   lat: {
