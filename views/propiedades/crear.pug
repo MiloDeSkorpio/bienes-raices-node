@@ -19,11 +19,11 @@ block contenido
                 label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="titulo") Titulo de Anuncio
                 input#titulo.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Titulo Propiedad, ej. Casa en la playa" type="text" name="titulo" value=datos.titulo ? datos.titulo : '' )
               div(class="md:w-1/2")
-                label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="operacion") Operación
-                select#operacion.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="operacion")
+                label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="tipoId") Operación
+                select#tipoId.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="tipoId")
                   option(value="") - Seleccione -
-                  each tipo in tipos
-                    option(value=tipo.id selected=datos.tipo ? datos.tipo == tipo.id ? true : false : null)= tipo.nombre
+                  each tipoId in tipos
+                    option(value=tipoId.id selected=datos.tipoId ? datos.tipoId == tipoId.id ? true : false : null)= tipoId.nombre
               div
                 label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="descripcion") Descripción
                 textarea#descripcion.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Descripcion de la Propiedad" name="descripcion")=datos.descripcion ? datos.descripcion : ''
@@ -79,7 +79,9 @@ block contenido
                 p.text-gray-600 Por seguridad agrega una ubicacion de referencia a la propiedad
                 div(id="mapa" class="h-96 w-auto")
 
-                div 
+                div(class="flex flex-wrap") 
+                  p.estado= datos.estado ? datos.estado : ''
+                  p.municipio= datos.municipio ? datos.municipio : ''
                   p.calle= datos.calle ? datos.calle : ''
 
                 input(type="hidden" name="calle" id="calle" value=datos.calle ? datos.calle : '')
@@ -87,6 +89,8 @@ block contenido
                 input(type="hidden" name="lng" id="lng" value=datos.lng ? datos.lng : '')
                 input(type="hidden" name="municipio" id="municipio" value=datos.municipio ? datos.municipio : '')
                 input(type="hidden" name="estado" id="estado" value=datos.estado ? datos.estado : '')
+                input(type="hidden" name="municipioId" id="municipioId" value=datos.municipioId ? datos.municipioId : '')
+                input(type="hidden" name="estadoId" id="estadoId" value=datos.estadoId ? datos.estadoId : '')
               input(class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 rounded text-white font-bold uppercase cursor-pointer" type="Submit" value="Añadir Imagen")
 block scripts
   script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
@@ -94,6 +98,7 @@ block scripts
   script(src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/2.7.0/bundle.min.js")
   script(src="/js/mapa.js")
+
 
 
 

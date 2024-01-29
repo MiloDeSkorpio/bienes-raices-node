@@ -48,7 +48,6 @@ const inicio = async (req, res) => {
     precios,
     casas,
     recientes,
-
   });
 };
 

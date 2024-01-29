@@ -12,17 +12,18 @@ import passport from 'passport';
 import mercadopago from 'mercadopago';
 import cors from 'cors'
 import helmet from 'helmet';
-
+import bodyParser from 'body-parser'
 
 //Crear la app
 const app = express();
 const corsOptions = {
     origin: 'http://localhost:3000', // Reemplaza esto con tu dominio o '*'
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     credentials: true, // Habilita las cookies en las solicitudes (si es necesario)
     optionsSuccessStatus: 204, // Algunos navegadores pueden requerir esto para las solicitudes OPTIONS
   };
 app.use(cors(corsOptions))
+app.use(bodyParser.json());
 //Habilitar cookie parser
 app.use( cookieParser())
 //Habilitar lectura de datos de formularios

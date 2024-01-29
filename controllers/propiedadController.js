@@ -21,7 +21,7 @@ const admin = async (req, res) => {
   try {
     const { id } = req.usuario
     //Limites y Offfset para el Paginador
-    const limit = 10
+    const limit = 3
     const publicada = 1 // identificar propiedades publicadas
     const offset = ((paginaActual * limit ) - limit)
     const [propiedades, total,publicadas] = await Promise.all([
@@ -149,12 +149,15 @@ const guardar = async (req, res) => {
     });
   }
   //Crear  un registro
-  const { titulo, descripcion, habitaciones, estacionamiento, wc, calle, lat, lng, precio: precioId, categoria: categoriaId } = req.body;
+  const { titulo, tipoId, descripcion,areat, areac, habitaciones, estacionamiento, wc, calle, lat, lng, precio: precioId, categoria: categoriaId, municipioId, estadoId } = req.body;
   const { id: usuarioId } = req.usuario
   try {
     const propiedadGuardada = await Propiedad.create({
       titulo,
+      tipoId,
       descripcion,
+      areat,
+      areac,
       habitaciones,
       estacionamiento,
       wc,
@@ -163,6 +166,8 @@ const guardar = async (req, res) => {
       lng,
       precioId,
       categoriaId,
+      municipioId,
+      estadoId,
       usuarioId,
       imagen: ''
     })
@@ -171,7 +176,6 @@ const guardar = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-
 }
 
 const agregarImagen = async (req, res) => {
