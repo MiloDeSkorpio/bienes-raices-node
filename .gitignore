@@ -1,0 +1,7 @@
+.env*
+.vscode
+node_modules/
+src/*
+.gitignore
+src/js/ConfigMp.js
+public/uploads/*
