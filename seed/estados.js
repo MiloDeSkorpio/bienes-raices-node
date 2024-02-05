@@ -60,7 +60,7 @@ const estados = [
     zoom: 8
   },
   {
-    nombre: 'Estado de México',
+    nombre: 'México',
     lat: 19.289919567768266,
     lng: -99.65850070108192,
     zoom: 8

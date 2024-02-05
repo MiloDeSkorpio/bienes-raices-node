@@ -3,7 +3,7 @@ import db from '../config/db.js';
 
 const Municipio = db.define('municipios',{ 
   nombre: {
-    type: DataTypes.STRING(30),
+    type: DataTypes.STRING(80),
     allowNull: false
   },
   lat: {
