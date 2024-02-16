@@ -77,7 +77,7 @@ block contenido
               div(class="border-gray-200 border-t py-5 space-y-5")
                 h3(class="text-lg leading-6 font-medium text-gray-900") Ubicación de Referencia  
                 p.text-gray-600 Por seguridad agrega una ubicacion de referencia a la propiedad
-                div(id="mapa" class="h-96 w-auto")
+                div(id="mapa" class="h-96 w-auto relative")
 
                 div(class="flex flex-wrap") 
                   p.estado= datos.estado ? datos.estado : ''
@@ -91,7 +91,7 @@ block contenido
                 input(type="hidden" name="estado" id="estado" value=datos.estado ? datos.estado : '')
                 input(type="hidden" name="municipioId" id="municipioId" value=datos.municipioId ? datos.municipioId : '')
                 input(type="hidden" name="estadoId" id="estadoId" value=datos.estadoId ? datos.estadoId : '')
-              input(class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 rounded text-white font-bold uppercase cursor-pointer" type="Submit" value="Añadir Imagen")
+              input(class="w-full py-3 bg-sky-600 hover:bg-sky-800 rounded text-white font-bold uppercase cursor-pointer" type="Submit" value="Añadir Imagen")
               div(class="h-9")
 block scripts
   script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")

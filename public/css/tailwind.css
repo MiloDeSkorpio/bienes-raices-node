@@ -10,7 +10,12 @@
   z-index: 1;
 }
 #mapa-inicio {
-  position: relative;
+  z-index: 0;
+}
+#mapa-prop {
+  z-index: 0;
+}
+#mapa {
   z-index: 0;
 }
 /* Estilos para el enlace del footer activo */
