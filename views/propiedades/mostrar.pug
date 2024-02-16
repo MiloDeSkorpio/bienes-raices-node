@@ -2,14 +2,13 @@ extends ../layout/app
 block styles 
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
 block contenido 
-  div(class="p-2")
-    h1(id="titulo" class="text-2xl my-10 font-extrabold text-center")= propiedad.titulo 
+  div(class="p-2 bg-white shadow rounded-lg")
+    h1(id="titulo" class="text-2xl my-5 font-extrabold text-center")= propiedad.titulo 
     div 
       a(href="#" class="font-bold text-gray-600 text-sm") Categoria: 
         span(class="font-normal")= propiedad.categoria.nombre 
-
     div(class="mt-5 md:flex md:gap-4 md:items-start") 
-      div(class="md:w-2/3 bg-white shadow rounded-lg")
+      div(class="md:w-2/3 ")
         img(src=`/uploads/${propiedad.imagen}`, alt=`Imagen de la Propiedad ${propiedad.titulo}`)
 
         div(class="px-5 py-10 space-y-5")
@@ -59,7 +58,6 @@ block contenido
           span(class="text-gray-800 block text-lg")= propiedad.calle
       div(class="h-9")
         if !esVendedor
-          p= propiedad.id 
           form( action=`/adm/agregar-favorito/${propiedad.id}` method="POST")   
             div(class="space-y-5")
               input(type="submit" value="Agregar a Favoritos" class="w-full bg-sky-600 hover:bg-sky-800 text-white font-bold py-3 cursor-pointer rounded-md" )
@@ -82,7 +80,7 @@ block contenido
             div(class="flex felx-col items-center justify-center gap-2")
               p(class="text-center") Si deseas contactar al vendedor 
               a(class="text-dkblue-800" href="/auth/registro") debes crear una cuenta
-            div(class="h-9")
+            div(class="h-20")
 block scripts
   script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
   script(src="/js/mostrarMapa.js") 
