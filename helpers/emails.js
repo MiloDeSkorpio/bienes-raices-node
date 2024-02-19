@@ -14,7 +14,7 @@ const emailRegistro = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'propiedades360@propiedades360.com.mx',
+    from: 'contacto@propiedades360.com.mx',
     to: email,
     subject: 'Confirma tu cuenta en Propiedades360.com.mx',
     text: 'Confirma tu cuenta en Propiedades360.com.mx',
@@ -42,7 +42,7 @@ const emailOlvidePassword = async (datos) => {
   const { email, nombre, token } = datos
   //Enviar el email
   await transport.sendMail({
-    from: 'propiedades360@propiedades360.com.mx',
+    from: 'contacto@propiedades360.com.mx',
     to: email,
     subject: 'Restablece tu Password en Propiedades360.com.mx',
     text: 'Restablece tu Password en Propiedades360.com.mx',
