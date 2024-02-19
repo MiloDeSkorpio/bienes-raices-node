@@ -8,7 +8,8 @@ const emailRegistro = async (datos) => {
     debug: true,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      pass: process.env.EMAIL_PASS,
+      method: 'LOGIN'
     }
   });
   const { email, nombre, token } = datos
@@ -36,7 +37,8 @@ const emailOlvidePassword = async (datos) => {
     debug: true,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      pass: process.env.EMAIL_PASS,
+      method: 'LOGIN'
     }
   });
   const { email, nombre, token } = datos
