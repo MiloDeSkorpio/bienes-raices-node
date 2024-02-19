@@ -9,7 +9,7 @@ const emailRegistro = async (datos) => {
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
-      method: 'LOGIN'
+      method: 'PLAIN'
     }
   });
   const { email, nombre, token } = datos
@@ -38,7 +38,7 @@ const emailOlvidePassword = async (datos) => {
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
-      method: 'LOGIN'
+      method: 'PLAIN'
     }
   });
   const { email, nombre, token } = datos
