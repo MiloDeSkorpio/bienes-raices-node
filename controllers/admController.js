@@ -1,5 +1,5 @@
 import { Subscripciones, Usuario, TipoSubs, Favorito } from "../models/index.js"
-import config from "../src/js/configMP.js"
+// import config from "../src/js/configMP.js"
 import mercadopago from "mercadopago"
 import { formatearFecha } from '../helpers/index.js'
 import { eliminar } from "./propiedadController.js"
