@@ -3,23 +3,25 @@ block styles
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 block contenido 
-  div(class="py-5 overflow-x-hidden z-0 justify-center")
-    h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900" ) Verificadas Recientemente
-    div(class="swiper-container")
-      div(class="swiper-wrapper")
-        each propiedad in casas 
-          div(class="swiper-slide flex justify-center items-center mb-4")
-            include ./templates/card
-      div(class="swiper-pagination h-3")
-    hr(class="border-t border-gray-400 my-2")
-    h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900") Agregadas Recientemente
-    div(class="swiper-container")
-      div(class="swiper-wrapper")
-        each propiedad in recientes 
-          div(class="swiper-slide flex justify-center items-center mb-4")
-            include ./templates/card
-      div(class="swiper-pagination h-3")
-    div(class="h-9")
+  div(class="py-5 overflow-x-hidden z-0 justify-center lg:container lg:h-auto shadow-xl")
+    div(class="")
+      h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900" ) Verificadas Recientemente
+      div(class="swiper-container shadow-sm bg-white")
+        div(class="swiper-wrapper")
+          each propiedad in casas 
+            div(class="swiper-slide flex justify-center items-center mb-4")
+              include ./templates/card
+        div(class="swiper-pagination h-3")
+    hr(class="border-t border-gray-400 my-4")
+    div(class="")
+      h2(class="text-center text-2xl font-semibold mb-5 text-dkblue-900") Agregadas Recientemente
+      div(class="swiper-container shadow-sm bg-white")
+        div(class="swiper-wrapper")
+          each propiedad in recientes 
+            div(class="swiper-slide flex justify-center items-center mb-4")
+              include ./templates/card
+        div(class="swiper-pagination h-3")
+      div(class="h-9")
 
   script.
     var swiper = new Swiper('.swiper-container', {

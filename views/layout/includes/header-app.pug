@@ -3,4 +3,25 @@ header(class="md:p-2 h-10 shadow-md bg-gray-300 sticky top-0 z-50 flex flex-col 
     a(href="/")
       img(src='/img/logo_p360.png' alt='Logo' class="h-[40px]")
     h2(class="text-sm font-semibold text-dkblue-900" )= pagina
+    div(class="hidden lg:flex justify-between px-4 space-x-2" id="usuario")
+      div(class=" cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded p-1")
+        a(href="/" class="flex items-center")
+          img(src="/img/home.svg" id="home-link" alt="home" class="scale-75")
+          p Home
+      div(class=" cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded p-1")
+        a(href="/buscador" class="flex items-center" )
+          img(src="/img/location.svg"  id="buscador-link" alt="search" class="scale-75")
+          p Buscador    
+      div(class=" cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded p-1")
+        a(href="/propiedades/crear" class="flex items-center")
+          img(src="/img/add.svg" id="add-link" alt="add" class="scale-75")
+          p Crear
+      div(class=" cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded p-1")
+        a(href="/favoritos" class="flex items-center" )
+          img(src="/img/heart.svg" id="favoritos-link" alt="favs" class="scale-75")
+          p Favoritos
+      div(class=" cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded p-1")
+        a(href="/adm/mi-perfil" class="flex items-center")
+          img(src="/img/user.svg" id="perfil-link" alt="user" class="scale-75")
+          p Mi Perfil 
 

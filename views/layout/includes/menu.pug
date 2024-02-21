@@ -1,4 +1,4 @@
-footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-14 md:h-20 lg:h-24")
+footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-14 md:h-20 lg:hidden")
  
     div(class="flex justify-between" id="usuario")
       div
@@ -17,19 +17,6 @@ footer(class="fixed z-10 bottom-0 left-0 w-full p-2 bg-gray-300 shadow-md sm:h-1
         a(href="/adm/mi-perfil")
           img(src="/img/user.svg" id="perfil-link" alt="user" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
  
-    //- div(class=" flex justify-between" id="visitante")
-    //-   div
-    //-     a(href="/" )
-    //-       img(src="/img/home.svg" id="home-link" alt="home" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
-    //-   div
-    //-     a(href="/buscador" )
-    //-       img(src="/img/location.svg"  id="buscador-link" alt="search" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
-    //-   div
-    //-     a(href="/adm/subscripcion")
-    //-       img(src="/img/crown.svg" id="crown-link" alt="crown" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
-    //-   div
-    //-     a(href="/auth/login" )
-    //-       img(src="/img/entrance.svg" id="login-link" alt="favs" class="cursor-pointer transition-transform hover:scale-110 hover:bg-gray-400 hover:rounded")
 script.
   // Obtener el enlace del footer actual basado en la ruta de la página
   function getCurrentFooterLink() {
@@ -39,9 +26,6 @@ script.
     if (path === "/propiedades/crear") return document.getElementById("add-link");
     if (path === "/favoritos") return document.getElementById("favoritos-link");
     if (path === "/adm/mi-perfil") return document.getElementById("perfil-link");
-    // Links de l Visitante
-    if (path === "/adm/subscripcion") return document.getElementById("crown-link");
-    if (path === "/auth/login") return document.getElementById("login-link");
   }
 
   // Agregar la clase 'active' al enlace del footer actual
