@@ -37,9 +37,15 @@ const autenticar = async (req, res) => {
   }
   //Comprobar si el usuario esta confirmado
   if (!usuario.confirmado) {
+      //Envia email de confirmacion
+    emailRegistro({
+      nombre: usuario.nombre,
+      email: usuario.email,
+      token: usuario.token
+    });
     return res.render('auth/login', {
       pagina: 'Iniciar Sesión',
-      errores: [{ msg: 'Tu cuenta no ha sido confirmada' }]
+      errores: [{ msg: 'Tu cuenta aún no ha sido confirmada. Se ha reenviado el correo electrónico de confirmación a tu dirección de correo electrónico.' }]
     });
   }
   // Revisar el password
@@ -181,7 +187,8 @@ const registrar = async (req, res) => {
     password,
     token: generarId(),
     rolId: 2,
-    prueba: 0
+    prueba: 0,
+    imgPerfil: ''
   });
 
   //Envia email de confirmacion
