@@ -32,6 +32,10 @@ const Propiedad = db.define('propiedades',{
     type: DataTypes.INTEGER,
     allowNull: false
   },
+  precio: {
+    type: DataTypes.DECIMAL,
+    allowNull: false
+  },
   areat: {
     type: DataTypes.INTEGER,
     allowNull: false
@@ -49,8 +53,8 @@ const Propiedad = db.define('propiedades',{
     allowNull: false
   },
   imagen: {
-    type: DataTypes.STRING,
-    allowNull: null
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: false
   },
   publicado: {
     type: DataTypes.BOOLEAN,

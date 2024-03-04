@@ -1,6 +1,5 @@
 import { exit } from 'node:process';
 import categorias from "./categorias.js";
-import precios from './precios.js';
 import tipotr from './tipotr.js';
 import roles from './roles.js';
 import usuarios from './usuarios.js';
@@ -11,7 +10,7 @@ import tiposubs from './tiposubs.js';
 import subscripciones from './subscripciones.js';
 import db from "../config/db.js";
 //Importamos el modelo que se llenara
-import { Categoria, Precio,Tipotr, Roles, Usuario, Estado ,Municipio , Propiedad, TipoSubs , Subscripciones  } from '../models/index.js';
+import { Categoria, Tipotr, Roles, Usuario, Estado ,Municipio , Propiedad, TipoSubs , Subscripciones  } from '../models/index.js';
 const importarDatos = async () => {
   try {
     //Autenticar
@@ -23,7 +22,6 @@ const importarDatos = async () => {
     //Insertamos los datos
     await Promise.all([
       Categoria.bulkCreate(categorias),
-      Precio.bulkCreate(precios),
       Tipotr.bulkCreate(tipotr),
       Roles.bulkCreate(roles),
       Usuario.bulkCreate(usuarios),

@@ -1,5 +1,4 @@
 import Propiedad from './Propiedad.js';
-import Precio from './Precio.js';
 import Categoria from './Categoria.js';
 import Estado from './Estado.js';
 import Municipio from './Municipio.js';
@@ -11,7 +10,6 @@ import Subscripciones from './Subscripciones.js';
 import TipoSubs from './TipoSubs.js';
 import Favorito from './Favoritos.js';
 
-Propiedad.belongsTo(Precio, {foreignKey: 'precioId'});
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaId'});
 Propiedad.belongsTo(Estado, {foreignKey: 'estadoId'});
 Propiedad.belongsTo(Municipio, {foreignKey: 'municipioId'})
@@ -35,7 +33,6 @@ Favorito.belongsTo(Propiedad,{foreignKey: 'propiedadId'})
 
 export {
   Propiedad,
-  Precio,
   Categoria,
   Estado,
   Municipio,

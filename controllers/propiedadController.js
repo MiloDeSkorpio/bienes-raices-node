@@ -1,7 +1,7 @@
 import { unlink } from 'node:fs/promises';
 import { validationResult } from 'express-validator';
-import { Precio, Categoria, Propiedad, Mensaje, Usuario, Subscripciones, TipoSubs, Tipotr } from '../models/index.js';
-import { esVendedor, formatearFecha } from '../helpers/index.js'
+import {  Categoria, Propiedad, Mensaje, Usuario, Subscripciones, TipoSubs, Tipotr, Favorito } from '../models/index.js';
+import { esVendedor, formatearFecha, esFavorito } from '../helpers/index.js'
 
 const admin = async (req, res) => {
 // Paginador
@@ -22,7 +22,7 @@ const admin = async (req, res) => {
     const { id } = req.usuario
     //Limites y Offfset para el Paginador
     const limit = 3
-    const publicada = 1 // identificar propiedades publicadas
+    const publicada = true // identificar propiedades publicadas
     const offset = ((paginaActual * limit ) - limit)
     const [propiedades, total,publicadas] = await Promise.all([
       Propiedad.findAll({
@@ -33,7 +33,6 @@ const admin = async (req, res) => {
         },
         include: [
           { model: Categoria, as: 'categoria' }, 
-          { model: Precio, as: 'precio' },
           { model: Mensaje, as: 'mensajes' }
         ]
       }),
@@ -116,17 +115,14 @@ if (publicadasMayorLimite) {
 // Formulario para crear nueva propiedad
 const crear = async (req, res) => {
   // Consultar Modelo de precio y categorias
-  const [categorias, precios, tipos] = await Promise.all([
+  const [categorias, operaciones] = await Promise.all([
     Categoria.findAll(),
-    Precio.findAll(),
     Tipotr.findAll()
   ]);
-
   res.render('propiedades/crear', {
     pagina: 'Crear Propiedad',
     categorias,
-    precios,
-    tipos,
+    operaciones,
     datos: {}
   });
 }
@@ -136,20 +132,20 @@ const guardar = async (req, res) => {
   let resultado = validationResult(req);
   if (!resultado.isEmpty()) {
     // Consultar Modelo de precio y categorias
-    const [categorias, precios] = await Promise.all([
+    const [categorias, operaciones] = await Promise.all([
       Categoria.findAll(),
-      Precio.findAll()
+      Tipotr.findAll()
     ]);
     return res.render('propiedades/crear', {
       pagina: 'Crear Propiedad',
       categorias,
-      precios,
+      operaciones,
       errores: resultado.array(),
       datos: req.body
     });
   }
   //Crear  un registro
-  const { titulo, tipoId, descripcion,areat, areac, habitaciones, estacionamiento, wc, calle, lat, lng, precio: precioId, categoria: categoriaId, municipioId, estadoId } = req.body;
+  const { titulo, tipoId, descripcion,areat, areac, habitaciones, estacionamiento, wc, calle, lat, lng, precio, categoria: categoriaId, municipioId, estadoId } = req.body;
   const { id: usuarioId } = req.usuario
   try {
     const propiedadGuardada = await Propiedad.create({
@@ -164,12 +160,12 @@ const guardar = async (req, res) => {
       calle,
       lat,
       lng,
-      precioId,
+      precio,
       categoriaId,
       municipioId,
       estadoId,
       usuarioId,
-      imagen: ''
+      imagen: ['']
     })
     const { id } = propiedadGuardada;
     res.redirect(`/propiedades/agregar-imagen/${id}`)
@@ -226,12 +222,15 @@ const almacenarImagen = async (req, res, next) => {
   try {
 
     //Almacenar la imagen y publicar la propiedad
-    propiedad.imagen = req.file.filename;
-    propiedad.publicado = 1;
+    console.log(req.files)
+    // const imagenes = [];
 
-    await propiedad.save();
+    // propiedad.imagen = imagenes;
+    // propiedad.publicado = true;
 
-    next();
+    // await propiedad.save();
+
+    // next();
 
   } catch (error) {
     console.log(error)
@@ -253,15 +252,15 @@ const editar = async (req, res) => {
     return res.redirect('/mis-propiedades')
   }
   // Consultar Modelo de precio y categorias
-  const [categorias, precios] = await Promise.all([
+  const [categorias, operaciones] = await Promise.all([
     Categoria.findAll(),
-    Precio.findAll()
+    Tipotr.findAll()
   ]);
 
   res.render('propiedades/editar', {
     pagina: `Editar Propiedad: ${propiedad.titulo}`,
     categorias,
-    precios,
+    operaciones,
     datos: propiedad
   });
 }
@@ -273,15 +272,15 @@ const guardarCambios = async (req, res) => {
   let resultado = validationResult(req);
   if (!resultado.isEmpty()) {
     // Consultar Modelo de precio y categorias
-    const [categorias, precios] = await Promise.all([
+    const [categorias, operaciones] = await Promise.all([
       Categoria.findAll(),
-      Precio.findAll()
+      Tipotr.findAll()
     ]);
 
     return res.render('propiedades/editar', {
       pagina: 'Editar Propiedad',
       categorias,
-      precios,
+      operaciones,
       errores: resultado.array(),
       datos: req.body
     });
@@ -302,7 +301,7 @@ const guardarCambios = async (req, res) => {
 
   //Reescribir el objeto y asignar neuvos valores
   try {
-    const { titulo, descripcion, habitaciones, estacionamiento, wc, calle, lat, lng, precio: precioId, categoria: categoriaId } = req.body;
+    const { titulo, descripcion, habitaciones, estacionamiento, wc, calle, lat, lng, precio, categoria: categoriaId } = req.body;
 
     propiedad.set({
       titulo,
@@ -313,7 +312,7 @@ const guardarCambios = async (req, res) => {
       calle,
       lat,
       lng,
-      precioId,
+      precio,
       categoriaId
     });
     await propiedad.save()
@@ -379,18 +378,21 @@ const mostrarPropiedad = async (req, res) => {
       {
         model: Categoria, as: 'categoria',
       }, 
-      {
-        model: Precio, as: 'precio'
-      }
+
     ]
   })
-  
+  const favorito = await Favorito.findAll({
+    where:{
+      usuarioId : req.usuario?.id
+    } 
+  })
   if (!propiedad || !propiedad.publicado) {
     return res.redirect('/404')
   }
   res.render('propiedades/mostrar', {
     idPropiedad,
     propiedad,
+    favorito,
     pagina: propiedad.titulo,
     usuario: req.usuario,
     esVendedor: esVendedor(req.usuario?.id, propiedad.usuarioId)
