@@ -1,6 +1,9 @@
 const esVendedor = (usuarioId, propiedadUsuarioId) => {
   return usuarioId === propiedadUsuarioId
 }
+const esFavorito = (usuarioId, propiedadId) => {
+  return usuarioId === propiedadId
+}
 
 const formatearFecha = fecha => {
   const nuevaFecha = new Date(fecha).toISOString().slice(0, 10)
@@ -16,5 +19,6 @@ const formatearFecha = fecha => {
 
 export {
   esVendedor,
-  formatearFecha
+  formatearFecha,
+  esFavorito
 }
