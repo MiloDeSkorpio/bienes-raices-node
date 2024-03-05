@@ -1,9 +1,11 @@
 import { check, validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
 import Usuario from "../models/Usuario.js";
+import Subscripciones from "../models/Subscripciones.js"
 import { generarJWT, generarId } from '../helpers/tokens.js';
 import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js';
 import passport from 'passport';
+import { calcularFinSuscripcion } from '../helpers/finsub.js';
 
 
 const formularioLogin = (req, res) => {
@@ -217,6 +219,13 @@ const confirmar = async (req, res) => {
       error: true
     });
   }
+  console.log(usuario.id)
+  await Subscripciones.create({
+    endSub: calcularFinSuscripcion(new Date(),3650),
+    usuarioId: usuario.id,
+    tiposubId: 1
+  })
+  
   //Confirmar cuenta
   usuario.token = null;
   usuario.confirmado = true;
@@ -253,13 +262,13 @@ const resetPassword = async (req, res) => {
 
   const { email } = req.body
   const usuario = await Usuario.findOne({ where: { email } })
-  console.log(usuario)
   if (!usuario) {
     return res.render('auth/olvide-password', {
       pagina: 'Recupera tu acceso',
       errores: [{ msg: 'El Email no Pertenece a ningún usuario Registrado' }]
     });
   }
+  console.log(usuario.id)
   //Generar un token y enviar el email
   usuario.token = generarId();
   await usuario.save();
